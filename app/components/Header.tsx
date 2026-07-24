@@ -245,7 +245,7 @@ export default function Header() {
                 </button>
 
                 {showDesktopProfileDropdown && user && (
-                  <div className="absolute right-0 mt-3 w-64 bg-white rounded-xl shadow-xl border border-gray-200 py-2 z-50 overflow-hidden">
+                  <div className="absolute right-0 mt-3 w-64 bg-white  shadow-xl border border-gray-200 py-2 z-50 overflow-hidden">
                     <div className="px-5 py-4 border-b border-gray-100">
                       <p className="text-base font-medium text-gray-900 truncate">
                         {user.displayName || "Welcome"}
@@ -410,7 +410,7 @@ export default function Header() {
                 </button>
 
                 {showMobileProfileDropdown && user && (
-                  <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-200 py-2 z-50 overflow-hidden">
+                  <div className="absolute right-0 top-full mt-2 w-56 bg-white  shadow-xl border border-gray-200 py-2 z-50 overflow-hidden">
                     <div className="px-4 py-3 border-b border-gray-100">
                       <p className="text-sm font-medium text-gray-900 truncate">
                         {user.displayName || "Welcome"}
@@ -514,7 +514,7 @@ export default function Header() {
                 <input
                   type="text"
                   placeholder="Search auto parts..."
-                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300  text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
@@ -534,7 +534,7 @@ export default function Header() {
                 <div key={item.label}>
                   <Link
                     href={item.href}
-                    className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 hover:bg-blue-50 hover:text-blue-700 rounded-xl transition-colors"
+                    className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 hover:bg-blue-50 hover:text-blue-700  transition-colors"
                     onClick={closeMobileMenu}
                   >
                     <item.icon size={18} className="text-blue-700" />

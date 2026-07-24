@@ -86,13 +86,13 @@ function OrdersContent() {
       </div>
 
       {orders.length === 0 ? (
-        <div className="bg-white rounded-lg shadow-sm p-12 text-center">
+        <div className="bg-white  shadow-sm p-12 text-center">
           <Package className="h-12 w-12 text-stone-300 mx-auto mb-4" />
           <h2 className="text-xl font-medium text-stone-900 mb-2">No orders yet</h2>
           <p className="text-stone-600 mb-6">When you place orders, they will appear here.</p>
           <Link
             href="/shop"
-            className="inline-flex items-center gap-2 bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition-colors"
+            className="inline-flex items-center gap-2 bg-blue-700 text-white px-6 py-3  hover:bg-blue-800 transition-colors"
           >
             Start Shopping <ArrowRight size={18} />
           </Link>
@@ -100,7 +100,7 @@ function OrdersContent() {
       ) : (
         <div className="space-y-6">
           {orders.map((order) => (
-            <div key={order.id} className="bg-white rounded-lg shadow-sm border border-stone-100 overflow-hidden">
+            <div key={order.id} className="bg-white  shadow-sm border border-stone-100 overflow-hidden">
               <div className="bg-stone-50 px-6 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <span className="text-xs uppercase tracking-wider text-stone-500">Order</span>

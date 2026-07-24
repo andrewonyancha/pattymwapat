@@ -140,7 +140,7 @@ function OtherProductsContent() {
 
       {/* Search Results Header */}
       {searchQuery && (
-        <div className="mb-2 bg-gray-50 p-4 rounded-lg">
+        <div className="mb-2 bg-gray-50 p-4 ">
           <h2 className="text-lg font-semibold text-gray-800">
             Search Results for "{searchQuery}"
           </h2>
@@ -152,7 +152,7 @@ function OtherProductsContent() {
 
       {/* Products */}
       {paginatedProducts.length === 0 ? (
-        <div className="text-center bg-gray-50 rounded-lg">
+        <div className="text-center bg-gray-50 ">
           <p className="text-gray-500 text-lg mb-2">
             {searchQuery
               ? `No products found for "${searchQuery}" in Body Parts`
@@ -257,7 +257,7 @@ function OtherProductsLoading() {
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
         {[...Array(8)].map((_, i) => (
-          <div key={i} className="bg-gray-200 rounded-lg h-64 animate-pulse" />
+          <div key={i} className="bg-gray-200  h-64 animate-pulse" />
         ))}
       </div>
     </div>

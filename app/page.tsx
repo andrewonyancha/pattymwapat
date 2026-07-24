@@ -318,7 +318,7 @@ export default function AutoPartsLandingPage() {
             <Link
               key={cat.id}
               href={`/shop?category=${cat.name}`}
-              className="border border-blue-200 bg-blue-50 hover:border-blue-500 group transition-all rounded-2xl p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
+              className="border border-blue-200 bg-blue-50 hover:border-blue-500 group transition-all  p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
             >
               <div className="text-blue-800/50 group-hover:scale-110 transition-transform">
                 {cat.icon}
@@ -385,7 +385,7 @@ export default function AutoPartsLandingPage() {
           {specialOffers.map((offer) => (
             <div
               key={offer.id}
-              className="border border-blue-200 bg-blue-50 hover:border-blue-500 group transition-all rounded-2xl p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
+              className="border border-blue-200 bg-blue-50 hover:border-blue-500 group transition-all  p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
             >
               <div className="text-blue-800/50 group-hover:scale-110 transition-transform">
                 {offer.icon}
@@ -484,7 +484,7 @@ export default function AutoPartsLandingPage() {
           </div>
         
           <div className="md:w-3/5 relative">
-            <div className="relative bg-blue-700 p-4 md:p-12 rounded-3xl shadow">
+            <div className="relative bg-blue-700 p-4 md:p-12  shadow">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={testimonialIndex}

@@ -81,7 +81,7 @@ const About = () => {
           
           {/* IMAGE – spans full width on mobile, 8 cols on desktop */}
           <div className="col-span-12 md:col-span-8 relative">
-            <div className="relative md:aspect-[4/2] aspect-3/2 w-full overflow-hidden rounded-none md:rounded-3xl bg-white bord">
+            <div className="relative md:aspect-[4/2] aspect-3/2 w-full overflow-hidden rounded-none md: bg-white bord">
               <Image
                 src="/images/hero2.jpg"
                 alt="Auto parts at Pattywapat Autospares"
@@ -103,7 +103,7 @@ const About = () => {
             relative z-20
             bg-blue-700 text-white
             p-4 md:p-6
-             md:rounded-3xl
+             md:
           ">
             {/* Hand-crafted detail – subtle texture line */}
             <div className="w-16 h-0.5 bg-white/80 mb-3 rounded-full" />
@@ -260,7 +260,7 @@ const About = () => {
           </div>
         
           <div className="lg:w-3/5 relative">
-            <div className="relative bg-blue-700 p-4 md:p-12 rounded-3xl shadow">
+            <div className="relative bg-blue-700 p-4 md:p-12  shadow">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={testimonialIndex}

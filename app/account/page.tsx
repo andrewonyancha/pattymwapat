@@ -39,7 +39,7 @@ export default function AccountPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="bg-white rounded-lg shadow-sm">
+      <div className="bg-white  shadow-sm">
         {/* Header */}
         <div className="px-6 py-8 border-b border-stone-200">
           <h1 className="text-3xl font-light text-stone-900">My Account</h1>
@@ -60,7 +60,7 @@ export default function AccountPage() {
         {/* Dashboard Grid */}
         <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Profile Card */}
-          {/* <div className="bg-stone-50 p-6 rounded-lg hover:shadow-md transition-shadow">
+          {/* <div className="bg-stone-50 p-6  hover:shadow-md transition-shadow">
             <User className="h-8 w-8 text-blue-700 mb-4" />
             <h2 className="text-xl font-medium text-stone-900 mb-2">Profile</h2>
             <p className="text-stone-600 text-sm mb-4">Manage your personal information</p>
@@ -70,7 +70,7 @@ export default function AccountPage() {
           </div> */}
 
           {/* Orders Card */}
-          <div className="bg-stone-50 p-6 rounded-lg hover:shadow-md transition-shadow">
+          <div className="bg-stone-50 p-6  hover:shadow-md transition-shadow">
             <Package className="h-8 w-8 text-blue-700 mb-4" />
             <h2 className="text-xl font-medium text-stone-900 mb-2">Orders</h2>
             <p className="text-stone-600 text-sm mb-4">Track and manage your orders</p>
@@ -80,7 +80,7 @@ export default function AccountPage() {
           </div>
 
           {/* Settings Card */}
-          <div className="bg-stone-50 p-6 rounded-lg hover:shadow-md transition-shadow">
+          <div className="bg-stone-50 p-6  hover:shadow-md transition-shadow">
             <Settings className="h-8 w-8 text-blue-700 mb-4" />
             <h2 className="text-xl font-medium text-stone-900 mb-2">Settings</h2>
             <p className="text-stone-600 text-sm mb-4">Update your preferences</p>
