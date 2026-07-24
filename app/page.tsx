@@ -376,30 +376,7 @@ export default function AutoPartsLandingPage() {
           </Link>
         </div>
 
-      {/* --- Special Offers --- */}
-      <section className="max-w-7xl mx-auto px-2 py-12">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Special Offers</h2>
-          <div className="h-px w-full bg-stone-200" />
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {specialOffers.map((offer) => (
-            <div
-              key={offer.id}
-              className="border border-blue-200 bg-blue-50 hover:border-blue-500 group transition-all  p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
-            >
-              <div className="text-blue-800/50 group-hover:scale-110 transition-transform">
-                {offer.icon}
-              </div>
-              <div className="text-center">
-                <span className="text-sm font-medium block">{offer.name}</span>
-                <span className="text-xs text-blue-800 font-bold mt-1">{offer.discount}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-      </section>
+     
 
       {/* --- Featured Electrical --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
@@ -451,7 +428,55 @@ export default function AutoPartsLandingPage() {
         </div>
       </section>
 
-      {/* ===== TESTIMONIAL ===== */}
+      
+      {/* --- Popular Filters --- */}
+      <section className="max-w-7xl mx-auto px-2 py-12">
+        <div className="flex items-center gap-4 mb-8">
+          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Popular Filters</h2>
+          <div className="h-px w-full bg-stone-200" />
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+          <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
+            {popularFilters.map((product) => (
+              <ProductCard key={product.id} product={product} view="grid" />
+            ))}
+          </Suspense>
+        </div>
+      </section>
+      <div className="flex justify-center md:justify-end ">
+          <Link
+            href="/shop?category=Filters"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
+          >
+            View All Filters <GiShoppingCart size={16} />
+          </Link>
+        </div>
+
+      {/* --- Popular Body Parts --- */}
+      <section className="max-w-7xl mx-auto px-2 py-12">
+        <div className="flex items-center gap-4 mb-8">
+          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Popular Body Parts</h2>
+          <div className="h-px w-full bg-stone-200" />
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+          <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
+            {popularBodyParts.map((product) => (
+              <ProductCard key={product.id} product={product} view="grid" />
+            ))}
+          </Suspense>
+        </div>
+      </section>
+      <div className="flex justify-center md:justify-end">
+          <Link
+            href="/shop?category=Body Parts"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
+          >
+            View All Body Parts <GiShoppingCart size={18} />
+          </Link>
+        </div>
+
+
+        {/* ===== TESTIMONIAL ===== */}
       <section className="max-w-7xl mx-2 py-0">
         <div className="flex items-center gap-4 md:mb-8">
          
@@ -539,51 +564,30 @@ export default function AutoPartsLandingPage() {
         </div>
       </section>
 
-      {/* --- Popular Filters --- */}
+         {/* --- Special Offers --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Popular Filters</h2>
+          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Special Offers</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
-          <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
-            {popularFilters.map((product) => (
-              <ProductCard key={product.id} product={product} view="grid" />
-            ))}
-          </Suspense>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {specialOffers.map((offer) => (
+            <div
+              key={offer.id}
+              className="border border-blue-200 bg-blue-50 hover:border-blue-500 group transition-all  p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
+            >
+              <div className="text-blue-800/50 group-hover:scale-110 transition-transform">
+                {offer.icon}
+              </div>
+              <div className="text-center">
+                <span className="text-sm font-medium block">{offer.name}</span>
+                <span className="text-xs text-blue-800 font-bold mt-1">{offer.discount}</span>
+              </div>
+            </div>
+          ))}
         </div>
+        
       </section>
-      <div className="flex justify-center md:justify-end ">
-          <Link
-            href="/shop?category=Filters"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
-          >
-            View All Filters <GiShoppingCart size={16} />
-          </Link>
-        </div>
-
-      {/* --- Popular Body Parts --- */}
-      <section className="max-w-7xl mx-auto px-2 py-12">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Popular Body Parts</h2>
-          <div className="h-px w-full bg-stone-200" />
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
-          <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
-            {popularBodyParts.map((product) => (
-              <ProductCard key={product.id} product={product} view="grid" />
-            ))}
-          </Suspense>
-        </div>
-      </section>
-      <div className="flex justify-center md:justify-end">
-          <Link
-            href="/shop?category=Body Parts"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
-          >
-            View All Body Parts <GiShoppingCart size={18} />
-          </Link>
-        </div>
     </div>
   );
 }
