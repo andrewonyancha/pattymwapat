@@ -185,14 +185,14 @@ export default function AutoPartsLandingPage() {
             src="/hero.jpeg"
             alt="Auto Parts"
             fill
-            className="hidden md:block object-center object-cover"
+            className="hidden md:block object-cover"
             priority
           />
           <Image
             src="/hero.jpeg"
             alt="Auto Parts"
             fill
-            className="block md:hidden object-center object-cover"
+            className="block md:hidden  object-cover"
             priority
           />
           <div className="absolute inset-0 bg-gray-800/30" />
