@@ -25,7 +25,7 @@ export default function Footer() {
       {/* Subtle Texture Overlay */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <Image
-          src="/logo.webp"
+          src="/hero.webp"
           alt="Texture"
           fill
           className="object-cover grayscale"
