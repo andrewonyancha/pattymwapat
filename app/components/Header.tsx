@@ -159,7 +159,7 @@ export default function Header() {
     if (isLoading) {
       return (
         <div 
-          className={`w-[26px] h-[26px]  bg-gray-300 animate-pulse`}
+          className={`w-[26px] h-[26px] rounded-full bg-gray-300 animate-pulse`}
         />
       );
     }
@@ -181,7 +181,7 @@ export default function Header() {
       <div
         className={`
           w-[26px] h-[26px] 
-          
+          rounded-full
           bg-blue-700 text-white
           flex items-center justify-center
           text-base font-bold  
@@ -212,7 +212,7 @@ export default function Header() {
               <input
                 type="text"
                 placeholder="Search auto parts, brakes, filters..."
-                className="w-full pl-5 pr-12 py-3 bg-stone-100  text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-400 transition-all"
+                className="w-full pl-5 pr-12 py-3 bg-stone-100 rounded-full text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-400 transition-all"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
@@ -314,7 +314,7 @@ export default function Header() {
             >
               <MdOutlineShoppingCart size={26} />
               {mounted && displayCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold  min-w-[18px] h-5 flex items-center justify-center px-1.5 shadow-sm">
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full min-w-[18px] h-5 flex items-center justify-center px-1.5 shadow-sm">
                   {displayCount}
                 </span>
               )}
@@ -356,7 +356,7 @@ export default function Header() {
                   ref={searchInputRef}
                   type="text"
                   placeholder="Search auto parts..."
-                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300  text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-full text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
@@ -475,7 +475,7 @@ export default function Header() {
             <button onClick={() => setIsCartOpen(true)} className="text-gray-800 relative p-1" aria-label="Cart">
               <MdOutlineShoppingCart size={24} />
               {mounted && displayCount > 0 && (
-                <span className="absolute -top-1 -right-2 bg-red-500 text-white text-xs font-bold  min-w-[18px] h-5 flex items-center justify-center px-1.5 shadow-sm">
+                <span className="absolute -top-1 -right-2 bg-red-500 text-white text-xs font-bold rounded-full min-w-[18px] h-5 flex items-center justify-center px-1.5 shadow-sm">
                   {displayCount}
                 </span>
               )}
