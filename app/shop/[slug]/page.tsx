@@ -80,6 +80,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
         name: firebaseProduct.name,
         slug: firebaseProduct.slug,
         category: firebaseProduct.category as ProductCategory,
+        subcategory: firebaseProduct.subcategory,
         price: firebaseProduct.price,
         unit: firebaseProduct.unit,
         image: firebaseProduct.image,

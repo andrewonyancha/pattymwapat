@@ -74,6 +74,7 @@ export type Product = {
   name: string;
   slug: string;
   category: 'Engine Parts' | 'Brake Systems' | 'Tires & Wheels' | 'Electrical' | 'Filters' | 'Body Parts';
+  subcategory?: string;
   price: number;
   unit: string;
   image?: string;

@@ -17,6 +17,7 @@ function ShopContent() {
   const router = useRouter(); // new
   const searchParams = useSearchParams();
   const category = searchParams.get('category') || 'All';
+  const subcategory = searchParams.get('subcategory') || '';
   const view = (searchParams.get('view') || 'grid') as 'grid' | 'list';
   const searchQuery = searchParams.get('search') || '';
   const pageParam = searchParams.get('page');
@@ -53,23 +54,23 @@ function ShopContent() {
   }, [pageParam]);
 
   // Track initial values to detect actual changes
-  const [initialValues, setInitialValues] = useState({ category, searchQuery });
+  const [initialValues, setInitialValues] = useState({ category, subcategory, searchQuery });
   
   // Track whether a page param existed when category was first selected
   const [hadPageParamWhenCategoryChanged, setHadPageParamWhenCategoryChanged] = useState(false);
 
-  // Reset to page 1 when category or search actually changes (not on initial load or back navigation)
+  // Reset to page 1 when category, subcategory or search actually changes
   useEffect(() => {
     // Only reset if we've captured initial values and the filter actually changed
     if (initialValues.category !== undefined) {
       const categoryChanged = category !== initialValues.category;
+      const subcategoryChanged = subcategory !== initialValues.subcategory;
       const searchChanged = searchQuery !== initialValues.searchQuery;
       
-      if (categoryChanged || searchChanged) {
+      if (categoryChanged || subcategoryChanged || searchChanged) {
         const currentPageInUrl = pageParam ? parseInt(pageParam, 10) : 1;
         
         // Only reset to page 1 if there was NO page parameter originally
-        // This preserves the user's page when they're just changing categories while paginated
         if (currentPageInUrl !== 1 && !hadPageParamWhenCategoryChanged) {
           const params = new URLSearchParams(searchParams.toString());
           params.set('page', '1');
@@ -81,11 +82,11 @@ function ShopContent() {
       }
     } else {
       // Capture initial values on first render
-      setInitialValues({ category, searchQuery });
+      setInitialValues({ category, subcategory, searchQuery });
       // Record whether page param exists on initial load
       setHadPageParamWhenCategoryChanged(!!pageParam);
     }
-  }, [category, searchQuery, initialValues, pageParam, router, searchParams, hadPageParamWhenCategoryChanged]);
+  }, [category, subcategory, searchQuery, initialValues, pageParam, router, searchParams, hadPageParamWhenCategoryChanged]);
 
   // Combine static and dynamic products (same as before)
   const allProducts = useMemo(() => {
@@ -97,22 +98,28 @@ function ShopContent() {
     return Array.from(productMap.values());
   }, [dynamicProducts]);
 
-  // Filter products (same as before)
+  // Filter products with subcategory support
   const filteredProducts = useMemo(() => {
     let result = category === 'All'
       ? allProducts
       : allProducts.filter((p) => p.category === category);
+
+    // Apply subcategory filter if present
+    if (subcategory && result.length > 0) {
+      result = result.filter((p) => p.subcategory === subcategory);
+    }
 
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       result = result.filter(
         (product) =>
           product.name.toLowerCase().includes(query) ||
-          product.category.toLowerCase().includes(query)
+          product.category.toLowerCase().includes(query) ||
+          (product.subcategory && product.subcategory.toLowerCase().includes(query))
       );
     }
     return result;
-  }, [allProducts, category, searchQuery]);
+  }, [allProducts, category, subcategory, searchQuery]);
 
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
   const paginatedProducts = useMemo(() => {

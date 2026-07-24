@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, ChevronRight } from 'lucide-react';
 
@@ -22,7 +22,8 @@ export default function CategoryFilter({ mobileMode = false }: { mobileMode?: bo
   const router = useRouter();
   const searchParams = useSearchParams();
   const rawCurrent = searchParams.get('category') || 'All';
-  const current = allCategories.includes(rawCurrent as typeof allCategories[number]) ? rawCurrent : 'All';
+  const rawSubcategory = searchParams.get('subcategory') || '';
+  const current = rawSubcategory || (allCategories.includes(rawCurrent as typeof allCategories[number]) ? rawCurrent : 'All');
   const [isOpen, setIsOpen] = useState(false);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
@@ -30,13 +31,32 @@ export default function CategoryFilter({ mobileMode = false }: { mobileMode?: bo
   const currentMainCategory = mainCategories.includes(rawCurrent as typeof mainCategories[number]) ? rawCurrent : null;
   const hasSubcategories = currentMainCategory && categoryHierarchy[currentMainCategory] !== undefined;
   const subcategories = hasSubcategories ? categoryHierarchy[currentMainCategory] : [];
+  
+  // Auto-expand the current category if a subcategory is selected
+  useEffect(() => {
+    if (rawSubcategory && currentMainCategory) {
+      setExpandedCategory(currentMainCategory);
+    }
+  }, [rawSubcategory, currentMainCategory]);
 
   const handleFilter = (cat: string) => {
     const params = new URLSearchParams(searchParams.toString());
     if (cat === 'All') {
       params.delete('category');
-    } else {
+      params.delete('subcategory');
+    } else if (categoryHierarchy[cat]) {
+      // It's a main category with subcategories
       params.set('category', cat);
+      params.delete('subcategory');
+    } else {
+      // It's a subcategory - find its parent category
+      const parentCategory = Object.keys(categoryHierarchy).find(
+        (key) => categoryHierarchy[key].includes(cat)
+      );
+      if (parentCategory) {
+        params.set('category', parentCategory);
+        params.set('subcategory', cat);
+      }
     }
     router.push(`/shop?${params.toString()}`, { scroll: false });
     setIsOpen(false);
@@ -79,13 +99,14 @@ export default function CategoryFilter({ mobileMode = false }: { mobileMode?: bo
                 {mainCategories.map((cat) => {
                   const hasChildren = categoryHierarchy[cat] !== undefined;
                   const isExpanded = expandedCategory === cat;
+                  const isActive = current === cat || (rawSubcategory && cat === currentMainCategory);
                   
                   return (
                     <div key={cat} className="flex flex-col">
                       <button
                         onClick={(e) => hasChildren ? toggleExpand(cat, e) : handleFilter(cat)}
                         className={`text-left text-[11px] uppercase tracking-[0.3em] transition-colors flex items-center justify-between ${
-                          current === cat ? 'text-stone-900 font-bold' : 'text-stone-400'
+                          isActive ? 'text-stone-900 font-bold' : 'text-stone-400'
                         }`}
                       >
                         {cat}
@@ -139,24 +160,25 @@ export default function CategoryFilter({ mobileMode = false }: { mobileMode?: bo
         {mainCategories.map((cat) => {
           const hasChildren = categoryHierarchy[cat] !== undefined;
           const isExpanded = expandedCategory === cat;
+          const isActive = current === cat || (rawSubcategory && cat === currentMainCategory);
           
           return (
             <div key={cat} className="relative group">
               <button
                 onClick={(e) => hasChildren ? toggleExpand(cat, e) : handleFilter(cat)}
                 className={`group relative text-[11px] uppercase tracking-[0.3em] transition-colors duration-500 flex items-center gap-1 ${
-                  current === cat ? 'text-stone-900' : 'text-stone-400 hover:text-stone-600'
+                  isActive ? 'text-stone-900' : 'text-stone-400 hover:text-stone-600'
                 }`}
               >
                 {cat}
                 {hasChildren && (
-                  <ChevronRight 
-                    size={12} 
+                  <ChevronRight
+                    size={12}
                     className={`transition-transform duration-300 ${isExpanded ? 'rotate-90' : 'group-hover:rotate-90'}`}
                   />
                 )}
-                <span className={`absolute -bottom-2 left-1/2 w-0 h-[0.5px] bg-stone-900 transition-all duration-500 ease-out -translate-x-1/2 
-                  ${current === cat ? 'w-full' : 'group-hover:w-1/2'}`} 
+                <span className={`absolute -bottom-2 left-1/2 w-0 h-[0.5px] bg-stone-900 transition-all duration-500 ease-out -translate-x-1/2
+                  ${isActive ? 'w-full' : 'group-hover:w-1/2'}`}
                 />
               </button>
               

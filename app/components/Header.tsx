@@ -19,8 +19,17 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 
 import Image from "next/image";
 import { CiMenuBurger } from "react-icons/ci";
+import { FaShopify } from "react-icons/fa6";
 import { useCartStore } from "../lib/cartStore";
 import CartDrawer from "./shop/CartDrawer";
+import {
+  GiCog,
+  GiCrackedDisc,
+  GiCarWheel,
+  GiCarBattery,
+  GiF1Car,
+  GiWrench,
+} from "react-icons/gi";
 
 
 // Auth store & signOut
@@ -102,12 +111,13 @@ export default function Header() {
   }, [showMobileProfileDropdown]);
 
   const menuItems = [
-    { label: "Engine Parts", href: "/shop?category=Engine Parts" },
-    { label: "Brake Systems", href: "/shop?category=Brake Systems" },
-    { label: "Tires & Wheels", href: "/shop?category=Tires & Wheels" },
-    { label: "Electrical", href: "/shop?category=Electrical" },
-    { label: "Filters", href: "/shop?category=Filters" },
-    { label: "Body Parts", href: "/shop?category=Body Parts" },
+    { label: "Engine Parts", href: "/shop?category=Engine Parts", icon: GiCog },
+    { label: "Brake Systems", href: "/shop?category=Brake Systems", icon: GiCrackedDisc },
+    { label: "Tires & Wheels", href: "/shop?category=Tires & Wheels", icon: GiCarWheel },
+    { label: "Electrical", href: "/shop?category=Electrical", icon: GiCarBattery },
+    { label: "Filters", href: "/shop?category=Filters", icon: GiWrench },
+    { label: "Body Parts", href: "/shop?category=Body Parts", icon: GiF1Car },
+    { label: "Shop", href: "/shop", icon: FaShopify },
     { label: "Help Center", href: "/help-center", icon: RiCustomerService2Fill },
   ];
 
@@ -320,8 +330,9 @@ export default function Header() {
                 <li key={item.label} className="relative flex items-center">
                   <Link
                     href={item.href}
-                    className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold hover:text-black hover:underline transition-colors whitespace-nowrap"
+                    className="flex items-center gap-1.5 px-3 py-2.5 text-sm font-semibold hover:text-black hover:underline transition-colors whitespace-nowrap group"
                   >
+                    <item.icon size={16} className="group-hover:animate-bounce" />
                     {item.label}
                   </Link>
 
@@ -526,6 +537,7 @@ export default function Header() {
                     className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 hover:bg-blue-50 hover:text-blue-700 rounded-xl transition-colors"
                     onClick={closeMobileMenu}
                   >
+                    <item.icon size={18} className="text-blue-700" />
                     {item.label}
                   </Link>
                   {index < menuItems.length - 1 && (
