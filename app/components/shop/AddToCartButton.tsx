@@ -1,30 +1,47 @@
 'use client';
 
 import { useCartStore } from '../../lib/cartStore';
-import { Product, ProductVariant } from '../../shop/products';
-import { Plus, Minus, ShoppingCart } from 'lucide-react';
+import { Product, ProductVariant, ProductCategory } from '../../shop/products';
+import { Plus, Minus } from 'lucide-react';
+import { GiShoppingCart } from 'react-icons/gi';
 import { useState, useEffect } from 'react';
 
 type Props = {
   product: Product;
-  selectedVariant?: ProductVariant | null;
+  selectedVariant?: ProductVariant | null; // optional variant
+  variant?: 'full' | 'minimal';
 };
 
-export default function AddToCartButton({ product, selectedVariant: initialSelectedVariant }: Props) {
+export default function AddToCartButton({ product, selectedVariant: initialSelectedVariant, variant = 'full' }: Props) {
+  // If product has variants but no initial selectedVariant, manage selection internally
+  // This handles the case where user must select a size (e.g., Engine Parts with variants)
   const [internalSelectedVariant, setInternalSelectedVariant] = useState<ProductVariant | null>(() => {
     if (product.variants && product.variants.length > 0) {
+      // Pre-select first variant for products with variants
       return product.variants[0];
     }
     return null;
   });
   
+  // Use internal state if no initial variant provided, otherwise use provided variant
   const selectedVariant = initialSelectedVariant !== undefined ? initialSelectedVariant : internalSelectedVariant;
   
+  // Handler for when this component manages its own variant selection
+  const handleInternalVariantChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const size = e.target.value;
+    const variant = product.variants?.find(v => v.size === size);
+    if (variant) setInternalSelectedVariant(variant);
+  };
+  
+  // Compute a unique cart item ID – if variant exists, combine product ID and variant size
   const cartItemId = selectedVariant ? `${product.id}-${selectedVariant.size}` : product.id;
 
   const { addItem, updateQuantity, removeItem } = useCartStore();
   const item = useCartStore((s) => s.items.find((i) => i.cartItemId === cartItemId));
   const qty = item?.quantity || 0;
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Prevent hydration mismatch by only rendering cart state after mount
   const [mounted, setMounted] = useState(false);
   const [displayQty, setDisplayQty] = useState(0);
 
@@ -32,6 +49,18 @@ export default function AddToCartButton({ product, selectedVariant: initialSelec
     setMounted(true);
     setDisplayQty(qty);
   }, [qty]);
+
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleDecrease = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -43,14 +72,18 @@ export default function AddToCartButton({ product, selectedVariant: initialSelec
     }
   };
 
+  // Check if product has variants but none selected (user needs to select size)
   const hasVariants = product.variants && product.variants.length > 0;
   const needsVariant = hasVariants && !selectedVariant;
+  const showOwnSelector = hasVariants && !selectedVariant && initialSelectedVariant === undefined;
   
+  // Handle add to cart - prevent if no variant selected
   const handleAddClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     
     if (needsVariant) {
+      // Can't add without selecting a variant
       return;
     }
     
@@ -61,27 +94,28 @@ export default function AddToCartButton({ product, selectedVariant: initialSelec
     }
   };
 
-  // Show quantity controls when item is in cart
   if (mounted && displayQty > 0) {
     return (
-      <div className="flex items-center justify-between bg-blue-700 text-white rounded-lg overflow-hidden">
+      <div className="relative flex items-center justify-between bg-blue-700/90 text-white md:py-4 py-2 w-full overflow-hidden ring-1 ring-white/10">
         <button
           onClick={handleDecrease}
-          className="flex-1 py-3 hover:bg-blue-800 transition-colors flex items-center justify-center"
+          className="absolute inset-y-0 left-0 w-1/4 active:bg-blue-800 hover:bg-blue-800 transition-colors touch-manipulation z-10"
           aria-label="Decrease quantity"
-        >
-          <Minus size={18} />
-        </button>
-        <span className="flex-1 text-center text-sm font-bold py-3">
+        />
+        <div className="w-1/4 flex items-center justify-center border-r border-white/10 pointer-events-none z-20">
+          <Minus size={14} />
+        </div>
+        <span className="flex-1 text-center text-sm tracking-[0.1em] font-medium uppercase pointer-events-none select-none z-20">
           {displayQty}
         </span>
         <button
           onClick={handleAddClick}
-          className="flex-1 py-3 hover:bg-blue-800 transition-colors flex items-center justify-center"
+          className="absolute inset-y-0 right-0 w-1/4 active:bg-blue-800 hover:bg-blue-800 transition-colors touch-manipulation z-10"
           aria-label="Increase quantity"
-        >
-          <Plus size={18} />
-        </button>
+        />
+        <div className="w-1/4 flex items-center justify-center border-l border-white/10 pointer-events-none z-20">
+          <Plus size={14} />
+        </div>
       </div>
     );
   }
@@ -89,18 +123,14 @@ export default function AddToCartButton({ product, selectedVariant: initialSelec
   return (
     <div className="flex flex-col gap-2">
       {/* Show variant selector if product has variants but none selected */}
-      {hasVariants && !selectedVariant && (
+      {showOwnSelector && (
         <select
-          onChange={(e) => {
-            const size = e.target.value;
-            const variant = product.variants?.find(v => v.size === size);
-            if (variant) setInternalSelectedVariant(variant);
-          }}
-          className="w-full text-sm border border-gray-200 rounded-lg p-2 bg-white"
+          onChange={handleInternalVariantChange}
+          className="w-full text-sm border border-stone-200 p-2  bg-white text-stone-900"
           value=""
         >
           <option value="" disabled>Select size</option>
-          {product.variants?.map((v) => (
+          {product.variants!.map((v) => (
             <option key={v.size} value={v.size}>
               {v.size} – KSh {v.price.toLocaleString()}
             </option>
@@ -111,16 +141,19 @@ export default function AddToCartButton({ product, selectedVariant: initialSelec
       <button
         onClick={handleAddClick}
         className={`
-          w-full flex items-center justify-center gap-2 py-3 rounded-lg font-bold text-sm transition-all
-          ${needsVariant 
-            ? 'bg-gray-200 text-gray-400 cursor-not-allowed' 
-            : 'bg-blue-700 text-white hover:bg-blue-800 active:scale-[0.98]'}
+          flex items-center justify-center gap-3 transition-all duration-500 uppercase tracking-[0.1em] text-sm
+          active:scale-95 active:bg-blue-800
+          ${variant === 'minimal'
+            ? 'md:py-3 py-2 px-10 bg-transparent border border-blue-700 text-blue-700 active:bg-blue-700 active:text-white hover:bg-blue-700/90 hover:text-white'
+            : 'w-full md:py-4 py-2 bg-blue-700/90 text-white active:bg-blue-800 hover:bg-blue-800 '}
+          ${needsVariant ? 'opacity-50 cursor-not-allowed' : ''}
+          touch-manipulation
         `}
         aria-label={`Add ${product.name} to cart`}
         disabled={needsVariant}
       >
-        <ShoppingCart size={18} />
-        {needsVariant ? 'Select Size' : 'Add to Cart'}
+        <GiShoppingCart size={16} />
+        <span>{isMobile ? 'Add' : 'Add'}</span>
       </button>
     </div>
   );

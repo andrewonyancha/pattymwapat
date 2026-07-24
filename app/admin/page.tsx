@@ -62,21 +62,21 @@ function ConfirmModal({ isOpen, title, message, onConfirm, onCancel, isConfirmin
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
       {/* Mobile: full width with small padding */}
-      <div className="bg-white  w-full max-w-md mx-auto p-6">
+      <div className="bg-white rounded-xl w-full max-w-md mx-auto p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
         <p className="text-gray-600 mb-6">{message}</p>
         <div className="flex flex-col-reverse sm:flex-row justify-end gap-3">
           <button
             onClick={onCancel}
             disabled={isConfirming}
-            className="w-full sm:w-auto px-4 py-3 sm:py-2 border border-gray-300  hover:bg-gray-50 transition disabled:opacity-50"
+            className="w-full sm:w-auto px-4 py-3 sm:py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition disabled:opacity-50"
           >
             Cancel
           </button>
           <button
             onClick={onConfirm}
             disabled={isConfirming}
-            className="w-full sm:w-auto px-4 py-3 sm:py-2 bg-red-600 text-white  hover:bg-red-700 transition disabled:opacity-50 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-4 py-3 sm:py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition disabled:opacity-50 flex items-center justify-center gap-2"
           >
             {isConfirming && <Loader2 size={16} className="animate-spin" />}
             Confirm
@@ -116,7 +116,7 @@ function WhatsAppModal({
   if (!isOpen) return null;
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white  w-full max-w-md mx-auto p-6">
+      <div className="bg-white rounded-xl w-full max-w-md mx-auto p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-2">Share via WhatsApp</h3>
         <p className="text-gray-600 mb-4">Select recipient and enter phone number</p>
         
@@ -126,7 +126,7 @@ function WhatsAppModal({
           <div className="flex gap-2">
             <button
               onClick={() => onRecipientTypeChange('customer')}
-              className={`flex-1 px-3 py-2  text-sm border transition ${
+              className={`flex-1 px-3 py-2 rounded-lg text-sm border transition ${
                 recipientType === 'customer'
                   ? 'bg-blue-600 text-white border-blue-600'
                   : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
@@ -136,7 +136,7 @@ function WhatsAppModal({
             </button>
             <button
               onClick={() => onRecipientTypeChange('rider')}
-              className={`flex-1 px-3 py-2  text-sm border transition ${
+              className={`flex-1 px-3 py-2 rounded-lg text-sm border transition ${
                 recipientType === 'rider'
                   ? 'bg-blue-600 text-white border-blue-600'
                   : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
@@ -146,7 +146,7 @@ function WhatsAppModal({
             </button>
             <button
               onClick={() => onRecipientTypeChange('other')}
-              className={`flex-1 px-3 py-2  text-sm border transition ${
+              className={`flex-1 px-3 py-2 rounded-lg text-sm border transition ${
                 recipientType === 'other'
                   ? 'bg-blue-600 text-white border-blue-600'
                   : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
@@ -165,21 +165,21 @@ function WhatsAppModal({
             value={phoneNumber}
             onChange={(e) => onPhoneChange(e.target.value)}
             placeholder="e.g., 0712345678"
-            className="w-full px-3 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
         
         <div className="flex flex-col-reverse sm:flex-row justify-end gap-3">
           <button
             onClick={onClose}
-            className="w-full sm:w-auto px-4 py-3 sm:py-2 border border-gray-300  hover:bg-gray-50 transition"
+            className="w-full sm:w-auto px-4 py-3 sm:py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
           >
             Cancel
           </button>
           <button
             onClick={onSend}
             disabled={!phoneNumber}
-            className="w-full sm:w-auto px-4 py-3 sm:py-2 bg-blue-600 text-white  hover:bg-blue-700 transition disabled:opacity-50 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-4 py-3 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition disabled:opacity-50 flex items-center justify-center gap-2"
           >
             Open WhatsApp
           </button>
@@ -217,7 +217,7 @@ function DispatchModal({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white  w-full max-w-md mx-auto p-6">
+      <div className="bg-white rounded-xl w-full max-w-md mx-auto p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-2">Dispatch Order #{order.id?.slice(0, 8)}</h3>
         <p className="text-gray-600 mb-4">Enter driver details before dispatching this order.</p>
         
@@ -229,7 +229,7 @@ function DispatchModal({
             value={driverName}
             onChange={(e) => setDriverName(e.target.value)}
             placeholder="e.g., John Doe"
-            className="w-full px-3 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
         
@@ -241,7 +241,7 @@ function DispatchModal({
             value={driverPhone}
             onChange={(e) => setDriverPhone(e.target.value)}
             placeholder="e.g., 0712345678"
-            className="w-full px-3 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
         
@@ -249,7 +249,7 @@ function DispatchModal({
           <button
             onClick={onClose}
             disabled={isUpdating}
-            className="w-full sm:w-auto px-4 py-3 sm:py-2 border border-gray-300  hover:bg-gray-50 transition disabled:opacity-50"
+            className="w-full sm:w-auto px-4 py-3 sm:py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition disabled:opacity-50"
           >
             Cancel
           </button>
@@ -257,7 +257,7 @@ function DispatchModal({
             <button
               onClick={() => onUpdate(driverName, driverPhone)}
               disabled={isUpdating}
-              className="w-full sm:w-auto px-4 py-3 sm:py-2 bg-purple-600 text-white  hover:bg-purple-700 transition disabled:opacity-50 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-4 py-3 sm:py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition disabled:opacity-50 flex items-center justify-center gap-2"
             >
               {isUpdating && <Loader2 size={16} className="animate-spin" />}
               Dispatch Order
@@ -266,7 +266,7 @@ function DispatchModal({
             <button
               onClick={onClose}
               disabled={isUpdating}
-              className="w-full sm:w-auto px-4 py-3 sm:py-2 bg-blue-600 text-white  hover:bg-blue-700 transition disabled:opacity-50"
+              className="w-full sm:w-auto px-4 py-3 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition disabled:opacity-50"
             >
               Done
             </button>
@@ -360,7 +360,7 @@ function EditProductModal({ isOpen, product, onClose, onSave }: EditProductModal
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
       {/* Mobile: full width with small padding, max width on larger screens */}
-      <div className="bg-white  w-full max-w-md mx-auto max-h-[90vh] overflow-y-auto">
+      <div className="bg-white rounded-xl w-full max-w-md mx-auto max-h-[90vh] overflow-y-auto">
         <div className="p-4 sm:p-6 border-b border-gray-100 flex justify-between items-center sticky top-0 bg-white">
           <h3 className="text-lg font-semibold text-gray-900">Edit Product</h3>
           <button
@@ -378,7 +378,7 @@ function EditProductModal({ isOpen, product, onClose, onSave }: EditProductModal
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-3 sm:py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -387,7 +387,7 @@ function EditProductModal({ isOpen, product, onClose, onSave }: EditProductModal
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full px-3 py-3 sm:py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             >
               <option value="Engine Parts">Engine Parts</option>
@@ -418,7 +418,7 @@ function EditProductModal({ isOpen, product, onClose, onSave }: EditProductModal
           </div>
           
           {hasVariants ? (
-            <div className="space-y-3 border border-gray-200  p-3">
+            <div className="space-y-3 border border-gray-200 rounded-lg p-3">
               <label className="block text-sm font-medium text-gray-700">Variants (sizes with prices)</label>
               {variants.map((variant, index) => (
                 <div key={index} className="flex gap-2 items-start">
@@ -428,7 +428,7 @@ function EditProductModal({ isOpen, product, onClose, onSave }: EditProductModal
                       placeholder="Size (e.g., 350ml, 500g)"
                       value={variant.size}
                       onChange={(e) => updateVariant(index, 'size', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                     />
                   </div>
                   <div className="flex-1">
@@ -437,7 +437,7 @@ function EditProductModal({ isOpen, product, onClose, onSave }: EditProductModal
                       placeholder="Price (KES)"
                       value={variant.price || ''}
                       onChange={(e) => updateVariant(index, 'price', Number(e.target.value))}
-                      className="w-full px-3 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                     />
                   </div>
                   <button
@@ -465,7 +465,7 @@ function EditProductModal({ isOpen, product, onClose, onSave }: EditProductModal
                   type="number"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
-                  className="w-full px-3 py-3 sm:py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required={!hasVariants}
                 />
               </div>
@@ -475,7 +475,7 @@ function EditProductModal({ isOpen, product, onClose, onSave }: EditProductModal
                   type="text"
                   value={unit}
                   onChange={(e) => setUnit(e.target.value)}
-                  className="w-full px-3 py-3 sm:py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required={!hasVariants}
                   placeholder="e.g., per kg, per piece"
                 />
@@ -486,7 +486,7 @@ function EditProductModal({ isOpen, product, onClose, onSave }: EditProductModal
             <button
               type="submit"
               disabled={isSaving}
-              className="w-full sm:flex-1 flex items-center justify-center gap-2 px-4 py-3 sm:py-2 bg-blue-700 text-white  hover:bg-blue-800 transition disabled:opacity-50"
+              className="w-full sm:flex-1 flex items-center justify-center gap-2 px-4 py-3 sm:py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition disabled:opacity-50"
             >
               {isSaving ? (
                 <>
@@ -501,7 +501,7 @@ function EditProductModal({ isOpen, product, onClose, onSave }: EditProductModal
               type="button"
               onClick={onClose}
               disabled={isSaving}
-              className="w-full sm:w-auto px-4 py-3 sm:py-2 border border-gray-300  hover:bg-gray-50 transition disabled:opacity-50"
+              className="w-full sm:w-auto px-4 py-3 sm:py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition disabled:opacity-50"
             >
               Cancel
             </button>
@@ -603,7 +603,7 @@ export default function AdminPage() {
   const CLOUDINARY_CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const CLOUDINARY_UPLOAD_PRESET = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
 
-  const ADMIN_EMAILS = ['mr.onyanchaandrew@gmail.com', 'Pattymwapat@gmail.com'];
+  const ADMIN_EMAILS = ['mr.onyanchaandrew@gmail.com', 'pattywapat@gmail.com'];
   const isAdmin = user?.email ? ADMIN_EMAILS.includes(user.email.toLowerCase()) : false;
 
   useEffect(() => {
@@ -1319,7 +1319,7 @@ export default function AdminPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="bg-blue-700 p-2 ">
+              <div className="bg-blue-700 p-2 rounded-lg">
                 <Package className="h-6 w-6 text-white" />
               </div>
               <div>
@@ -1328,10 +1328,10 @@ export default function AdminPage() {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-              <div className="flex bg-gray-100  p-1">
+              <div className="flex bg-gray-100 rounded-lg p-1">
                 <button
                   onClick={() => setActiveTab('orders')}
-                  className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2  text-sm font-medium transition ${
+                  className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition ${
                     activeTab === 'orders' 
                       ? 'bg-white text-blue-700 shadow-sm'
                       : 'text-gray-600 hover:text-gray-900'
@@ -1342,7 +1342,7 @@ export default function AdminPage() {
                 </button>
                 <button
                   onClick={() => setActiveTab('products')}
-                  className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2  text-sm font-medium transition ${
+                  className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition ${
                     activeTab === 'products' 
                       ? 'bg-white text-blue-700 shadow-sm'
                       : 'text-gray-600 hover:text-gray-900'
@@ -1358,7 +1358,7 @@ export default function AdminPage() {
                   fetchFirebaseProducts();
                 }}
                 disabled={loading}
-                className="flex items-center justify-center gap-2 px-4 py-3 sm:py-2 bg-blue-700 text-white  hover:bg-blue-800 transition disabled:opacity-50 w-full sm:w-auto"
+                className="flex items-center justify-center gap-2 px-4 py-3 sm:py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition disabled:opacity-50 w-full sm:w-auto"
               >
                 <RefreshCw size={18} className={loading ? 'animate-spin' : ''} />
                 <span className="sm:inline">Refresh</span>
@@ -1371,19 +1371,19 @@ export default function AdminPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
-          <div className="bg-white  shadow-sm p-4 sm:p-6 border border-gray-100">
+          <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 border border-gray-100">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs sm:text-sm font-medium text-gray-500">Total Orders</p>
                 <p className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">{stats.totalOrders}</p>
               </div>
-              <div className="bg-blue-100 p-2 sm:p-3 ">
+              <div className="bg-blue-100 p-2 sm:p-3 rounded-lg">
                 <Package className="h-5 w-5 sm:h-6 sm:w-6 text-blue-700" />
               </div>
             </div>
           </div>
 
-          <div className="bg-white  shadow-sm p-4 sm:p-6 border border-gray-100">
+          <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 border border-gray-100">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs sm:text-sm font-medium text-gray-500">Revenue</p>
@@ -1406,31 +1406,31 @@ export default function AdminPage() {
                   </select>
                 </div>
               </div>
-              <div className="bg-blue-100 p-2 sm:p-3 ">
+              <div className="bg-blue-100 p-2 sm:p-3 rounded-lg">
                 <DollarSign className="h-5 w-5 sm:h-6 sm:w-6 text-blue-700" />
               </div>
             </div>
           </div>
 
-          <div className="bg-white  shadow-sm p-4 sm:p-6 border border-gray-100">
+          <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 border border-gray-100">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs sm:text-sm font-medium text-gray-500">Pending Orders</p>
                 <p className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">{stats.pendingOrders}</p>
               </div>
-              <div className="bg-yellow-100 p-2 sm:p-3 ">
+              <div className="bg-yellow-100 p-2 sm:p-3 rounded-lg">
                 <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-700" />
               </div>
             </div>
           </div>
 
-          <div className="bg-white  shadow-sm p-4 sm:p-6 border border-gray-100">
+          <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 border border-gray-100">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs sm:text-sm font-medium text-gray-500">Total Products</p>
                 <p className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">{allProducts.length}</p>
               </div>
-              <div className="bg-purple-100 p-2 sm:p-3 ">
+              <div className="bg-purple-100 p-2 sm:p-3 rounded-lg">
                 <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-purple-700" />
               </div>
             </div>
@@ -1439,7 +1439,7 @@ export default function AdminPage() {
 
         {activeTab === 'orders' ? (
           /* Orders Tab */
-          <div className="bg-white border border-gray-200 ">
+          <div className="bg-white border border-gray-200 rounded-xl">
             <div className="p-4 sm:p-6 border-b border-gray-100">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Orders Management</h2>
@@ -1452,7 +1452,7 @@ export default function AdminPage() {
                       placeholder="Search orders..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-10 pr-4 py-3 sm:py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
+                      className="pl-10 pr-4 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
                     />
                   </div>
 
@@ -1460,7 +1460,7 @@ export default function AdminPage() {
                     <select
                       value={statusFilter}
                       onChange={(e) => setStatusFilter(e.target.value)}
-                      className="appearance-none px-4 py-3 sm:py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-10 w-full"
+                      className="appearance-none px-4 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-10 w-full"
                     >
                       <option value="all">All Orders</option>
                       <option value="pending">Pending</option>
@@ -1703,7 +1703,7 @@ export default function AdminPage() {
                   <button
                     onClick={() => setOrdersPage(p => Math.max(1, p - 1))}
                     disabled={ordersPage === 1}
-                    className="p-2 border border-gray-300  hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="p-2 border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <ChevronLeft size={18} />
                   </button>
@@ -1713,7 +1713,7 @@ export default function AdminPage() {
                   <button
                     onClick={() => setOrdersPage(p => Math.min(totalOrdersPages, p + 1))}
                     disabled={ordersPage === totalOrdersPages}
-                    className="p-2 border border-gray-300  hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="p-2 border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <ChevronRight size={18} />
                   </button>
@@ -1723,7 +1723,7 @@ export default function AdminPage() {
           </div>
         ) : (
           /* Products Tab */
-          <div className="bg-white  shadow-sm border border-gray-100">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100">
             <div className="p-4 sm:p-6 border-b border-gray-100">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Products Catalog</h2>
@@ -1736,7 +1736,7 @@ export default function AdminPage() {
                       placeholder="Search products..."
                       value={productSearchQuery}
                       onChange={(e) => setProductSearchQuery(e.target.value)}
-                      className="pl-10 pr-4 py-3 sm:py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
+                      className="pl-10 pr-4 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full"
                     />
                   </div>
 
@@ -1744,7 +1744,7 @@ export default function AdminPage() {
                     <select
                       value={categoryFilter}
                       onChange={(e) => setCategoryFilter(e.target.value)}
-                      className="appearance-none px-4 py-3 sm:py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-10 w-full"
+                      className="appearance-none px-4 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-10 w-full"
                     >
                       <option value="all">All Categories</option>
                       {categoryStats.map(cat => (
@@ -1756,7 +1756,7 @@ export default function AdminPage() {
 
                   <button
                     onClick={() => setShowAddModal(true)}
-                    className="flex items-center justify-center gap-2 px-4 py-3 sm:py-2 bg-blue-700 text-white  hover:bg-blue-800 transition w-full sm:w-auto"
+                    className="flex items-center justify-center gap-2 px-4 py-3 sm:py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition w-full sm:w-auto"
                   >
                     <Plus size={18} />
                     Add Product
@@ -1810,10 +1810,10 @@ export default function AdminPage() {
                               <img 
                                 src={product.image} 
                                 alt={product.name}
-                                className="w-8 h-8 sm:w-10 sm:h-10  object-cover"
+                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg object-cover"
                               />
                             ) : (
-                              <div className="w-8 h-8 sm:w-10 sm:h-10  bg-gray-200 flex items-center justify-center">
+                              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gray-200 flex items-center justify-center">
                                 <Carrot size={16} className="text-gray-400" />
                               </div>
                             )}
@@ -1873,7 +1873,7 @@ export default function AdminPage() {
                   <button
                     onClick={() => setProductsPage(p => Math.max(1, p - 1))}
                     disabled={productsPage === 1}
-                    className="p-2 border border-gray-300  hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="p-2 border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <ChevronLeft size={18} />
                   </button>
@@ -1883,7 +1883,7 @@ export default function AdminPage() {
                   <button
                     onClick={() => setProductsPage(p => Math.min(totalProductsPages, p + 1))}
                     disabled={productsPage === totalProductsPages}
-                    className="p-2 border border-gray-300  hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="p-2 border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <ChevronRight size={18} />
                   </button>
@@ -1914,7 +1914,7 @@ export default function AdminPage() {
                   type="text"
                   value={newProduct.name}
                   onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
-                  className="w-full px-3 py-3 sm:py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
@@ -1924,7 +1924,7 @@ export default function AdminPage() {
                   type="text"
                   value={newProduct.slug}
                   onChange={(e) => setNewProduct({ ...newProduct, slug: e.target.value })}
-                  className="w-full px-3 py-3 sm:py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
@@ -1933,7 +1933,7 @@ export default function AdminPage() {
                 <select
                   value={newProduct.category}
                   onChange={(e) => setNewProduct({ ...newProduct, category: e.target.value })}
-                  className="w-full px-3 py-3 sm:py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 >
                   <option value="Engine Parts">Engine Parts</option>
@@ -1964,7 +1964,7 @@ export default function AdminPage() {
               </div>
               
               {newProduct.hasVariants ? (
-                <div className="space-y-3 border border-gray-200  p-3">
+                <div className="space-y-3 border border-gray-200 rounded-lg p-3">
                   <label className="block text-sm font-medium text-gray-700">Variants (sizes with prices)</label>
                   {newProduct.variants.map((variant, index) => (
                     <div key={index} className="flex gap-2 items-start">
@@ -1978,7 +1978,7 @@ export default function AdminPage() {
                             updated[index] = { ...updated[index], size: e.target.value };
                             setNewProduct({ ...newProduct, variants: updated });
                           }}
-                          className="w-full px-3 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                         />
                       </div>
                       <div className="flex-1">
@@ -1991,7 +1991,7 @@ export default function AdminPage() {
                             updated[index] = { ...updated[index], price: Number(e.target.value) };
                             setNewProduct({ ...newProduct, variants: updated });
                           }}
-                          className="w-full px-3 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
                         />
                       </div>
                       <button
@@ -2022,7 +2022,7 @@ export default function AdminPage() {
                       type="number"
                       value={newProduct.price}
                       onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}
-                      className="w-full px-3 py-3 sm:py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                       required={!newProduct.hasVariants}
                     />
                   </div>
@@ -2032,7 +2032,7 @@ export default function AdminPage() {
                       type="text"
                       value={newProduct.unit}
                       onChange={(e) => setNewProduct({ ...newProduct, unit: e.target.value })}
-                      className="w-full px-3 py-3 sm:py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                       required={!newProduct.hasVariants}
                     />
                   </div>
@@ -2044,7 +2044,7 @@ export default function AdminPage() {
                   type="file"
                   accept="image/*"
                   onChange={handleImageChange}
-                  className="w-full px-3 py-2 border border-gray-300 bg-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 bg-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 {imageSizeWarning && (
@@ -2055,7 +2055,7 @@ export default function AdminPage() {
                 <button
                   type="submit"
                   disabled={uploadingImage}
-                  className="w-full sm:flex-1 flex items-center justify-center gap-2 px-4 py-3 sm:py-2 bg-blue-700 text-white  hover:bg-blue-800 transition disabled:opacity-50"
+                  className="w-full sm:flex-1 flex items-center justify-center gap-2 px-4 py-3 sm:py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition disabled:opacity-50"
                 >
                   {uploadingImage ? (
                     <>
@@ -2069,7 +2069,7 @@ export default function AdminPage() {
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="w-full sm:w-auto px-4 py-3 sm:py-2 border border-gray-300  hover:bg-gray-50 transition"
+                  className="w-full sm:w-auto px-4 py-3 sm:py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
                 >
                   Cancel
                 </button>

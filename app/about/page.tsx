@@ -24,7 +24,7 @@ const About = () => {
     {
       name: "James Kariuki",
       role: "Car Owner",
-      text: "Pattymwapat Autospares has all the parts I need at fair prices. Fast delivery across Nairobi!",
+      text: "Pattywapat Autospares has all the parts I need at fair prices. Fast delivery across Nairobi!",
       image: "/images/Contact-us.svg"
     },
     {
@@ -81,10 +81,10 @@ const About = () => {
           
           {/* IMAGE – spans full width on mobile, 8 cols on desktop */}
           <div className="col-span-12 md:col-span-8 relative">
-            <div className="relative md:aspect-[4/2] aspect-3/2 w-full overflow-hidden rounded-none md: bg-white bord">
+            <div className="relative md:aspect-[4/2] aspect-3/2 w-full overflow-hidden rounded-none md:rounded-3xl bg-white bord">
               <Image
-                src="/images/hero.webp"
-                alt="Auto parts at Pattymwapat Autospares"
+                src="/images/hero2.jpg"
+                alt="Auto parts at Pattywapat Autospares"
                 fill
                 className="object-contain"
                 priority
@@ -103,18 +103,18 @@ const About = () => {
             relative z-20
             bg-blue-700 text-white
             p-4 md:p-6
-             md:
+             md:rounded-3xl
           ">
             {/* Hand-crafted detail – subtle texture line */}
-            <div className="w-16 h-0.5 bg-white/80 mb-3 " />
+            <div className="w-16 h-0.5 bg-white/80 mb-3 rounded-full" />
             
             <h1 className="md:text-xl font-serif text-lg font-bold uppercase tracking-wider">
-              About Pattymwapat.
+              About Pattywapat.
             </h1>
             
             {/* Store description */}
             <p className="hidden md:block text-sm md:text-base font-light leading-relaxed text-white max-w-xs">
-              Explore the story behind Pattymwapat Autospares, your trusted auto parts supplier in Nairobi. We connect you to genuine car parts and expert support, all in one place.
+              Explore the story behind Pattywapat Autospares, your trusted auto parts supplier in Nairobi. We connect you to genuine car parts and expert support, all in one place.
             </p>
              <p className="hidden md:block text-sm md:text-base font-light leading-relaxed text-white mb-3 max-w-xs">
              Order from us and get quality auto parts delivered to your door, with reliable service you can trust.
@@ -174,7 +174,7 @@ const About = () => {
               transition={{ delay: idx * 0.1 }}
               className="group text-center sm:text-left"
             >
-              <div className="bg-blue-700 w-16 h-16  flex items-center justify-center mb-5 mx-auto sm:mx-0 group-hover:bg-blue-100 group-hover:text-[#f4efe2] transition-colors duration-300">
+              <div className="bg-blue-700 w-16 h-16 rounded-full flex items-center justify-center mb-5 mx-auto sm:mx-0 group-hover:bg-blue-100 group-hover:text-[#f4efe2] transition-colors duration-300">
                 <div className="text-white group-hover:text-blue-700  transition-colors">
                   {item.icon}
                 </div>
@@ -194,19 +194,19 @@ const About = () => {
               Your car, our promise.
             </h2>
             <p className="text-white/80 text-sm md:text-lg font-light max-w-2xl md:max-w-none text-left leading-relaxed">
-              We source the best auto parts from trusted suppliers worldwide, bringing you genuine components for all vehicle makes. No matter what you drive, Pattymwapat has you covered.
+              We source the best auto parts from trusted suppliers worldwide, bringing you genuine components for all vehicle makes. No matter what you drive, Pattywapat has you covered.
             </p>
             <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
               <Link
                 href="/shop"
-                className="group bg-[#fefae6] text-[#2a4b38] px-8 py-3  font-medium text-sm uppercase tracking-wide hover:bg-white transition-all inline-flex items-center gap-3 shadow-md"
+                className="group bg-[#fefae6] text-[#2a4b38] px-8 py-3 rounded-full font-medium text-sm uppercase tracking-wide hover:bg-white transition-all inline-flex items-center gap-3 shadow-md"
               >
                 <GiShoppingCart size={18} />
                 Shop Parts
               </Link>
               <Link
                 href="/help-center"
-                className="border border-[#bcccb0] text-[#fefae6] px-8 py-3  font-medium text-sm uppercase tracking-wide bg-blue-800 hover:bg-blue-900 transition-all"
+                className="border border-[#bcccb0] text-[#fefae6] px-8 py-3 rounded-full font-medium text-sm uppercase tracking-wide bg-blue-800 hover:bg-blue-900 transition-all"
               >
                 Contact Us <ChevronRight size={16} className='inline ml-2' />
               </Link>
@@ -214,7 +214,7 @@ const About = () => {
           </div>
           <div className="hidden md:block md:w-1/3 text-right opacity-80">
             <div className="border-l border-[#b1c4a4] pl-6">
-              <p className="text-sm font-mono text-[#e7ebc9]">#Pattymwapatkenya</p>
+              <p className="text-sm font-mono text-[#e7ebc9]">#pattywapatkenya</p>
               <div className="flex gap-3 mt-4 justify-end">
                 <Car className="w-8 h-8 text-[#e2eacd]" />
                 <GiWrench className="w-8 h-8 text-[#e2eacd]" />
@@ -249,7 +249,7 @@ const About = () => {
                   <button
                     key={idx}
                     onClick={() => setTestimonialIndex(idx)}
-                    className={`w-2 h-2  transition-all ${
+                    className={`w-2 h-2 rounded-full transition-all ${
                       idx === testimonialIndex ? 'bg-[#3a604a] w-6' : 'bg-[#cad4c2]'
                     }`}
                     aria-label={`View testimonial ${idx + 1}`}
@@ -260,7 +260,7 @@ const About = () => {
           </div>
         
           <div className="lg:w-3/5 relative">
-            <div className="relative bg-blue-700 p-4 md:p-12  shadow">
+            <div className="relative bg-blue-700 p-4 md:p-12 rounded-3xl shadow">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={testimonialIndex}
@@ -277,7 +277,7 @@ const About = () => {
                   </p>
                   <div className="flex items-center gap-4 pt-2">
                     <div className="relative">
-                      <div className="w-16 h-16  border-2 border-white overflow-hidden">
+                      <div className="w-16 h-16 rounded-full border-2 border-white overflow-hidden">
                         <Image
                           src={testimonials[testimonialIndex].image}
                           alt={testimonials[testimonialIndex].name}
@@ -286,7 +286,7 @@ const About = () => {
                           className="object-cover"
                         />
                       </div>
-                      <span className="absolute -bottom-1 -right-1 bg-blue-700  w-6 h-6 flex items-center justify-center border-2 border-white">
+                      <span className="absolute -bottom-1 -right-1 bg-blue-700 rounded-full w-6 h-6 flex items-center justify-center border-2 border-white">
                         <Star className="w-3 h-3 text-white fill-white" />
                       </span>
                     </div>
@@ -305,7 +305,7 @@ const About = () => {
                 <button
                   key={idx}
                   onClick={() => setTestimonialIndex(idx)}
-                  className={`w-2.5 h-2.5  transition-all ${
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${
                     idx === testimonialIndex ? 'bg-[#3a604a] w-8' : 'bg-[#cad4c2]'
                   }`}
                 />

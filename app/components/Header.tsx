@@ -129,10 +129,12 @@ export default function Header() {
   }, [showMobileProfileDropdown]);
 
   const menuItems = [
-    { label: "Shop", href: "/shop", icon: FaShopify },
     { label: "Categories", href: "/shop", hasDropdown: true, icon: IoIosApps },
-    { label: "About", href: "/about", icon: Car },
-    { label: "Help", href: "/help-center", icon: RiCustomerService2Fill },
+    { label: "Shop", href: "/shop", icon: FaShopify },
+    { label: "More products", href: "/more-products", icon: GiWrench },
+    { label: "Special Offers", href: "/special-offers", icon: HiMiniGift },
+    { label: "About Us", href: "/about", icon: Car },
+    { label: "Help Center", href: "/help-center", icon: RiCustomerService2Fill },
   ];
 
   useEffect(() => {
@@ -215,18 +217,18 @@ export default function Header() {
           <div className="flex-shrink-0">
             <Link href="/" className="block">
                <div className="relative w-16 h-16">
-                 <Image src="/logo.webp" alt="Pattymwapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
+                 <Image src="/logo.png" alt="Pattywapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
                </div>
             </Link>
           </div>
 
-          {/* Search + CTA */}
-          <div className="flex-1 flex items-center gap-4 mx-8">
-            <form onSubmit={handleSearch} className="flex-1 relative">
+          {/* Search */}
+          <div className="flex-1 max-w-2xl mx-8">
+            <form onSubmit={handleSearch} className="relative">
               <input
                 type="text"
-                placeholder="What part do you need?"
-                className="w-full pl-5 pr-12 py-3 bg-stone-100 rounded-full text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-400 transition-all"
+                placeholder="Search auto parts, brakes, filters..."
+                className="w-full pl-5 pr-12 py-3 bg-stone-100 rounded-full text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-400 transition-all"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
@@ -235,16 +237,10 @@ export default function Header() {
                 <Search size={22} />
               </button>
             </form>
-            <Link
-              href="/shop"
-              className="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-blue-700 text-white text-sm font-bold rounded-full hover:bg-blue-800 transition shadow-md whitespace-nowrap"
-            >
-              Shop Now
-            </Link>
           </div>
 
           {/* User + Cart */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-8">
             {!isLoading && !user ? (
               <Link href="/account/login" className="text-gray-600 hover:text-blue-700 transition" title="Sign in">
                 <User size={24} strokeWidth={1.8} />
@@ -265,7 +261,7 @@ export default function Header() {
                 </button>
 
                 {showDesktopProfileDropdown && user && (
-                  <div className="absolute right-0 mt-3 w-64 bg-white  shadow-xl border border-gray-200 py-2 z-50 overflow-hidden">
+                  <div className="absolute right-0 mt-3 w-64 bg-white rounded-xl shadow-xl border border-gray-200 py-2 z-50 overflow-hidden">
                     <div className="px-5 py-4 border-b border-gray-100">
                       <p className="text-base font-medium text-gray-900 truncate">
                         {user.displayName || "Welcome"}
@@ -301,7 +297,7 @@ export default function Header() {
                         Settings
                       </Link>
 
-                      {user.email && ['mr.onyanchaandrew@gmail.com', 'Pattymwapat@gmail.com'].includes(user.email.toLowerCase()) ? (
+                      {user.email && ['mr.onyanchaandrew@gmail.com', 'pattywapat@gmail.com'].includes(user.email.toLowerCase()) ? (
                         <Link
                           href="/admin"
                           className="flex items-center gap-3 px-5 py-3 text-sm text-blue-700 font-medium hover:bg-blue-50 transition-colors"
@@ -375,7 +371,7 @@ export default function Header() {
                     <div
                       className="
                         absolute top-full left-0 -mt-2
-                        bg-white text-gray-800 shadow-2xl 
+                        bg-white text-gray-800 shadow-2xl rounded-xl
                         min-w-[280px] py-0 z-50 border border-gray-200 overflow-hidden
                       "
                     >
@@ -442,7 +438,7 @@ export default function Header() {
 
           <Link href="/" className="absolute left-1/2 -translate-x-1/2">
                <div className="relative w-16 h-16">
-                 <Image src="/logo.webp" alt="Pattymwapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
+                 <Image src="/logo.png" alt="Pattywapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
                </div>
           </Link>
 
@@ -467,7 +463,7 @@ export default function Header() {
                 </button>
 
                 {showMobileProfileDropdown && user && (
-                  <div className="absolute right-0 top-full mt-2 w-56 bg-white  shadow-xl border border-gray-200 py-2 z-50 overflow-hidden">
+                  <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-200 py-2 z-50 overflow-hidden">
                     <div className="px-4 py-3 border-b border-gray-100">
                       <p className="text-sm font-medium text-gray-900 truncate">
                         {user.displayName || "Welcome"}
@@ -503,7 +499,7 @@ export default function Header() {
                         Settings
                       </Link>
 
-                      {user.email && ['mr.onyanchaandrew@gmail.com', 'Pattymwapat@gmail.com'].includes(user.email.toLowerCase()) ? (
+                      {user.email && ['mr.onyanchaandrew@gmail.com', 'pattywapat@gmail.com'].includes(user.email.toLowerCase()) ? (
                         <Link
                           href="/admin"
                           className="flex items-center gap-3 px-4 py-2.5 text-sm text-blue-700 font-medium hover:bg-blue-50 transition-colors"
@@ -571,7 +567,7 @@ export default function Header() {
                 <input
                   type="text"
                   placeholder="Search auto parts..."
-                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300  text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
@@ -587,47 +583,49 @@ export default function Header() {
             </div>
 
             <nav className="flex-1 px-2 py-2 overflow-y-auto">
-              {/* Quick Shop Button */}
-              <Link
-                href="/shop"
-                className="flex items-center justify-center gap-2 mx-4 mt-4 mb-4 px-6 py-3 bg-blue-700 text-white font-bold rounded-full text-base"
-                onClick={closeMobileMenu}
-              >
-                <FaShopify size={18} />
-                Shop All Parts
-              </Link>
-
-              {/* Simple category list */}
-              <div className="px-4 space-y-1">
-                {categories.map((cat) => {
-                  const Icon = cat.icon;
-                  return (
+              {menuItems.map((item, index) => (
+                <div key={item.label}>
+                  {item.label === "Categories" ? (
+                    <>
+                      <div className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 bg-gray-50 rounded-xl mx-2 mt-2">
+                        <item.icon size={18} className="text-blue-700" />
+                        {item.label}
+                      </div>
+                      <div className="pl-6 pr-2 mt-1 mb-4">
+                        {categories.map((cat) => {
+                          const Icon = cat.icon;
+                           
+                          // Regular main categories (clickable)
+                          return (
+                            <Link
+                              key={cat.slug}
+                              href={`/shop?category=${cat.name}`}
+                              className={`flex items-center gap-3 px-5 py-2.5 text-[15px] hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors ${
+                                cat.isSubcategory ? 'pl-12 text-stone-600' : 'text-gray-700'
+                              }`}
+                              onClick={closeMobileMenu}
+                            >
+                              <Icon size={cat.isSubcategory ? 16 : 18} className={cat.isSubcategory ? 'text-stone-500' : 'text-blue-600'} />
+                              {cat.name}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </>
+                  ) : (
                     <Link
-                      key={cat.slug}
-                      href={`/shop?category=${cat.name}`}
-                      className="flex items-center gap-3 px-4 py-3 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-colors"
+                      href={item.href}
+                      className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 hover:bg-blue-50 hover:text-blue-700 rounded-xl transition-colors"
                       onClick={closeMobileMenu}
                     >
-                      <Icon size={20} className="text-blue-600" />
-                      {cat.name}
+                      <item.icon size={16} className="text-blue-700" />
+                      {item.label}
                     </Link>
-                  );
-                })}
-              </div>
-
-              <div className="mx-5 my-4 h-px bg-gray-200" />
-
-              {/* Other links */}
-              {menuItems.filter(item => item.label !== 'Categories' && item.label !== 'Shop').map((item, index) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 hover:bg-blue-50 hover:text-blue-700 transition-colors"
-                  onClick={closeMobileMenu}
-                >
-                  <item.icon size={18} className="text-blue-700" />
-                  {item.label}
-                </Link>
+                  )}
+                  {index < menuItems.length - 1 && (
+                    <div className="mx-5 my-2 h-px bg-gray-200" />
+                  )}
+                </div>
               ))}
             </nav>
 

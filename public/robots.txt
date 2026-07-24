@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.Pattymwapat.co.ke
+Host: https://www.pemafarmfresh.co.ke  # or your live domain
 
 # Sitemaps
-Sitemap: https://www.Pattymwapat.co.ke/sitemap.xml
+Sitemap: https://www.pemafarmfresh.co.ke  # or your live domain/sitemap.xml
