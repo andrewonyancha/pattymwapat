@@ -182,14 +182,14 @@ export default function AutoPartsLandingPage() {
       <section className="relative w-full h-[50vh] md:h-[65vh] overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/hero.jpeg"
+            src="/hero.webp"
             alt="Auto Parts"
             fill
-            className="hidden md:block object-cover"
+            className="hidden md:block  object-cover"
             priority
           />
           <Image
-            src="/hero.jpeg"
+            src="/hero.webp"
             alt="Auto Parts"
             fill
             className="block md:hidden  object-cover"
