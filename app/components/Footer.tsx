@@ -40,7 +40,7 @@ export default function Footer() {
             <div className="relative w-40 h-12">
               <Image
                 src="/logo-footer.png"
-                alt="Pattywapat Autospares"
+                alt="Pattymwapat Autospares"
                 fill
                 sizes="160px"
                 className="object-contain brightness-0 invert"
@@ -99,7 +99,7 @@ export default function Footer() {
             <div className="pt-4 space-y-2 text-[10px] uppercase tracking-widest text-stone-500 font-medium">
               <div className="flex items-center gap-3"><MapPin size={12} /> Nairobi, Kenya</div>
               <div className="flex items-center gap-3"><Phone size={12} /> +254 703 699703</div>
-              <div className="flex items-center gap-3"><Mail size={12} /> pattywapat@gmail.com</div>
+              <div className="flex items-center gap-3"><Mail size={12} /> Pattymwapat@gmail.com</div>
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function Footer() {
         {/* Bottom Credits */}
         <div className="border-t border-stone-800/50 py-10 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-[9px] uppercase tracking-[0.3em] text-stone-600">
-            © {currentYear} Pattywapat Autospares. Quality parts, trusted service.
+            © {currentYear} Pattymwapat Autospares. Quality parts, trusted service.
           </p>
           
           <div className="flex items-center gap-8 opacity-40 grayscale">

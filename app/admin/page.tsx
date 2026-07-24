@@ -603,7 +603,7 @@ export default function AdminPage() {
   const CLOUDINARY_CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const CLOUDINARY_UPLOAD_PRESET = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
 
-  const ADMIN_EMAILS = ['mr.onyanchaandrew@gmail.com', 'pattywapat@gmail.com'];
+  const ADMIN_EMAILS = ['mr.onyanchaandrew@gmail.com', 'Pattymwapat@gmail.com'];
   const isAdmin = user?.email ? ADMIN_EMAILS.includes(user.email.toLowerCase()) : false;
 
   useEffect(() => {

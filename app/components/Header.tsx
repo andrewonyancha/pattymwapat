@@ -217,7 +217,7 @@ export default function Header() {
           <div className="flex-shrink-0">
             <Link href="/" className="block">
                <div className="relative w-16 h-16">
-                 <Image src="/logo.png" alt="Pattywapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
+                 <Image src="/logo.png" alt="Pattymwapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
                </div>
             </Link>
           </div>
@@ -297,7 +297,7 @@ export default function Header() {
                         Settings
                       </Link>
 
-                      {user.email && ['mr.onyanchaandrew@gmail.com', 'pattywapat@gmail.com'].includes(user.email.toLowerCase()) ? (
+                      {user.email && ['mr.onyanchaandrew@gmail.com', 'Pattymwapat@gmail.com'].includes(user.email.toLowerCase()) ? (
                         <Link
                           href="/admin"
                           className="flex items-center gap-3 px-5 py-3 text-sm text-blue-700 font-medium hover:bg-blue-50 transition-colors"
@@ -438,7 +438,7 @@ export default function Header() {
 
           <Link href="/" className="absolute left-1/2 -translate-x-1/2">
                <div className="relative w-16 h-16">
-                 <Image src="/logo.png" alt="Pattywapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
+                 <Image src="/logo.png" alt="Pattymwapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
                </div>
           </Link>
 
@@ -499,7 +499,7 @@ export default function Header() {
                         Settings
                       </Link>
 
-                      {user.email && ['mr.onyanchaandrew@gmail.com', 'pattywapat@gmail.com'].includes(user.email.toLowerCase()) ? (
+                      {user.email && ['mr.onyanchaandrew@gmail.com', 'Pattymwapat@gmail.com'].includes(user.email.toLowerCase()) ? (
                         <Link
                           href="/admin"
                           className="flex items-center gap-3 px-4 py-2.5 text-sm text-blue-700 font-medium hover:bg-blue-50 transition-colors"
