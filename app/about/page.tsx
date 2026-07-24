@@ -83,7 +83,7 @@ const About = () => {
           <div className="col-span-12 md:col-span-8 relative">
             <div className="relative md:aspect-[4/2] aspect-3/2 w-full overflow-hidden rounded-none md: bg-white bord">
               <Image
-                src="/images/hero2.jpg"
+                src="/images/hero.webp"
                 alt="Auto parts at Pattymwapat Autospares"
                 fill
                 className="object-contain"

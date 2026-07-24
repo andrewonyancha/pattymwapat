@@ -217,7 +217,7 @@ export default function Header() {
           <div className="flex-shrink-0">
             <Link href="/" className="block">
                <div className="relative w-16 h-16">
-                 <Image src="/logo.png" alt="Pattymwapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
+                 <Image src="/logo.webp" alt="Pattymwapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
                </div>
             </Link>
           </div>
@@ -438,7 +438,7 @@ export default function Header() {
 
           <Link href="/" className="absolute left-1/2 -translate-x-1/2">
                <div className="relative w-16 h-16">
-                 <Image src="/logo.png" alt="Pattymwapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
+                 <Image src="/logo.webp" alt="Pattymwapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
                </div>
           </Link>
 
