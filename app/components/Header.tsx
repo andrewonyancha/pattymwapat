@@ -15,11 +15,11 @@ import {
   Car,
 } from "lucide-react";
 import { RiCustomerService2Fill } from "react-icons/ri";
-import { MdOutlineShoppingCart } from "react-icons/md";
+import { MdElectricCar, MdOutlineShoppingCart } from "react-icons/md";
 
 import Image from "next/image";
 import { CiMenuBurger } from "react-icons/ci";
-import { FaShopify } from "react-icons/fa6";
+import { FaCarSide, FaShopify } from "react-icons/fa6";
 import { useCartStore } from "../lib/cartStore";
 import CartDrawer from "./shop/CartDrawer";
 import {
@@ -29,12 +29,14 @@ import {
   GiCarBattery,
   GiF1Car,
   GiWrench,
+  GiCarSeat,
 } from "react-icons/gi";
 
 
 // Auth store & signOut
 import { useAuthStore } from "../lib/authStore";
 import { signOut } from "../lib/firebase/auth";
+import { FaCar, FaFilter } from "react-icons/fa";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -111,13 +113,13 @@ export default function Header() {
   }, [showMobileProfileDropdown]);
 
   const menuItems = [
+    { label: "Shop", href: "/shop", icon: FaShopify },
     { label: "Engine Parts", href: "/shop?category=Engine Parts", icon: GiCog },
     { label: "Brake Systems", href: "/shop?category=Brake Systems", icon: GiCrackedDisc },
     { label: "Tires & Wheels", href: "/shop?category=Tires & Wheels", icon: GiCarWheel },
-    { label: "Electrical", href: "/shop?category=Electrical", icon: GiCarBattery },
-    { label: "Filters", href: "/shop?category=Filters", icon: GiWrench },
-    { label: "Body Parts", href: "/shop?category=Body Parts", icon: GiF1Car },
-    { label: "Shop", href: "/shop", icon: FaShopify },
+    { label: "Electrical", href: "/shop?category=Electrical", icon: MdElectricCar },
+    { label: "Filters", href: "/shop?category=Filters", icon: FaFilter },
+    { label: "Body Parts", href: "/shop?category=Body Parts", icon: GiCarSeat },
     { label: "Help Center", href: "/help-center", icon: RiCustomerService2Fill },
   ];
 
