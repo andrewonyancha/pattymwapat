@@ -2,118 +2,86 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Instagram,
-  Facebook,
-  Twitter,
-  Mail,
-  ArrowRight,
-  MapPin,
-  Phone,
-  Car
-} from "lucide-react";
-import { GiShoppingCart } from "react-icons/gi";
-import { RiCustomerService2Fill } from "react-icons/ri";
-import { HiMiniGift } from "react-icons/hi2";
-import { FaShopify } from "react-icons/fa6";
+import { Mail, Phone, MapPin, MessageCircle, Car } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-stone-900 text-stone-300 pt-20 overflow-hidden">
-      {/* Subtle Texture Overlay */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <Image
-          src="/hero.webp"
-          alt="Texture"
-          fill
-          className="object-cover grayscale"
-        />
-      </div>
-
-      <div className="relative z-10 container mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+    <footer className="bg-blue-900 text-white pt-12 pb-8">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           
-          {/* Brand Philosophy */}
-          <div className="space-y-8">
-            <div className="relative w-40 h-12">
+          {/* Brand */}
+          <div>
+            <div className="relative w-40 h-12 mb-4">
               <Image
                 src="/logo-footer.png"
-                alt="Pattymwapat Autospares"
+                alt="Pattywapat Autospares"
                 fill
                 sizes="160px"
                 className="object-contain brightness-0 invert"
               />
             </div>
-            <p className="text-sm leading-relaxed font-light tracking-wide text-stone-400">
-              Your trusted auto parts supplier in Nairobi, Kenya.
-              Quality genuine parts, expert support, and fast delivery
-              for all vehicle makes since 2018.
+            <p className="text-blue-200 text-sm mb-4">
+              Your trusted auto parts supplier in Nairobi, Kenya. Quality genuine parts, expert support, and fast delivery.
             </p>
-            <div className="flex gap-6">
-              <Link href="#" className="hover:text-white transition-colors"><Instagram size={18} strokeWidth={1.5} /></Link>
-              <Link href="#" className="hover:text-white transition-colors"><Facebook size={18} strokeWidth={1.5} /></Link>
-              <Link href="#" className="hover:text-white transition-colors"><Twitter size={18} strokeWidth={1.5} /></Link>
+            <div className="flex gap-4">
+              <a href="https://wa.me/254712345678" target="_blank" rel="noopener noreferrer" className="bg-green-600 p-2 rounded-full hover:bg-green-500 transition">
+                <MessageCircle size={20} />
+              </a>
             </div>
           </div>
 
-          {/* Shop Categories */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Categories</h3>
-            <ul className="space-y-4 text-xs uppercase tracking-[0.2em] font-light">
-              <li><Link href="/shop?category=Engine Parts" className="hover:text-white transition-colors">Engine Parts</Link></li>
-              <li><Link href="/shop?category=Brake Systems" className="hover:text-white transition-colors">Brake Systems</Link></li>
-              <li><Link href="/shop?category=Tires & Wheels" className="hover:text-white transition-colors">Tires & Wheels</Link></li>
-              <li><Link href="/shop?category=Electrical" className="hover:text-white transition-colors">Electrical</Link></li>
-              <li><Link href="/special-offers" className="text-stone-100 font-medium italic flex items-center gap-2"><HiMiniGift size={12} /> Special Offers</Link></li>
+            <h3 className="text-white font-bold text-lg mb-4">Quick Links</h3>
+            <ul className="space-y-2 text-blue-200">
+              <li><Link href="/shop" className="hover:text-white transition">Shop All Parts</Link></li>
+              <li><Link href="/about" className="hover:text-white transition">About Us</Link></li>
+              <li><Link href="/help-center" className="hover:text-white transition">Help Center</Link></li>
+              <li><Link href="/account/orders" className="hover:text-white transition">Track Order</Link></li>
             </ul>
           </div>
 
-          {/* Customer Service */}
+          {/* Contact Info */}
           <div>
-            <h3 className="text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Support</h3>
-            <ul className="space-y-4 text-xs uppercase tracking-[0.2em] font-light">
-              <li><Link href="/help-center" className="hover:text-white transition-colors flex items-center gap-2"><RiCustomerService2Fill size={12} /> Help Center</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors flex items-center gap-2"><Car size={12} /> About Us</Link></li>
-              {/* <li><Link href="/delivery" className="hover:text-white transition-colors">Delivery Info</Link></li>
-              <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li> */}
+            <h3 className="text-white font-bold text-lg mb-4">Contact Us</h3>
+            <ul className="space-y-3 text-blue-200">
+              <li className="flex items-center gap-3">
+                <Phone size={18} className="text-blue-400" />
+                <a href="tel:+254712345678" className="hover:text-white transition">+254 712 345 678</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <MessageCircle size={18} className="text-green-400" />
+                <a href="https://wa.me/254712345678" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">WhatsApp Us</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail size={18} className="text-blue-400" />
+                <a href="mailto:pattywapat@gmail.com" className="hover:text-white transition">pattywapat@gmail.com</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <MapPin size={18} className="text-blue-400" />
+                <span>Nairobi, Kenya</span>
+              </li>
             </ul>
-          </div>
-
-          {/* Newsletter & Contact */}
-          <div className="space-y-8">
-            <h3 className="text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Auto Parts Updates</h3>
-            <p className="text-xs font-light tracking-wide text-stone-400">Subscribe for new arrivals, special deals, and auto maintenance tips.</p>
-            <div className="relative group">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="w-full bg-transparent border-b border-stone-700 py-3 text-xs uppercase tracking-widest outline-none focus:border-stone-100 transition-colors"
-              />
-              <button className="absolute right-0 top-1/2 -translate-y-1/2 text-stone-500 group-hover:text-white transition-colors">
-                <ArrowRight size={18} strokeWidth={1} />
-              </button>
-            </div>
-            <div className="pt-4 space-y-2 text-[10px] uppercase tracking-widest text-stone-500 font-medium">
-              <div className="flex items-center gap-3"><MapPin size={12} /> Nairobi, Kenya</div>
-              <div className="flex items-center gap-3"><Phone size={12} /> +254 703 699703</div>
-              <div className="flex items-center gap-3"><Mail size={12} /> Pattymwapat@gmail.com</div>
+            <div className="mt-4 p-3 bg-blue-800 rounded-lg">
+              <p className="text-xs text-blue-300 uppercase tracking-wider mb-1">M-Pesa Till Number</p>
+              <p className="text-2xl font-bold text-white">213528</p>
             </div>
           </div>
         </div>
 
-        {/* Bottom Credits */}
-        <div className="border-t border-stone-800/50 py-10 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-[9px] uppercase tracking-[0.3em] text-stone-600">
-            © {currentYear} Pattymwapat Autospares. Quality parts, trusted service.
+        {/* Bottom Bar */}
+        <div className="border-t border-blue-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-blue-400 text-sm">
+            © {currentYear} Pattywapat Autospares. All rights reserved.
           </p>
-          
-          <div className="flex items-center gap-8 opacity-40 grayscale">
-            <span className="text-[10px] font-black tracking-tighter">M-PESA</span>
-            <span className="text-[10px] font-black tracking-tighter">VISA</span>
-            <span className="text-[10px] font-black tracking-tighter">MASTERCARD</span>
+          <div className="flex items-center gap-6 text-blue-400 text-sm">
+            <Link href="/about" className="hover:text-white transition">About</Link>
+            <Link href="/help-center" className="hover:text-white transition">Help</Link>
+            <Link href="/account/orders" className="hover:text-white transition">Orders</Link>
           </div>
         </div>
       </div>

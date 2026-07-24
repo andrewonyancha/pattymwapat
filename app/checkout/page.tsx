@@ -261,189 +261,198 @@ function CheckoutContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFDFD] text-blue-700">
-      {/* Top Navigation – unchanged */}
-      <nav className="border-b border-stone-100 bg-white/80 backdrop-blur-md  top-0">
-        <div className="max-w-7xl mx-auto px-0 h-20 flex items-center justify-between">
-          <button 
+    <div className="min-h-screen bg-gray-50">
+      {/* Top Navigation */}
+      <nav className="border-b border-gray-200 bg-white">
+        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+          <button
             onClick={() => router.back()}
-            className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-stone-400 hover:text-blue-700 transition-colors"
+            className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-700 transition-colors"
           >
-            <ChevronLeft size={16} /> Back
+            <ChevronLeft size={18} /> Back to Shop
           </button>
-          <h1 className="text-xs uppercase tracking-[0.1em] font-light">Secure checkout</h1>
-          <div className="w-10" />
+          <h1 className="text-lg font-bold text-gray-900">Checkout</h1>
+          <div className="w-20" />
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto py-12 px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      {/* Progress Steps */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center text-sm font-bold">1</div>
+              <span className="text-sm font-medium hidden sm:inline">Details</span>
+            </div>
+            <div className="w-8 h-px bg-gray-300" />
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center text-sm font-bold">2</div>
+              <span className="text-sm font-medium hidden sm:inline">Payment</span>
+            </div>
+            <div className="w-8 h-px bg-gray-300" />
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center text-sm font-bold">3</div>
+              <span className="text-sm font-medium text-gray-500 hidden sm:inline">Confirm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main className="max-w-7xl mx-auto py-8 px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
-          {/* LEFT: Information Flow – only added error display */}
-          <div className="lg:col-span-7 space-y-16">
-            
-            <section>
-              <div className="flex items-center gap-4 mb-8">
-                <span className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs">1</span>
-                <h2 className="md:text-lg text-sm uppercase tracking-wider font-light">Contact Information</h2>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                <FloatingInput 
-                  label="Full Name" 
-                  name="name" 
-                  value={formData.name} 
-                  onChange={handleInputChange} 
-                  placeholder="John Doe"
-                  error={submitAttempted ? fieldErrors.name : undefined}
-                  required
-                />
-                <FloatingInput 
-                  label="Email Address" 
-                  name="email" 
-                  type="email" 
-                  value={formData.email} 
-                  onChange={handleInputChange} 
-                  placeholder={user ? undefined : "john@example.com"}
-                  error={submitAttempted ? fieldErrors.email : undefined}
-                  required
-                  readOnly={!!user}
-                  disabled={!!user}
-                  className={user ? 'cursor-not-allowed bg-stone-50' : ''}
-                />
+          {/* LEFT: Form */}
+          <div className="lg:col-span-7 space-y-8">
+             
+            {/* Step 1: Contact & Delivery */}
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs">1</span>
+                Contact & Delivery Details
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                  <input
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Your full name"
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${submitAttempted && fieldErrors.name ? 'border-red-500' : 'border-gray-300'}`}
+                  />
+                  {submitAttempted && fieldErrors.name && <p className="text-red-500 text-xs mt-1">{fieldErrors.name}</p>}
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                  <input
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="your@email.com"
+                    readOnly={!!user}
+                    disabled={!!user}
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${user ? 'bg-gray-50 cursor-not-allowed' : ''} ${submitAttempted && fieldErrors.email ? 'border-red-500' : 'border-gray-300'}`}
+                  />
+                  {submitAttempted && fieldErrors.email && <p className="text-red-500 text-xs mt-1">{fieldErrors.email}</p>}
+                </div>
                 <div className="md:col-span-2">
-                  <FloatingInput 
-                    label="Phone Number" 
-                    name="phone" 
-                    value={formData.phone} 
-                    onChange={handleInputChange} 
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                  <input
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     placeholder="0712 345 678"
-                    error={submitAttempted ? fieldErrors.phone : undefined}
-                    required
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${submitAttempted && fieldErrors.phone ? 'border-red-500' : 'border-gray-300'}`}
+                  />
+                  {submitAttempted && fieldErrors.phone && <p className="text-red-500 text-xs mt-1">{fieldErrors.phone}</p>}
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Delivery Address *</label>
+                  <input
+                    name="address"
+                    value={formData.address}
+                    onChange={handleInputChange}
+                    placeholder="e.g., Ngong Road, Greenhouse, 4th Floor"
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${submitAttempted && fieldErrors.address ? 'border-red-500' : 'border-gray-300'}`}
+                  />
+                  {submitAttempted && fieldErrors.address && <p className="text-red-500 text-xs mt-1">{fieldErrors.address}</p>}
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Delivery Notes (optional)</label>
+                  <textarea
+                    name="deliveryNotes"
+                    value={formData.deliveryNotes}
+                    onChange={handleInputChange}
+                    placeholder="Any special instructions for delivery?"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                    rows={2}
                   />
                 </div>
               </div>
-            </section>
+            </div>
 
-            <section>
-              <div className="flex items-center gap-4 mb-8">
-                <span className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs">2</span>
-                <h2 className="md:text-lg text-sm uppercase tracking-wider font-light">Shipping Details</h2>
-              </div>
-              <div className="space-y-6">
-                <div className="p-4 bg-stone-50 border border-stone-100 text-xs uppercase tracking-tighter text-stone-500 flex justify-between">
-                  <span>Current Region</span>
-                  <span className="font-semibold text-blue-700">Nairobi, Kenya</span>
-                </div>
-                <FloatingInput 
-                  label="Street Address / Apartment / Suite" 
-                  name="address" 
-                  value={formData.address} 
-                  onChange={handleInputChange} 
-                  placeholder="Ngong Road, Greenhouse, 4th Floor"
-                  error={submitAttempted ? fieldErrors.address : undefined}
-                  required
-                />
-                <textarea
-                  name="deliveryNotes"
-                  value={formData.deliveryNotes}
-                  onChange={handleInputChange}
-                  placeholder="Notes for our courier (optional)"
-                  className="w-full bg-transparent border-b border-stone-200 py-3 focus:border-blue-700 outline-none transition-colors resize-none text-sm min-h-[100px]"
-                />
-              </div>
-            </section>
-
-            <section>
-              <div className="flex items-center gap-4 mb-8">
-                <span className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs">3</span>
-                <h2 className="md:text-lg text-sm uppercase tracking-wider font-light">Payment Method</h2>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <PaymentOption 
-                  active={formData.paymentMethod === 'mobile'} 
+            {/* Step 2: Payment */}
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs">2</span>
+                Payment Method
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <PaymentOption
+                  active={formData.paymentMethod === 'mobile'}
                   onClick={() => setFormData(p => ({...p, paymentMethod: 'mobile'}))}
-                  icon={<Smartphone size={20} />}
-                  title="Mobile Money"
-                  subtitle="M-Pesa / Airtel Money"
+                  icon={<Smartphone size={24} />}
+                  title="M-Pesa"
+                  subtitle="Pay with mobile money"
                 />
-                <PaymentOption 
-                  active={formData.paymentMethod === 'cash'} 
+                <PaymentOption
+                  active={formData.paymentMethod === 'cash'}
                   onClick={() => setFormData(p => ({...p, paymentMethod: 'cash'}))}
-                  icon={<Banknote size={20} />}
-                  title="Pay Cash"
-                  subtitle="Pay upon delivery"
-                />
-                <PaymentOption 
-                  active={formData.paymentMethod === 'card'} 
-                  onClick={() => setFormData(p => ({...p, paymentMethod: 'card'}))}
-                  icon={<CreditCard size={20} />}
-                  title="Card Payment"
-                  subtitle="Visa / Mastercard"
+                  icon={<Banknote size={24} />}
+                  title="Cash on Delivery"
+                  subtitle="Pay when you receive"
                 />
               </div>
-            </section>
+            </div>
           </div>
 
-          {/* RIGHT: Summary – unchanged layout */}
+          {/* RIGHT: Order Summary */}
           <div className="lg:col-span-5">
-            <div className="sticky top-32 bg-white border border-stone-100 p-8 lg:p-12 shadow-sm">
-              <h2 className="text-xs uppercase tracking-[0.3em] text-stone-400 mb-8">Order Summary</h2>
+            <div className="sticky top-32 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h2 className="text-lg font-bold text-gray-900 mb-6">Your Order</h2>
               
-              <div className="space-y-6 mb-10 max-h-[40vh] overflow-y-auto pr-2 custom-scrollbar">
+              <div className="space-y-4 mb-6 max-h-[30vh] overflow-y-auto">
                 {displayItems.map(item => (
-                  <div key={item.cartItemId} className="flex gap-4 items-center">
-                    <div className="w-16 aspect-square bg-stone-50 overflow-hidden flex-shrink-0">
-                      <img src={item.product.image} alt="" className="w-full h-full object-cover grayscale-[0.2]" />
+                  <div key={item.cartItemId} className="flex gap-3 items-center">
+                    <div className="w-12 h-12 bg-gray-50 rounded-lg overflow-hidden flex-shrink-0">
+                      <img src={item.product.image} alt="" className="w-full h-full object-cover" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-xs uppercase font-medium tracking-wider">{item.product.name}</h4>
-                      <p className="text-xs text-stone-400">
-                        {item.selectedVariant 
-                          ? `Qty ${item.quantity} × ${item.selectedVariant.size} – KSh ${item.selectedVariant.price.toLocaleString()}` 
-                          : `Qty ${item.quantity} × KSh ${item.product.price ?? 0}`}
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-sm font-medium text-gray-900 truncate">{item.product.name}</h4>
+                      <p className="text-xs text-gray-500">
+                        Qty: {item.quantity}
+                        {item.selectedVariant && ` × ${item.selectedVariant.size}`}
                       </p>
                     </div>
-                    <span className="text-sm font-light">
+                    <span className="text-sm font-semibold text-gray-900">
                       KSh {((item.selectedVariant ? item.selectedVariant.price : (item.product.price ?? 0)) * item.quantity).toLocaleString()}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="space-y-4 pt-8 border-t border-stone-100 text-sm">
-                <div className="flex justify-between font-light text-stone-500">
+              <div className="space-y-3 pt-6 border-t border-gray-100">
+                <div className="flex justify-between text-gray-600">
                   <span>Subtotal</span>
                   <span>KSh {displayTotalPrice.toLocaleString()}</span>
                 </div>
-                <div className="flex justify-between font-light text-stone-500">
-                  <span>Delivery</span>
+                <div className="flex justify-between text-gray-600">
+                  <span>Delivery Fee</span>
                   <span>KSh {deliveryFee.toLocaleString()}</span>
                 </div>
-                <div className="flex justify-between text-lg font-medium pt-4">
-                  <span className="uppercase tracking-widest text-xs self-center">Total</span>
-                  <span>KSh {displayGrandTotal.toLocaleString()}</span>
+                <div className="flex justify-between text-xl font-bold pt-4 border-t border-gray-100">
+                  <span>Total</span>
+                  <span className="text-blue-700">KSh {displayGrandTotal.toLocaleString()}</span>
                 </div>
               </div>
 
               {error && (
-                <div className="mt-6 flex gap-2 text-red-600 text-xs items-center bg-red-50 p-3">
-                  <AlertCircle size={14} /> {error}
+                <div className="mt-4 flex gap-2 text-red-600 text-sm items-center bg-red-50 p-3 rounded-lg">
+                  <AlertCircle size={16} /> {error}
                 </div>
               )}
 
               <button
                 onClick={processPayment}
                 disabled={loading || displayItems.length === 0}
-                className="mt-8 w-full bg-blue-700 text-white py-5 uppercase tracking-[0.3em] text-sm font-bold hover:bg-blue-800 transition-all disabled:opacity-50 flex items-center justify-center gap-3"
+                className="mt-6 w-full bg-blue-700 text-white py-4 text-base font-bold rounded-lg hover:bg-blue-800 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
               >
-                {loading 
-                  ? 'Processing...' 
-                  : `Pay — KSh ${displayGrandTotal.toLocaleString()}`
-                }
+                {loading ? 'Processing...' : `Pay KSh ${displayGrandTotal.toLocaleString()}`}
               </button>
               
-              <div className="mt-6 flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest text-stone-400">
-                <Lock size={12} /> Encrypted & Secure Payment
+              <div className="mt-4 flex items-center justify-center gap-2 text-xs text-gray-400">
+                <Lock size={14} /> Secure payment powered by Paystack
               </div>
             </div>
           </div>
@@ -453,21 +462,19 @@ function CheckoutContent() {
   );
 }
 
-// Updated FloatingInput with error support — style unchanged
-function FloatingInput({ label, error, required, className = '', ...props }: any) {
+// Simple input component
+function SimpleInput({ label, error, required, className = '', ...props }: any) {
   return (
-    <div className="flex flex-col border-b border-stone-200 py-2 focus-within:border-blue-700 transition-colors">
-      <label className="text-[10px] uppercase tracking-[0.2em] text-stone-400 mb-1">
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-1">
         {label}{required && <span className="text-red-500 ml-1">*</span>}
       </label>
-      <input 
-        {...props} 
-        className={`bg-transparent outline-none text-sm placeholder:text-stone-200 ${className}`}
-        aria-invalid={!!error}
-        aria-describedby={error ? `${props.name}-error` : undefined}
+      <input
+        {...props}
+        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${error ? 'border-red-500' : 'border-gray-300'} ${className}`}
       />
       {error && (
-        <p id={`${props.name}-error`} className="text-[10px] text-red-600 mt-1">
+        <p className="text-red-500 text-xs mt-1">
           {error}
         </p>
       )}
@@ -475,19 +482,19 @@ function FloatingInput({ label, error, required, className = '', ...props }: any
   );
 }
 
-// PaymentOption unchanged
+// Payment option component
 function PaymentOption({ active, onClick, icon, title, subtitle }: any) {
   return (
     <button
       onClick={onClick}
-      className={`flex items-start gap-4 p-5 border transition-all text-left ${
-        active ? 'border-blue-700 bg-stone-50' : 'border-stone-100 hover:border-stone-300'
+      className={`flex items-center gap-4 p-4 border-2 rounded-xl transition-all text-left ${
+        active ? 'border-blue-700 bg-blue-50' : 'border-gray-200 hover:border-blue-300'
       }`}
     >
-      <div className={`${active ? 'text-blue-700' : 'text-stone-300'}`}>{icon}</div>
+      <div className={`${active ? 'text-blue-700' : 'text-gray-400'}`}>{icon}</div>
       <div>
-        <p className="text-xs uppercase tracking-wider font-semibold">{title}</p>
-        <p className="text-[10px] text-stone-400 mt-1">{subtitle}</p>
+        <p className="font-semibold text-gray-900">{title}</p>
+        <p className="text-xs text-gray-500">{subtitle}</p>
       </div>
     </button>
   );

@@ -1,133 +1,105 @@
 'use client';
 
-import { Phone, Mail, MessageSquare, ArrowUpRight } from 'lucide-react';
-import { motion, Variants } from 'framer-motion';
-import Image from 'next/image';
+import { Phone, Mail, MessageCircle, HelpCircle } from 'lucide-react';
+import Link from 'next/link';
 
-const customEase: [number, number, number, number] = [0.19, 1, 0.22, 1];
+const faqs = [
+  {
+    question: "How do I place an order?",
+    answer: "Browse our parts, add items to your cart, and checkout. You can pay via M-Pesa using Till Number 213528. We'll deliver to your location in Nairobi."
+  },
+  {
+    question: "What areas do you deliver to?",
+    answer: "We deliver across Nairobi and its environs. Delivery fees vary by location. Contact us on WhatsApp for exact delivery charges to your area."
+  },
+  {
+    question: "How long does delivery take?",
+    answer: "Most orders are delivered within 2-4 hours within Nairobi CBD. For other areas, delivery typically takes 1-2 business days."
+  },
+  {
+    question: "Do you sell genuine auto parts?",
+    answer: "Yes! We stock quality genuine and OEM parts for all vehicle makes. All our products come with a quality guarantee."
+  },
+  {
+    question: "Can I return a part if it doesn't fit?",
+    answer: "Yes, you can return unused parts in their original packaging within 7 days of delivery. Please contact us first to arrange a return."
+  },
+  {
+    question: "How do I track my order?",
+    answer: "Once your order is dispatched, you'll receive a tracking link via SMS or WhatsApp. You can also check your order status in the 'My Orders' section of your account."
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer: "We accept M-Pesa payments to Till Number 213528. We also accept cash on delivery for select locations."
+  },
+  {
+    question: "Do you offer bulk discounts?",
+    answer: "Yes! We offer special pricing for bulk orders. Contact us on WhatsApp or call us directly to discuss your requirements."
+  }
+];
 
-export default function ContactUs() {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: customEase } },
-  };
-
+export default function HelpCenter() {
   return (
-    <section className="bg-[#FDFDFD] py-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        
-       
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero */}
+      <section className="bg-blue-700 text-white py-16">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <HelpCircle size={48} className="mx-auto mb-4 text-blue-200" />
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">How Can We Help?</h1>
+          <p className="text-blue-100 text-lg mb-8">Find answers to common questions or get in touch with us directly.</p>
           
-          {/* Left: Contact Methods */}
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="lg:col-span-5 space-y-12"
-          >
-            <div className="space-y-8">
-              <ContactLink 
-                icon={<Phone size={18} strokeWidth={1} />}
-                label="Direct Line"
-                value="+254 703 699703"
-                href="tel:+254 703 699703"
-              />
-              <ContactLink 
-                icon={<Mail size={18} strokeWidth={1} />}
-                label="Email Correspondence"
-                value="Pattymwapat@gmail.com"
-                href="mailto:Pattymwapat@gmail.com"
-              />
-              <ContactLink 
-                icon={<MessageSquare size={18} strokeWidth={1} />}
-                label="WhatsApp Concierge"
-                value="+254 703 699703"
-                href="https://wa.me/+254 703 699703"
-              />
-            </div>
+          {/* Quick Contact Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a href="tel:+254712345678" className="flex items-center gap-2 bg-white text-blue-700 px-6 py-3 rounded-full font-bold hover:bg-blue-50 transition">
+              <Phone size={18} /> Call Us
+            </a>
+            <a href="https://wa.me/254712345678" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-full font-bold hover:bg-green-500 transition">
+              <MessageCircle size={18} /> WhatsApp
+            </a>
+            <a href="mailto:pattywapat@gmail.com" className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-500 transition">
+              <Mail size={18} /> Email Us
+            </a>
+          </div>
+        </div>
+      </section>
 
-            {/* Premium Call to Action */}
-            <motion.div variants={itemVariants} className="pt-12 border-t border-stone-100">
-              <p className="text-xs uppercase tracking-[0.2em] text-stone-400 mb-6">Immediate Support</p>
-              <a
-                href="https://wa.me/+254 703 699703"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-6 group"
-              >
-                <div className="w-16 h-16 rounded-full border bg-blue-700  border-stone-200 flex items-center justify-center group-hover:bg-white group-hover:border-stone-400 transition-all duration-500">
-                  <ArrowUpRight className="text-white group-hover:text-stone-400 transition-colors" size={24} strokeWidth={1} />
+      {/* FAQ Section */}
+      <section className="max-w-4xl mx-auto px-4 py-12">
+        <h2 className="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+              <details className="group">
+                <summary className="flex items-center justify-between p-5 cursor-pointer list-none">
+                  <span className="font-semibold text-gray-900">{faq.question}</span>
+                  <span className="transition group-open:rotate-180">
+                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                  </span>
+                </summary>
+                <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed">
+                  {faq.answer}
                 </div>
-                <div>
-                  <span className="block text-sm font-medium text-stone-900 uppercase tracking-widest">Start a conversation</span>
-                  <span className="text-[10px] text-stone-400 uppercase tracking-widest">Response time: &lt; 15 mins</span>
-                </div>
-              </a>
-            </motion.div>
-          </motion.div>
-
-          {/* Right: Immersive Visual */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: [0.19, 1, 0.22, 1] }}
-            className="lg:col-span-7 relative"
-          >
-            <div className="relative aspect-[3/2] md:aspect-[16/10] overflow-hidden ">
-              <Image
-                src="/images/Contact-us.svg"
-                alt="Pattymwapat Autospares"
-                fill
-                className="object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-1000"
-              />
-              <div className="absolute inset-0 bg-stone-900/10" />
+              </details>
             </div>
-            {/* Floating Info Tag */}
-            <div className="absolute -bottom-8 -left-8 bg-white p-10 hidden md:block shadow-xl">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-stone-400 mb-2">Our Location</p>
-              <p className="text-sm font-medium text-stone-900 uppercase tracking-widest">Nairobi, Kenya</p>
-            </div>
-          </motion.div>
+          ))}
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
 
-function ContactLink({ icon, label, value, href }: { icon: any, label: string, value: string, href: string }) {
-  return (
-    <motion.div 
-      variants={{
-        hidden: { opacity: 0, x: -20 },
-        visible: { opacity: 1, x: 0 }
-      }}
-      className="group"
-    >
-      <a href={href} className="flex items-start gap-6">
-        <div className="mt-1 text-stone-400 group-hover:text-stone-900 transition-colors">
-          {icon}
+      {/* Still Need Help */}
+      <section className="bg-blue-700 py-12">
+        <div className="max-w-4xl mx-auto px-4 text-center text-white">
+          <h2 className="text-2xl font-bold mb-4">Still Need Help?</h2>
+          <p className="text-blue-100 mb-6">Can't find what you're looking for? Our team is here to help you.</p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a href="https://wa.me/254712345678" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-green-600 text-white font-bold rounded-full hover:bg-green-500 transition flex items-center gap-2">
+              <MessageCircle size={18} /> Chat on WhatsApp
+            </a>
+            <a href="tel:+254712345678" className="px-6 py-3 bg-white text-blue-700 font-bold rounded-full hover:bg-blue-50 transition flex items-center gap-2">
+              <Phone size={18} /> Call +254 712 345 678
+            </a>
+          </div>
         </div>
-        <div>
-          <span className="block text-[9px] uppercase tracking-[0.3em] text-stone-400 mb-1">{label}</span>
-          <span className="text-lg font-light tracking-tight text-stone-900 group-hover:tracking-wider transition-all duration-500">
-            {value}
-          </span>
-        </div>
-      </a>
-    </motion.div>
+      </section>
+    </div>
   );
 }

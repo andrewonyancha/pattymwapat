@@ -129,12 +129,10 @@ export default function Header() {
   }, [showMobileProfileDropdown]);
 
   const menuItems = [
-    { label: "Categories", href: "/shop", hasDropdown: true, icon: IoIosApps },
     { label: "Shop", href: "/shop", icon: FaShopify },
-    { label: "More products", href: "/more-products", icon: GiWrench },
-    { label: "Special Offers", href: "/special-offers", icon: HiMiniGift },
-    { label: "About Us", href: "/about", icon: Car },
-    { label: "Help Center", href: "/help-center", icon: RiCustomerService2Fill },
+    { label: "Categories", href: "/shop", hasDropdown: true, icon: IoIosApps },
+    { label: "About", href: "/about", icon: Car },
+    { label: "Help", href: "/help-center", icon: RiCustomerService2Fill },
   ];
 
   useEffect(() => {
@@ -222,13 +220,13 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Search */}
-          <div className="flex-1 max-w-2xl mx-8">
-            <form onSubmit={handleSearch} className="relative">
+          {/* Search + CTA */}
+          <div className="flex-1 flex items-center gap-4 mx-8">
+            <form onSubmit={handleSearch} className="flex-1 relative">
               <input
                 type="text"
-                placeholder="Search auto parts, brakes, filters..."
-                className="w-full pl-5 pr-12 py-3 bg-stone-100 rounded-full text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-400 transition-all"
+                placeholder="What part do you need?"
+                className="w-full pl-5 pr-12 py-3 bg-stone-100 rounded-full text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-400 transition-all"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
@@ -237,10 +235,16 @@ export default function Header() {
                 <Search size={22} />
               </button>
             </form>
+            <Link
+              href="/shop"
+              className="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-blue-700 text-white text-sm font-bold rounded-full hover:bg-blue-800 transition shadow-md whitespace-nowrap"
+            >
+              Shop Now
+            </Link>
           </div>
 
           {/* User + Cart */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6">
             {!isLoading && !user ? (
               <Link href="/account/login" className="text-gray-600 hover:text-blue-700 transition" title="Sign in">
                 <User size={24} strokeWidth={1.8} />
@@ -583,49 +587,47 @@ export default function Header() {
             </div>
 
             <nav className="flex-1 px-2 py-2 overflow-y-auto">
-              {menuItems.map((item, index) => (
-                <div key={item.label}>
-                  {item.label === "Categories" ? (
-                    <>
-                      <div className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 bg-gray-50  mx-2 mt-2">
-                        <item.icon size={18} className="text-blue-700" />
-                        {item.label}
-                      </div>
-                      <div className="pl-6 pr-2 mt-1 mb-4">
-                        {categories.map((cat) => {
-                          const Icon = cat.icon;
-                           
-                          // Regular main categories (clickable)
-                          return (
-                            <Link
-                              key={cat.slug}
-                              href={`/shop?category=${cat.name}`}
-                              className={`flex items-center gap-3 px-5 py-2.5 text-[15px] hover:text-blue-700 hover:bg-blue-50  transition-colors ${
-                                cat.isSubcategory ? 'pl-12 text-stone-600' : 'text-gray-700'
-                              }`}
-                              onClick={closeMobileMenu}
-                            >
-                              <Icon size={cat.isSubcategory ? 16 : 18} className={cat.isSubcategory ? 'text-stone-500' : 'text-blue-600'} />
-                              {cat.name}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </>
-                  ) : (
+              {/* Quick Shop Button */}
+              <Link
+                href="/shop"
+                className="flex items-center justify-center gap-2 mx-4 mt-4 mb-4 px-6 py-3 bg-blue-700 text-white font-bold rounded-full text-base"
+                onClick={closeMobileMenu}
+              >
+                <FaShopify size={18} />
+                Shop All Parts
+              </Link>
+
+              {/* Simple category list */}
+              <div className="px-4 space-y-1">
+                {categories.map((cat) => {
+                  const Icon = cat.icon;
+                  return (
                     <Link
-                      href={item.href}
-                      className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 hover:bg-blue-50 hover:text-blue-700  transition-colors"
+                      key={cat.slug}
+                      href={`/shop?category=${cat.name}`}
+                      className="flex items-center gap-3 px-4 py-3 text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-colors"
                       onClick={closeMobileMenu}
                     >
-                      <item.icon size={16} className="text-blue-700" />
-                      {item.label}
+                      <Icon size={20} className="text-blue-600" />
+                      {cat.name}
                     </Link>
-                  )}
-                  {index < menuItems.length - 1 && (
-                    <div className="mx-5 my-2 h-px bg-gray-200" />
-                  )}
-                </div>
+                  );
+                })}
+              </div>
+
+              <div className="mx-5 my-4 h-px bg-gray-200" />
+
+              {/* Other links */}
+              {menuItems.filter(item => item.label !== 'Categories' && item.label !== 'Shop').map((item, index) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 hover:bg-blue-50 hover:text-blue-700 transition-colors"
+                  onClick={closeMobileMenu}
+                >
+                  <item.icon size={18} className="text-blue-700" />
+                  {item.label}
+                </Link>
               ))}
             </nav>
 

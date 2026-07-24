@@ -3,337 +3,153 @@ import { products } from './shop/products';
 import ProductCard from '@/app/components/shop/ProductCard';
 import Link from 'next/link';
 import Image from 'next/image';
-import { GiShoppingCart } from 'react-icons/gi';
-import { Quote, Star, Truck, Wrench, Car, Settings, CircleIcon } from 'lucide-react';
+import { GiShoppingCart, GiCarWheel, GiCarBattery, GiCog, GiCrackedDisc, GiWrench } from 'react-icons/gi';
+import { Quote, Star, Truck, Phone, MessageCircle } from 'lucide-react';
 import { useState, useEffect, useRef, Suspense } from 'react';
-import { GiCarWheel } from "react-icons/gi";
-import { GiCarBattery } from "react-icons/gi";
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaShopify } from 'react-icons/fa';
-import { GiFullMotorcycleHelmet } from "react-icons/gi";
-import { FaShoppingBasket } from "react-icons/fa";
-import { TbEngine } from 'react-icons/tb';
 
-
-
-// Categories & Special Offers
+// Simplified categories for homepage
 const categories = [
-  { id: 1, name: 'Engine Parts', icon: <TbEngine className="w-8 h-8" /> },
-  { id: 2, name: 'Brake Systems', icon: <CircleIcon className="w-8 h-8" /> },
-  { id: 3, name: 'Tires & Wheels', icon: <GiCarWheel className="w-8 h-8" /> },
-  { id: 4, name: 'Electrical', icon: <GiCarBattery className="w-8 h-8" /> },
-];
-
-const specialOffers = [
-  { id: 1, name: 'New Customer', icon: <FaShoppingBasket className="w-8 h-8" />, discount: '10% OFF' },
-  { id: 2, name: 'Bulk Orders', icon: <FaShopify className="w-8 h-8" />, discount: 'FREE Delivery' },
-  { id: 3, name: 'Express Delivery', icon: <GiFullMotorcycleHelmet className="w-8 h-8" />, discount: '24/7 Service' },
-  { id: 4, name: 'Quality Parts', icon: <Wrench className="w-8 h-8" />, discount: 'Genuine Parts' },
+  { id: 1, name: 'Engine Parts', icon: GiCog, description: 'Engines, gaskets & timing' },
+  { id: 2, name: 'Brake Systems', icon: GiCrackedDisc, description: 'Pads, discs & fluid' },
+  { id: 3, name: 'Tires & Wheels', icon: GiCarWheel, description: 'Tires, rims & caps' },
+  { id: 4, name: 'Electrical', icon: GiCarBattery, description: 'Batteries, starters & lights' },
+  { id: 5, name: 'Filters', icon: GiWrench, description: 'Oil, air & fuel filters' },
+  { id: 6, name: 'Body Parts', icon: GiWrench, description: 'Bumpers, mirrors & lights' },
 ];
 
 const testimonials = [
   {
     name: "James Kariuki",
-    role: "Car Owner",
-    text: "Pattymwapat Autospares has all the parts I need at fair prices. Fast delivery across Nairobi!",
-    image: "/images/Contact-us.svg"
+    role: "Car Owner, Nairobi",
+    text: "Found exactly what I needed for my Toyota. Fast delivery and fair prices!",
   },
   {
     name: "Sarah Wanjiku",
-    role: "Mechanic",
-    text: "Reliable parts and excellent service. They never disappoint when I need urgent replacements.",
-    image: "/images/Contact-us.svg"
+    role: "Mechanic, Westlands",
+    text: "Reliable parts and excellent service. They deliver right to my workshop.",
   },
   {
     name: "David Ochieng",
-    role: "Fleet Manager",
-    text: "Best auto parts supplier in Nairobi. Quality products and professional support every time.",
-    image: "/images/Contact-us.svg"
+    role: "Fleet Manager, Industrial Area",
+    text: "Best auto parts supplier in Nairobi. Quality products every time.",
   }
 ];
 
 export default function AutoPartsLandingPage() {
+  // Get first 4 products from each main category
+  const popularEngineParts = products.filter(p => p.category === 'Engine Parts').slice(0, 4);
+  const popularBrakeSystems = products.filter(p => p.category === 'Brake Systems').slice(0, 4);
+  const featuredElectrical = products.filter(p => p.category === 'Electrical').slice(0, 4);
+  const featuredTiresWheels = products.filter(p => p.category === 'Tires & Wheels').slice(0, 4);
+  const accessoriesProducts = products.filter(p => p.category === 'Accessories').slice(0, 4);
 
-  // Get first 4 products from Engine Parts category
-  const popularEngineParts = products
-    .filter(product => product.category === 'Engine Parts')
-    .slice(0, 4);
-
-  // Get first 4 products from Brake Systems category
-  const popularBrakeSystems = products
-    .filter(product => product.category === 'Brake Systems')
-    .slice(0, 4);
-
-  // Get first 4 products from Electrical category
-  const featuredElectrical = products
-    .filter(product => product.category === 'Electrical')
-    .slice(0, 4);
-
-  // Get first 4 products from Tires & Wheels category
-  const featuredTiresWheels = products
-    .filter(product => product.category === 'Tires & Wheels')
-    .slice(0, 4);
-
-  // Get first 4 products from "Other" category
-  const otherProducts = products
-    .filter(product => product.category === 'Other')
-    .slice(0, 4);
-
-  // Get first 4 products from Accessories
-  const accessoriesProducts = products
-    .filter(product => product.category === 'Accessories')
-    .slice(0, 4);
-
-  const [activeIndex] = useState(0);
-  
   // Testimonial carousel state
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   const activeTestimonial = testimonials[testimonialIndex];
 
-  // Auto-rotate logic for testimonials
+  // Auto-rotate testimonials
   useEffect(() => {
     const startInterval = () => {
       intervalRef.current = setInterval(() => {
         setTestimonialIndex((prev) => (prev + 1) % testimonials.length);
-      }, 6000);
+      }, 5000);
     };
-
     startInterval();
-
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
   }, [testimonials.length]);
-
-  // Pause on hover over avatar area
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleMouseEnter = () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-
-    const handleMouseLeave = () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      intervalRef.current = setInterval(() => {
-        setTestimonialIndex((prev) => (prev + 1) % testimonials.length);
-      }, 6000);
-    };
-
-    container.addEventListener('mouseenter', handleMouseEnter);
-    container.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      container.removeEventListener('mouseenter', handleMouseEnter);
-      container.removeEventListener('mouseleave', handleMouseLeave);
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [testimonials.length]);
-
-  const handleTestimonialClick = (index: number) => {
-    setTestimonialIndex(index);
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      setTestimonialIndex((prev) => (prev + 1) % testimonials.length);
-    }, 6000);
-  };
-
-  // Mobile rotating phrases
-  const mobilePhrases = [
-    { text: "Pattymwapat", icon: null, color: "text-orange-700", isMain: true },
-    { text: "Auto Parts", icon: <Car className="w-12 h-12" />, color: "text-blue-700", isMain: false },
-    { text: "Delivery", icon: <GiFullMotorcycleHelmet className="w-10 h-10" />, color: "text-black", isMain: false },
-  ];
-
-  const [mobileIndex, setMobileIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setMobileIndex((prev) => (prev + 1) % mobilePhrases.length);
-    }, 3800);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Desktop rotating message sets
-  const desktopSets = [
-    ["Pattymwapat", "Quality", "Auto Parts"],
-    ["Genuine", "Parts", "Nairobi"],
-    ["Pattymwapat", "Trusted", "Delivered Fast"],
-  ];
-
-  const [setIndex, setSetIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSetIndex((prev) => (prev + 1) % desktopSets.length);
-    }, 9000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const currentWords = desktopSets[setIndex];
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800">
       {/* --- Hero Section --- */}
-      <section className="relative w-full h-[50vh] md:h-[65vh] overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/hero.webp"
-            alt="Auto Parts"
-            fill
-            className="hidden md:block object-center object-contain"
-            priority
-          />
-          <Image
-            src="/hero.webp"
-            alt="Auto Parts"
-            fill
-            className="block md:hidden object-center object-contain"
-            priority
-          />
-          <div className="absolute inset-0 bg-gray-800/30" />
-        </div>
+      <section className="relative w-full bg-blue-700 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 py-16 md:py-24 text-center text-white">
+          <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4">
+            Pattywapat Autospares
+          </h1>
+          <p className="text-lg md:text-xl text-blue-100 mb-2 font-medium">
+            Quality Auto Parts Delivered Across Nairobi
+          </p>
+          <p className="text-sm text-blue-200 mb-8">
+            M-Pesa Till: <span className="font-bold text-white text-lg">213528</span>
+          </p>
 
-        {/* Desktop layout */}
-        <div className="relative z-10 h-full max-w-5xl mx-auto px-4 hidden md:flex flex-row justify-between items-center text-white">
-          <div className="flex flex-col gap-1 mb-4">
-            <AnimatePresence mode="wait">
-              <div key={setIndex} className="flex flex-col gap-1">
-                {currentWords.map((word, i) => (
-                  <motion.div
-                    key={`${setIndex}-${i}`}
-                    initial={{ opacity: 0, x: -120 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -80 }}
-                    transition={{
-                      duration: 0.7,
-                      delay: i * 0.35,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                  >
-                    <h1
-                      className={
-                        i === 0
-                          ? "text-4xl md:text-3xl text-orange-700 font-black uppercase leading-none tracking-[0.05em]"
-                          : i === 1
-                          ? "text-3xl md:text-3xl font-bold text-blue-700 uppercase leading-none opacity-90 tracking-[0.05em]"
-                          : "text-4xl new font-bold text-black leading-none opacity-80"
-                      }
-                    >
-                      {word}
-                    </h1>
-                  </motion.div>
-                ))}
-              </div>
-            </AnimatePresence>
-          </div>
-          <div className="flex flex-col items-end">
-            <div className="bg-white/90 backdrop-blur-sm px-6 py-4  shadow-xl">
-              <p className="text-xs text-gray-600 uppercase tracking-wider font-semibold mb-1">M-Pesa Till</p>
-              <p className="text-3xl md:text-4xl font-black text-blue-700 tracking-tight">213528</p>
-            </div>
-          </div>
+          {/* Big Search Bar */}
           <Link
             href="/shop"
-            className="absolute bottom-8 left-4 w-fit px-8 py-3 bg-blue-700 hover:bg-blue-800 text-base text-white font-bold  transition-all transform  shadow-lg flex items-center gap-2"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-white text-blue-700 font-bold text-lg rounded-full shadow-xl hover:bg-blue-50 transition-all mb-8"
           >
-            Shop Auto Parts <GiShoppingCart size={18} />
+            <GiShoppingCart size={24} />
+            Start Shopping
           </Link>
+
+          {/* Quick Contact */}
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
+            <a href="tel:+254712345678" className="flex items-center gap-2 bg-blue-600 px-4 py-2 rounded-full hover:bg-blue-500 transition">
+              <Phone size={16} /> Call Us
+            </a>
+            <a href="https://wa.me/254712345678" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-green-600 px-4 py-2 rounded-full hover:bg-green-500 transition">
+              <MessageCircle size={16} /> WhatsApp
+            </a>
+          </div>
         </div>
+      </section>
 
-        {/* Mobile layout */}
-        <div className="relative z-10 h-full max-w-5xl mx-auto px-4 flex md:hidden flex-col justify-between text-white">
-          {/* Till number floating at top of image */}
-          <div className="absolute top-1 left-1/2 transform -translate-x-1/2 z-20">
-            <div className="bg-white/90 backdrop-blur-sm px-4 py-0  shadow-lg">
-              <p className="text-sm text-orange-700  tracking-wider font-semibold">Till <span className="text-xl  font-black text-blue-600">213528</span></p>
-             
-            </div>
+      {/* --- How It Works --- */}
+      <section className="max-w-6xl mx-auto px-4 py-12">
+        <h2 className="text-2xl font-bold text-center mb-8">How to Order</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="text-center p-6 bg-blue-50 rounded-2xl">
+            <div className="w-12 h-12 bg-blue-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+            <h3 className="font-bold text-lg mb-2">Browse or Search</h3>
+            <p className="text-gray-600 text-sm">Find the parts you need using categories or the search bar</p>
           </div>
-
-          <div className="flex flex-col items-center text-center gap-0 pt-12">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={mobileIndex}
-                initial={{ opacity: 0, x: 120 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -120 }}
-                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                className={`flex items-center justify-center gap-3 ${mobilePhrases[mobileIndex].color}`}
-              >
-                {/* Icon appears first */}
-                {mobilePhrases[mobileIndex].icon && (
-                  <motion.div
-                    initial={{ opacity: 0, x: 35 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, delay: 0.1 }}
-                  className='pb-3 '
-                  >
-                    {mobilePhrases[mobileIndex].icon}
-                  </motion.div>
-                )}
-
-                {/* Text appears slightly later */}
-                <motion.h1
-                  initial={{ opacity: 0, x: 45 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.7, delay: 0.35 }}
-                  className={`font-black  leading-none tracking-[0.1em] new ${
-                    mobilePhrases[mobileIndex].isMain ? "text-5xl" : "text-4xl"
-                  }`}
-                >
-                  {mobilePhrases[mobileIndex].text}
-                </motion.h1>
-              </motion.div>
-            </AnimatePresence>
+          <div className="text-center p-6 bg-blue-50 rounded-2xl">
+            <div className="w-12 h-12 bg-blue-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+            <h3 className="font-bold text-lg mb-2">Add to Cart</h3>
+            <p className="text-gray-600 text-sm">Select your parts and add them to your shopping cart</p>
           </div>
-
-          <div></div>
-
-          <div className="flex justify-center pb-4">
-            <Link
-              href="/shop"
-              className="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-base text-white font-bold  transition-all transform  shadow-2xl flex items-center gap-2"
-            >
-              Shop Auto Parts <GiShoppingCart size={18} />
-            </Link>
+          <div className="text-center p-6 bg-blue-50 rounded-2xl">
+            <div className="w-12 h-12 bg-blue-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+            <h3 className="font-bold text-lg mb-2">Checkout & Deliver</h3>
+            <p className="text-gray-600 text-sm">Pay via M-Pesa and get your parts delivered anywhere in Nairobi</p>
           </div>
         </div>
       </section>
 
       {/* --- Popular Categories --- */}
-      <section className="max-w-7xl mx-auto px-2 py-12">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap newn ">Popular Categories</h2>
-          <div className="h-px w-full bg-stone-200" />
+      <section className="max-w-6xl mx-auto px-4 py-12">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl font-bold">Shop by Category</h2>
+          <Link href="/shop" className="text-blue-700 font-medium hover:underline text-sm">View All Categories →</Link>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {categories.map((cat) => (
             <Link
               key={cat.id}
               href={`/shop?category=${cat.name}`}
-              className="border border-blue-200 bg-blue-50 hover:border-blue-500 group transition-all  p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
+              className="border-2 border-blue-100 bg-white hover:border-blue-500 hover:shadow-lg rounded-xl p-4 flex flex-col items-center gap-2 transition-all text-center"
             >
-              <div className="text-blue-800/50 group-hover:scale-110 transition-transform">
-                {cat.icon}
+              <div className="text-blue-700">
+                <cat.icon size={32} />
               </div>
-              <span className="text-sm font-medium text-center">{cat.name}</span>
+              <span className="font-bold text-sm">{cat.name}</span>
+              <span className="text-xs text-gray-500">{cat.description}</span>
             </Link>
           ))}
         </div>
       </section>
 
       {/* --- Popular Engine Parts --- */}
-      <section className="max-w-7xl mx-auto px-2 py-12">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Popular Engine Parts</h2>
-          <div className="h-px w-full bg-stone-200" />
+      <section className="max-w-6xl mx-auto px-4 py-12 bg-gray-50">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold">Engine Parts</h2>
+          <Link href="/shop?category=Engine Parts" className="text-blue-700 font-medium hover:underline text-sm">View All →</Link>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
             {popularEngineParts.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
@@ -341,22 +157,14 @@ export default function AutoPartsLandingPage() {
           </Suspense>
         </div>
       </section>
-      <div className="flex justify-center md:justify-end ">
-          <Link
-            href="/shop?category=Engine Parts"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
-          >
-            View All Engine Parts <GiShoppingCart size={16} />
-          </Link>
-        </div>
 
       {/* --- Popular Brake Systems --- */}
-      <section className="max-w-7xl mx-auto px-2 py-12">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Popular Brake Systems</h2>
-          <div className="h-px w-full bg-stone-200" />
+      <section className="max-w-6xl mx-auto px-4 py-12">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold">Brake Systems</h2>
+          <Link href="/shop?category=Brake Systems" className="text-blue-700 font-medium hover:underline text-sm">View All →</Link>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
             {popularBrakeSystems.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
@@ -364,254 +172,108 @@ export default function AutoPartsLandingPage() {
           </Suspense>
         </div>
       </section>
-      <div className="flex justify-center md:justify-end">
-          <Link
-            href="/shop?category=Brake Systems"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
-          >
-            View All Brake Systems <GiShoppingCart size={18} />
-          </Link>
-        </div>
-
-      {/* --- Special Offers --- */}
-      <section className="max-w-7xl mx-auto px-2 py-12">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Special Offers</h2>
-          <div className="h-px w-full bg-stone-200" />
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {specialOffers.map((offer) => (
-            <div
-              key={offer.id}
-              className="border border-blue-200 bg-blue-50 hover:border-blue-500 group transition-all  p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
-            >
-              <div className="text-blue-800/50 group-hover:scale-110 transition-transform">
-                {offer.icon}
-              </div>
-              <div className="text-center">
-                <span className="text-sm font-medium block">{offer.name}</span>
-                <span className="text-xs text-blue-800 font-bold mt-1">{offer.discount}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-      </section>
 
       {/* --- Featured Electrical --- */}
-      <section className="max-w-7xl mx-auto px-2 py-12">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Featured Electrical</h2>
-          <div className="h-px w-full bg-stone-200" />
+      <section className="max-w-6xl mx-auto px-4 py-12 bg-gray-50">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold">Electrical Parts</h2>
+          <Link href="/shop?category=Electrical" className="text-blue-700 font-medium hover:underline text-sm">View All →</Link>
         </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
             {featuredElectrical.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
             ))}
           </Suspense>
         </div>
-
-        <div className="flex justify-center md:justify-end">
-          <Link
-            href="/shop?category=Electrical"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
-          >
-            View All Electrical <GiShoppingCart size={18} />
-          </Link>
-        </div>
       </section>
 
       {/* --- Featured Tires & Wheels --- */}
-      <section className="max-w-7xl mx-auto px-2 py-12">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Featured Tires & Wheels</h2>
-          <div className="h-px w-full bg-stone-200" />
+      <section className="max-w-6xl mx-auto px-4 py-12">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold">Tires & Wheels</h2>
+          <Link href="/shop?category=Tires & Wheels" className="text-blue-700 font-medium hover:underline text-sm">View All →</Link>
         </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
             {featuredTiresWheels.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
             ))}
           </Suspense>
         </div>
-
-        <div className="flex justify-center md:justify-end">
-          <Link
-            href="/shop?category=Tires & Wheels"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
-          >
-            View All Tires & Wheels <GiShoppingCart size={18} />
-          </Link>
-        </div>
-      </section>
-
-      {/* ===== TESTIMONIAL ===== */}
-      <section className="max-w-7xl mx-2 py-0">
-        <div className="flex items-center gap-4 md:mb-8">
-         
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Customer Feedback</h2>
-          <div className="h-px w-full bg-stone-200" />
-        </div>
-        
-        <div className="flex flex-col md:px-4 md:flex-row gap-12 md:gap-20 items-center md:py-2">
-          <div className="md:w-2/5">
-            <h2 className="hidden md:block font-serif text-lg mt-3 mb-6 text-[#364735]">
-              Not reviews.
-              <span className="italic block font-light">Conversations.</span>
-            </h2>
-            <p className="hidden md:block text-[#5c6b58] text-lg font-light mb-6">
-              We know most of our customers by name. For the ones we haven't met yet, here's what they tell us.
-            </p>
-            <div className="hidden md:block">
-              <div className="flex gap-2 mt-8">
-                {testimonials.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setTestimonialIndex(idx)}
-                    className={`w-2 h-2  transition-all ${
-                      idx === testimonialIndex ? 'bg-[#3a604a] w-6' : 'bg-[#cad4c2]'
-                    }`}
-                    aria-label={`View testimonial ${idx + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        
-          <div className="md:w-3/5 relative">
-            <div className="relative bg-blue-700 p-4 md:p-12  shadow">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={testimonialIndex}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.5 }}
-                  className="space-y-6"
-                >
-                  <p className="text-sm md:text-lg font-light text-white leading-relaxed">
-                    <span className="absolute top-2 left-2 text-blue-200/20">
-                      <Quote size={64} strokeWidth={0.8} />
-                    </span> "{testimonials[testimonialIndex].text}"
-                  </p>
-                  <div className="flex items-center gap-4 pt-2">
-                    <div className="relative">
-                      <div className="w-16 h-16  border-2 border-white overflow-hidden">
-                        <Image
-                          src={testimonials[testimonialIndex].image}
-                          alt={testimonials[testimonialIndex].name}
-                          width={64}
-                          height={64}
-                          className="object-cover"
-                        />
-                      </div>
-                      <span className="absolute -bottom-1 -right-1 bg-blue-700  w-6 h-6 flex items-center justify-center border-2 border-white">
-                        <Star className="w-3 h-3 text-white fill-white" />
-                      </span>
-                    </div>
-                    <div>
-                      <h4 className="font-serif new text-xl text-black">{testimonials[testimonialIndex].name}</h4>
-                      <p className="text-xs pl-2 uppercase tracking-widest text-white">{testimonials[testimonialIndex].role}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-            
-            <div className="flex md:hidden justify-center gap-3 mt-8">
-              {testimonials.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setTestimonialIndex(idx)}
-                  className={`w-2.5 h-2.5  transition-all ${
-                    idx === testimonialIndex ? 'bg-[#3a604a] w-8' : 'bg-[#cad4c2]'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- Other Products --- */}
-      <section className="max-w-7xl mx-auto px-2 py-12">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Tools & Equipment</h2>
-          <div className="h-px w-full bg-stone-200" />
-        </div>
-        
-        {otherProducts.length > 0 ? (
-          <>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
-              <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
-                {otherProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} view="grid" />
-                ))}
-              </Suspense>
-            </div>
-            
-            <div className="flex justify-center md:justify-end">
-              <Link
-                href="/shop?category=Other"
-                className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
-              >
-                View All Tools <GiShoppingCart size={18} />
-              </Link>
-            </div>
-          </>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-gray-500">No tools available at the moment.</p>
-            <Link
-              href="/shop"
-              className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
-            >
-              Browse All Products
-            </Link>
-          </div>
-        )}
       </section>
 
       {/* --- Accessories --- */}
-      <section className="max-w-7xl mx-auto px-2 py-12">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Accessories</h2>
-          <div className="h-px w-full bg-stone-200" />
+      <section className="max-w-6xl mx-auto px-4 py-12 bg-gray-50">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold">Accessories</h2>
+          <Link href="/shop?category=Accessories" className="text-blue-700 font-medium hover:underline text-sm">View All →</Link>
         </div>
-        
-        {accessoriesProducts.length > 0 ? (
-          <>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
-              <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
-                {accessoriesProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} view="grid" />
-                ))}
-              </Suspense>
-            </div>
-            
-            <div className="flex justify-center md:justify-end">
-              <Link
-                href="/shop?category=Accessories"
-                className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
-              >
-                View All Accessories <GiShoppingCart size={18} />
-              </Link>
-            </div>
-          </>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-gray-500">No accessories available at the moment.</p>
-            <Link
-              href="/shop"
-              className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
+            {accessoriesProducts.map((product) => (
+              <ProductCard key={product.id} product={product} view="grid" />
+            ))}
+          </Suspense>
+        </div>
+      </section>
+
+      {/* --- Customer Reviews --- */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-2xl font-bold text-center mb-10">What Our Customers Say</h2>
+        <div className="bg-blue-700 rounded-2xl p-8 md:p-12 text-white text-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={testimonialIndex}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4 }}
             >
-              Browse All Products
-            </Link>
+              <Quote size={48} className="mx-auto mb-4 text-blue-300" strokeWidth={1} />
+              <p className="text-lg md:text-xl font-light leading-relaxed mb-6 max-w-2xl mx-auto">
+                "{activeTestimonial.text}"
+              </p>
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+                  {activeTestimonial.name.charAt(0)}
+                </div>
+                <div className="text-left">
+                  <p className="font-bold">{activeTestimonial.name}</p>
+                  <p className="text-sm text-blue-200">{activeTestimonial.role}</p>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+          <div className="flex justify-center gap-2 mt-6">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setTestimonialIndex(idx)}
+                className={`h-2 rounded-full transition-all ${
+                  idx === testimonialIndex ? 'bg-white w-8' : 'bg-blue-400 w-2'
+                }`}
+                aria-label={`View testimonial ${idx + 1}`}
+              />
+            ))}
           </div>
-        )}
+        </div>
+      </section>
+
+      {/* --- CTA Section --- */}
+      <section className="bg-blue-700 py-12">
+        <div className="max-w-4xl mx-auto px-4 text-center text-white">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
+          <p className="text-blue-100 mb-8">Browse our full catalog of quality auto parts or get in touch with us directly.</p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link href="/shop" className="px-8 py-3 bg-white text-blue-700 font-bold rounded-full hover:bg-blue-50 transition shadow-lg">
+              Browse All Parts
+            </Link>
+            <a href="https://wa.me/254712345678" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-green-600 text-white font-bold rounded-full hover:bg-green-500 transition shadow-lg flex items-center gap-2">
+              <MessageCircle size={18} /> Chat on WhatsApp
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   );
