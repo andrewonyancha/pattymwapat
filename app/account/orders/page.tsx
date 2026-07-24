@@ -106,7 +106,7 @@ function OrdersContent() {
                   <span className="text-xs uppercase tracking-wider text-stone-500">Order</span>
                   <span className="text-sm font-medium text-stone-900">{order.id?.slice(0, 8).toUpperCase()}</span>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider ${getStatusColor(order.status)}`}>
+                <span className={`px-3 py-1  text-xs font-medium uppercase tracking-wider ${getStatusColor(order.status)}`}>
                   {order.status}
                 </span>
               </div>

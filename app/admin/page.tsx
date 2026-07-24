@@ -1250,7 +1250,7 @@ export default function AdminPage() {
   if (isLoading || !user) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-700"></div>
+        <div className="animate-spin  h-12 w-12 border-b-2 border-blue-700"></div>
       </div>
     );
   }
@@ -1490,7 +1490,7 @@ export default function AdminPage() {
                     <tr>
                       <td colSpan={8} className="px-4 sm:px-6 py-12 text-center">
                         <div className="flex justify-center">
-                          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-700"></div>
+                          <div className="animate-spin  h-8 w-8 border-b-2 border-blue-700"></div>
                         </div>
                       </td>
                     </tr>
@@ -1553,7 +1553,7 @@ export default function AdminPage() {
                         </td>
                         <td className="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
                           <div className="flex flex-col gap-1">
-                            <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${
+                            <span className={`inline-flex items-center gap-1 px-2 py-0.5  text-xs font-medium ${
                               order.paymentMethod === 'cash' ? 'bg-amber-100 text-amber-800' :
                               order.paymentMethod === 'card' ? 'bg-blue-100 text-blue-800' :
                               'bg-purple-100 text-purple-800'
@@ -1609,7 +1609,7 @@ export default function AdminPage() {
                         <td className="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
                           {/* Order Status - Single consolidated view */}
                           <div className="flex flex-col gap-1">
-                            <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${
+                            <span className={`inline-flex items-center gap-1 px-2 py-0.5  text-xs font-medium ${
                               order.status === 'delivered'
                                 ? 'bg-blue-100 text-blue-800'
                                 : order.status === 'dispatched'
@@ -1767,7 +1767,7 @@ export default function AdminPage() {
                 {categoryStats.map(cat => (
                   <span 
                     key={cat.name}
-                    className="inline-flex items-center gap-1 px-3 py-1 bg-white border border-gray-200 rounded-full text-xs sm:text-sm text-gray-600 whitespace-nowrap"
+                    className="inline-flex items-center gap-1 px-3 py-1 bg-white border border-gray-200  text-xs sm:text-sm text-gray-600 whitespace-nowrap"
                   >
                     <span className="font-medium">{cat.name}</span>
                     <span className="text-gray-400">({cat.count})</span>
@@ -1817,7 +1817,7 @@ export default function AdminPage() {
                           </div>
                         </td>
                         <td className="px-4 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
-                          <span className="inline-flex px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                          <span className="inline-flex px-2 py-0.5  text-xs font-medium bg-blue-100 text-blue-800">
                             {product.category}
                           </span>
                         </td>

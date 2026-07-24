@@ -241,7 +241,7 @@ export default function AutoPartsLandingPage() {
           </div>
           <Link
             href="/shop"
-            className="absolute bottom-8 left-4 w-fit px-8 py-3 bg-blue-700 hover:bg-blue-800 text-base text-white font-bold rounded-full transition-all transform  shadow-lg flex items-center gap-2"
+            className="absolute bottom-8 left-4 w-fit px-8 py-3 bg-blue-700 hover:bg-blue-800 text-base text-white font-bold  transition-all transform  shadow-lg flex items-center gap-2"
           >
             Shop Auto Parts <GiShoppingCart size={18} />
           </Link>
@@ -299,7 +299,7 @@ export default function AutoPartsLandingPage() {
           <div className="flex justify-center pb-4">
             <Link
               href="/shop"
-              className="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-base text-white font-bold rounded-full transition-all transform  shadow-2xl flex items-center gap-2"
+              className="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-base text-white font-bold  transition-all transform  shadow-2xl flex items-center gap-2"
             >
               Shop Auto Parts <GiShoppingCart size={18} />
             </Link>
@@ -346,7 +346,7 @@ export default function AutoPartsLandingPage() {
       <div className="flex justify-center md:justify-end ">
           <Link
             href="/shop?category=Engine Parts"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
           >
             View All Engine Parts <GiShoppingCart size={16} />
           </Link>
@@ -369,7 +369,7 @@ export default function AutoPartsLandingPage() {
       <div className="flex justify-center md:justify-end">
           <Link
             href="/shop?category=Brake Systems"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
           >
             View All Brake Systems <GiShoppingCart size={18} />
           </Link>
@@ -418,7 +418,7 @@ export default function AutoPartsLandingPage() {
         <div className="flex justify-center md:justify-end">
           <Link
             href="/shop?category=Electrical"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
           >
             View All Electrical <GiShoppingCart size={18} />
           </Link>
@@ -443,7 +443,7 @@ export default function AutoPartsLandingPage() {
         <div className="flex justify-center md:justify-end">
           <Link
             href="/shop?category=Tires & Wheels"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
           >
             View All Tires & Wheels <GiShoppingCart size={18} />
           </Link>
@@ -473,7 +473,7 @@ export default function AutoPartsLandingPage() {
                   <button
                     key={idx}
                     onClick={() => setTestimonialIndex(idx)}
-                    className={`w-2 h-2 rounded-full transition-all ${
+                    className={`w-2 h-2  transition-all ${
                       idx === testimonialIndex ? 'bg-[#3a604a] w-6' : 'bg-[#cad4c2]'
                     }`}
                     aria-label={`View testimonial ${idx + 1}`}
@@ -501,7 +501,7 @@ export default function AutoPartsLandingPage() {
                   </p>
                   <div className="flex items-center gap-4 pt-2">
                     <div className="relative">
-                      <div className="w-16 h-16 rounded-full border-2 border-white overflow-hidden">
+                      <div className="w-16 h-16  border-2 border-white overflow-hidden">
                         <Image
                           src={testimonials[testimonialIndex].image}
                           alt={testimonials[testimonialIndex].name}
@@ -510,7 +510,7 @@ export default function AutoPartsLandingPage() {
                           className="object-cover"
                         />
                       </div>
-                      <span className="absolute -bottom-1 -right-1 bg-blue-700 rounded-full w-6 h-6 flex items-center justify-center border-2 border-white">
+                      <span className="absolute -bottom-1 -right-1 bg-blue-700  w-6 h-6 flex items-center justify-center border-2 border-white">
                         <Star className="w-3 h-3 text-white fill-white" />
                       </span>
                     </div>
@@ -528,7 +528,7 @@ export default function AutoPartsLandingPage() {
                 <button
                   key={idx}
                   onClick={() => setTestimonialIndex(idx)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                  className={`w-2.5 h-2.5  transition-all ${
                     idx === testimonialIndex ? 'bg-[#3a604a] w-8' : 'bg-[#cad4c2]'
                   }`}
                 />
@@ -555,7 +555,7 @@ export default function AutoPartsLandingPage() {
       <div className="flex justify-center md:justify-end ">
           <Link
             href="/shop?category=Filters"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
           >
             View All Filters <GiShoppingCart size={16} />
           </Link>
@@ -578,7 +578,7 @@ export default function AutoPartsLandingPage() {
       <div className="flex justify-center md:justify-end">
           <Link
             href="/shop?category=Body Parts"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
           >
             View All Body Parts <GiShoppingCart size={18} />
           </Link>

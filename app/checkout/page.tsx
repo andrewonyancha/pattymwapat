@@ -13,7 +13,7 @@ import { saveOrder } from '../lib/firebase/orders';
 
 export default function CheckoutPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-700"></div></div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin  h-8 w-8 border-b-2 border-blue-700"></div></div>}>
       <CheckoutContent />
     </Suspense>
   );
@@ -284,7 +284,7 @@ function CheckoutContent() {
             
             <section>
               <div className="flex items-center gap-4 mb-8">
-                <span className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs">1</span>
+                <span className="w-8 h-8  bg-blue-700 text-white flex items-center justify-center text-xs">1</span>
                 <h2 className="md:text-lg text-sm uppercase tracking-wider font-light">Contact Information</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
@@ -326,7 +326,7 @@ function CheckoutContent() {
 
             <section>
               <div className="flex items-center gap-4 mb-8">
-                <span className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs">2</span>
+                <span className="w-8 h-8  bg-blue-700 text-white flex items-center justify-center text-xs">2</span>
                 <h2 className="md:text-lg text-sm uppercase tracking-wider font-light">Shipping Details</h2>
               </div>
               <div className="space-y-6">
@@ -355,7 +355,7 @@ function CheckoutContent() {
 
             <section>
               <div className="flex items-center gap-4 mb-8">
-                <span className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs">3</span>
+                <span className="w-8 h-8  bg-blue-700 text-white flex items-center justify-center text-xs">3</span>
                 <h2 className="md:text-lg text-sm uppercase tracking-wider font-light">Payment Method</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

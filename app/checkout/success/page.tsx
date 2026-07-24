@@ -61,8 +61,8 @@ function SuccessContent() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#FDFDFD] px-6">
         <div className="text-center">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-stone-100 rounded-full mb-8 animate-pulse">
-            <div className="w-8 h-8 bg-stone-200 rounded-full" />
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-stone-100  mb-8 animate-pulse">
+            <div className="w-8 h-8 bg-stone-200 " />
           </div>
           <p className="text-[10px] uppercase tracking-[0.3em] text-stone-400 animate-pulse">Loading order details...</p>
         </div>
@@ -102,7 +102,7 @@ function SuccessContent() {
         
         {/* Success Header */}
         <div className="text-center mb-16 print:hidden">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-700 rounded-full mb-8 shadow-xl">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-700  mb-8 shadow-xl">
             <Check className="text-white" size={32} />
           </div>
           <p className="text-[10px] uppercase tracking-[0.6em] text-stone-400 mb-3 font-medium">Order Confirmed</p>
@@ -232,8 +232,8 @@ function LoadingState() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FDFDFD] px-6">
       <div className="text-center">
-        <div className="inline-flex items-center justify-center w-20 h-20 bg-stone-100 rounded-full mb-8 animate-pulse">
-          <div className="w-8 h-8 bg-stone-200 rounded-full" />
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-stone-100  mb-8 animate-pulse">
+          <div className="w-8 h-8 bg-stone-200 " />
         </div>
         <p className="text-[10px] uppercase tracking-[0.3em] text-stone-400 animate-pulse">Loading order details...</p>
       </div>

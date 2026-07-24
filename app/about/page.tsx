@@ -106,7 +106,7 @@ const About = () => {
              md:
           ">
             {/* Hand-crafted detail – subtle texture line */}
-            <div className="w-16 h-0.5 bg-white/80 mb-3 rounded-full" />
+            <div className="w-16 h-0.5 bg-white/80 mb-3 " />
             
             <h1 className="md:text-xl font-serif text-lg font-bold uppercase tracking-wider">
               About Pattywapat.
@@ -174,7 +174,7 @@ const About = () => {
               transition={{ delay: idx * 0.1 }}
               className="group text-center sm:text-left"
             >
-              <div className="bg-blue-700 w-16 h-16 rounded-full flex items-center justify-center mb-5 mx-auto sm:mx-0 group-hover:bg-blue-100 group-hover:text-[#f4efe2] transition-colors duration-300">
+              <div className="bg-blue-700 w-16 h-16  flex items-center justify-center mb-5 mx-auto sm:mx-0 group-hover:bg-blue-100 group-hover:text-[#f4efe2] transition-colors duration-300">
                 <div className="text-white group-hover:text-blue-700  transition-colors">
                   {item.icon}
                 </div>
@@ -199,14 +199,14 @@ const About = () => {
             <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
               <Link
                 href="/shop"
-                className="group bg-[#fefae6] text-[#2a4b38] px-8 py-3 rounded-full font-medium text-sm uppercase tracking-wide hover:bg-white transition-all inline-flex items-center gap-3 shadow-md"
+                className="group bg-[#fefae6] text-[#2a4b38] px-8 py-3  font-medium text-sm uppercase tracking-wide hover:bg-white transition-all inline-flex items-center gap-3 shadow-md"
               >
                 <GiShoppingCart size={18} />
                 Shop Parts
               </Link>
               <Link
                 href="/help-center"
-                className="border border-[#bcccb0] text-[#fefae6] px-8 py-3 rounded-full font-medium text-sm uppercase tracking-wide bg-blue-800 hover:bg-blue-900 transition-all"
+                className="border border-[#bcccb0] text-[#fefae6] px-8 py-3  font-medium text-sm uppercase tracking-wide bg-blue-800 hover:bg-blue-900 transition-all"
               >
                 Contact Us <ChevronRight size={16} className='inline ml-2' />
               </Link>
@@ -249,7 +249,7 @@ const About = () => {
                   <button
                     key={idx}
                     onClick={() => setTestimonialIndex(idx)}
-                    className={`w-2 h-2 rounded-full transition-all ${
+                    className={`w-2 h-2  transition-all ${
                       idx === testimonialIndex ? 'bg-[#3a604a] w-6' : 'bg-[#cad4c2]'
                     }`}
                     aria-label={`View testimonial ${idx + 1}`}
@@ -277,7 +277,7 @@ const About = () => {
                   </p>
                   <div className="flex items-center gap-4 pt-2">
                     <div className="relative">
-                      <div className="w-16 h-16 rounded-full border-2 border-white overflow-hidden">
+                      <div className="w-16 h-16  border-2 border-white overflow-hidden">
                         <Image
                           src={testimonials[testimonialIndex].image}
                           alt={testimonials[testimonialIndex].name}
@@ -286,7 +286,7 @@ const About = () => {
                           className="object-cover"
                         />
                       </div>
-                      <span className="absolute -bottom-1 -right-1 bg-blue-700 rounded-full w-6 h-6 flex items-center justify-center border-2 border-white">
+                      <span className="absolute -bottom-1 -right-1 bg-blue-700  w-6 h-6 flex items-center justify-center border-2 border-white">
                         <Star className="w-3 h-3 text-white fill-white" />
                       </span>
                     </div>
@@ -305,7 +305,7 @@ const About = () => {
                 <button
                   key={idx}
                   onClick={() => setTestimonialIndex(idx)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                  className={`w-2.5 h-2.5  transition-all ${
                     idx === testimonialIndex ? 'bg-[#3a604a] w-8' : 'bg-[#cad4c2]'
                   }`}
                 />

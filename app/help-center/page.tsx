@@ -68,7 +68,7 @@ export default function ContactUs() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-6 group"
               >
-                <div className="w-16 h-16 rounded-full border bg-blue-700  border-stone-200 flex items-center justify-center group-hover:bg-white group-hover:border-stone-400 transition-all duration-500">
+                <div className="w-16 h-16  border bg-blue-700  border-stone-200 flex items-center justify-center group-hover:bg-white group-hover:border-stone-400 transition-all duration-500">
                   <ArrowUpRight className="text-white group-hover:text-stone-400 transition-colors" size={24} strokeWidth={1} />
                 </div>
                 <div>
