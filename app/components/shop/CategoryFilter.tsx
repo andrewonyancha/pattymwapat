@@ -7,13 +7,19 @@ import { Plus, Minus, ChevronRight } from 'lucide-react';
 
 // Category hierarchy with subcategories
 const categoryHierarchy: Record<string, string[]> = {
-  'Juices': ['Fruit Juices', 'Vegetable Juices', 'Detox Juices'],
-  'Salads': ['Vegetable Salads', 'Fruit Salads'],
-  'Smoothies': ['Fresh Smoothies', 'Green Smoothies'],
+  'Engine Parts': ['Engine Components', 'Engine Gaskets', 'Timing Parts'],
+  'Brake Systems': ['Brake Pads', 'Brake Discs', 'Brake Fluid'],
+  'Suspension & Steering': ['Shock Absorbers', 'Struts', 'Steering Parts'],
+  'Electrical': ['Batteries', 'Alternators', 'Starters', 'Lighting'],
+  'Filters': ['Oil Filters', 'Air Filters', 'Fuel Filters'],
+  'Body Parts': ['Bumpers', 'Fenders', 'Mirrors', 'Lights'],
+  'Tires & Wheels': ['Tires', 'Rims', 'Valve Caps'],
+  'Accessories': ['Floor Mats', 'Seat Covers', 'Car Care'],
+  'Oils & Fluids': ['Engine Oil', 'Gear Oil', 'Coolant', 'Brake Fluid'],
 };
 
-const mainCategories = ['All', 'Vegetables', 'Fruits', 'Tubers', 'Juices', 'Smoothies', 'Salads', 'Other'] as const;
-const allCategories = ['All', 'Vegetables', 'Fruits', 'Tubers', 'Juices', 'Fruit Juices', 'Vegetable Juices', 'Detox Juices', 'Smoothies', 'Fresh Smoothies', 'Green Smoothies', 'Salads', 'Vegetable Salads', 'Fruit Salads', 'Other'] as const;
+const mainCategories = ['All', 'Engine Parts', 'Brake Systems', 'Suspension & Steering', 'Electrical', 'Filters', 'Body Parts', 'Tires & Wheels', 'Accessories', 'Oils & Fluids', 'Other'] as const;
+const allCategories = ['All', 'Engine Parts', 'Engine Components', 'Engine Gaskets', 'Timing Parts', 'Brake Systems', 'Brake Pads', 'Brake Discs', 'Brake Fluid', 'Suspension & Steering', 'Shock Absorbers', 'Struts', 'Steering Parts', 'Electrical', 'Batteries', 'Alternators', 'Starters', 'Lighting', 'Filters', 'Oil Filters', 'Air Filters', 'Fuel Filters', 'Body Parts', 'Bumpers', 'Fenders', 'Mirrors', 'Lights', 'Tires & Wheels', 'Tires', 'Rims', 'Valve Caps', 'Accessories', 'Floor Mats', 'Seat Covers', 'Car Care', 'Oils & Fluids', 'Engine Oil', 'Gear Oil', 'Coolant', 'Other'] as const;
 
 export default function CategoryFilter({ mobileMode = false }: { mobileMode?: boolean }) {
   const router = useRouter();

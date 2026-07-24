@@ -13,7 +13,7 @@ import { saveOrder } from '../lib/firebase/orders';
 
 export default function CheckoutPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-700"></div></div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-700"></div></div>}>
       <CheckoutContent />
     </Suspense>
   );
@@ -261,13 +261,13 @@ function CheckoutContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFDFD] text-green-700">
+    <div className="min-h-screen bg-[#FDFDFD] text-blue-700">
       {/* Top Navigation – unchanged */}
       <nav className="border-b border-stone-100 bg-white/80 backdrop-blur-md  top-0">
         <div className="max-w-7xl mx-auto px-0 h-20 flex items-center justify-between">
           <button 
             onClick={() => router.back()}
-            className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-stone-400 hover:text-green-700 transition-colors"
+            className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-stone-400 hover:text-blue-700 transition-colors"
           >
             <ChevronLeft size={16} /> Back
           </button>
@@ -284,7 +284,7 @@ function CheckoutContent() {
             
             <section>
               <div className="flex items-center gap-4 mb-8">
-                <span className="w-8 h-8 rounded-full bg-green-700 text-white flex items-center justify-center text-xs">1</span>
+                <span className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs">1</span>
                 <h2 className="md:text-lg text-sm uppercase tracking-wider font-light">Contact Information</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
@@ -326,13 +326,13 @@ function CheckoutContent() {
 
             <section>
               <div className="flex items-center gap-4 mb-8">
-                <span className="w-8 h-8 rounded-full bg-green-700 text-white flex items-center justify-center text-xs">2</span>
+                <span className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs">2</span>
                 <h2 className="md:text-lg text-sm uppercase tracking-wider font-light">Shipping Details</h2>
               </div>
               <div className="space-y-6">
                 <div className="p-4 bg-stone-50 border border-stone-100 text-xs uppercase tracking-tighter text-stone-500 flex justify-between">
                   <span>Current Region</span>
-                  <span className="font-semibold text-green-700">Nairobi, Kenya</span>
+                  <span className="font-semibold text-blue-700">Nairobi, Kenya</span>
                 </div>
                 <FloatingInput 
                   label="Street Address / Apartment / Suite" 
@@ -348,14 +348,14 @@ function CheckoutContent() {
                   value={formData.deliveryNotes}
                   onChange={handleInputChange}
                   placeholder="Notes for our courier (optional)"
-                  className="w-full bg-transparent border-b border-stone-200 py-3 focus:border-green-700 outline-none transition-colors resize-none text-sm min-h-[100px]"
+                  className="w-full bg-transparent border-b border-stone-200 py-3 focus:border-blue-700 outline-none transition-colors resize-none text-sm min-h-[100px]"
                 />
               </div>
             </section>
 
             <section>
               <div className="flex items-center gap-4 mb-8">
-                <span className="w-8 h-8 rounded-full bg-green-700 text-white flex items-center justify-center text-xs">3</span>
+                <span className="w-8 h-8 rounded-full bg-blue-700 text-white flex items-center justify-center text-xs">3</span>
                 <h2 className="md:text-lg text-sm uppercase tracking-wider font-light">Payment Method</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -434,7 +434,7 @@ function CheckoutContent() {
               <button
                 onClick={processPayment}
                 disabled={loading || displayItems.length === 0}
-                className="mt-8 w-full bg-green-700 text-white py-5 uppercase tracking-[0.3em] text-sm font-bold hover:bg-green-800 transition-all disabled:opacity-50 flex items-center justify-center gap-3"
+                className="mt-8 w-full bg-blue-700 text-white py-5 uppercase tracking-[0.3em] text-sm font-bold hover:bg-blue-800 transition-all disabled:opacity-50 flex items-center justify-center gap-3"
               >
                 {loading 
                   ? 'Processing...' 
@@ -456,7 +456,7 @@ function CheckoutContent() {
 // Updated FloatingInput with error support — style unchanged
 function FloatingInput({ label, error, required, className = '', ...props }: any) {
   return (
-    <div className="flex flex-col border-b border-stone-200 py-2 focus-within:border-green-700 transition-colors">
+    <div className="flex flex-col border-b border-stone-200 py-2 focus-within:border-blue-700 transition-colors">
       <label className="text-[10px] uppercase tracking-[0.2em] text-stone-400 mb-1">
         {label}{required && <span className="text-red-500 ml-1">*</span>}
       </label>
@@ -481,10 +481,10 @@ function PaymentOption({ active, onClick, icon, title, subtitle }: any) {
     <button
       onClick={onClick}
       className={`flex items-start gap-4 p-5 border transition-all text-left ${
-        active ? 'border-green-700 bg-stone-50' : 'border-stone-100 hover:border-stone-300'
+        active ? 'border-blue-700 bg-stone-50' : 'border-stone-100 hover:border-stone-300'
       }`}
     >
-      <div className={`${active ? 'text-green-700' : 'text-stone-300'}`}>{icon}</div>
+      <div className={`${active ? 'text-blue-700' : 'text-stone-300'}`}>{icon}</div>
       <div>
         <p className="text-xs uppercase tracking-wider font-semibold">{title}</p>
         <p className="text-[10px] text-stone-400 mt-1">{subtitle}</p>

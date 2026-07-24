@@ -118,7 +118,7 @@ function SignupForm() {
           Already have an account?{' '}
           <Link
             href="/account/login"
-            className="text-green-700 hover:text-green-800 font-medium transition-colors"
+            className="text-blue-700 hover:text-blue-800 font-medium transition-colors"
           >
             Sign in
           </Link>
@@ -147,7 +147,7 @@ function SignupForm() {
               onChange={handleChange}
               placeholder=" "
               disabled={isLoading}
-              className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-green-700 outline-none transition-colors"
+              className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-blue-700 outline-none transition-colors"
             />
             <label
               htmlFor="name"
@@ -169,7 +169,7 @@ function SignupForm() {
               onChange={handleChange}
               placeholder=" "
               disabled={isLoading}
-              className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-green-700 outline-none transition-colors"
+              className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-blue-700 outline-none transition-colors"
             />
             <label
               htmlFor="email"
@@ -191,7 +191,7 @@ function SignupForm() {
               onChange={handleChange}
               placeholder=" "
               disabled={isLoading}
-              className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-green-700 outline-none transition-colors pr-10"
+              className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-blue-700 outline-none transition-colors pr-10"
             />
             <label
               htmlFor="password"
@@ -223,7 +223,7 @@ function SignupForm() {
               onChange={handleChange}
               placeholder=" "
               disabled={isLoading}
-              className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-green-700 outline-none transition-colors pr-10"
+              className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-blue-700 outline-none transition-colors pr-10"
             />
             <label
               htmlFor="confirmPassword"
@@ -247,7 +247,7 @@ function SignupForm() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-green-700 text-white py-4 px-6  font-medium uppercase tracking-[0.15em] text-sm hover:bg-green-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full bg-blue-700 text-white py-4 px-6  font-medium uppercase tracking-[0.15em] text-sm hover:bg-blue-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {isLoading ? 'Creating account...' : 'Create account'}
         </button>
@@ -284,7 +284,7 @@ function SignupForm() {
 export default function SignupPage() {
   return (
     <div className="min-h-screen bg-[#FDFDFD] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
-      <Suspense fallback={<div className="flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-700"></div></div>}>
+      <Suspense fallback={<div className="flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-700"></div></div>}>
         <SignupForm />
       </Suspense>
     </div>

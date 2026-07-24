@@ -33,7 +33,7 @@ const ContactUs = () => {
         <div className="relative">
           <button
             onClick={() => setIsContactOptionsVisible(true)}
-            className="bg-gradient-to-r from-green-400 to-green-900 hover:text-black text-white p-3 rounded-full shadow-2xl hover:shadow-xl transition-all flex items-center justify-center fixed bottom-4 left-4"
+            className="bg-gradient-to-r from-blue-400 to-blue-900 hover:text-black text-white p-3 rounded-full shadow-2xl hover:shadow-xl transition-all flex items-center justify-center fixed bottom-4 left-4"
           >
             <FaComments className="text-2xl sm:text-1xl md:text-2xl lg:text-3xl" />
           </button>
@@ -51,7 +51,7 @@ const ContactUs = () => {
           <div className="fixed bottom-4 left-4 flex items-center gap-3">
             <button
               onClick={() => setIsContactOptionsVisible(false)}
-              className="bg-gradient-to-r from-green-400 to-green-900 hover:text-black text-white p-3 rounded-full shadow-2xl hover:shadow-xl transition-all flex items-center justify-center fixed bottom-4 left-4"
+              className="bg-gradient-to-r from-blue-400 to-blue-900 hover:text-black text-white p-3 rounded-full shadow-2xl hover:shadow-xl transition-all flex items-center justify-center fixed bottom-4 left-4"
             >
               <FaTimes className="sm:text-1xl md:text-2xl lg:text-3xl" />
             </button>
@@ -91,7 +91,7 @@ const ContactUs = () => {
             <div className="flex items-center -ml-1 gap-3">
               <motion.button
                 onClick={handleWhatsAppClick}
-                className="text-green-700 hover:text-green-400 transition-all"
+                className="text-blue-700 hover:text-blue-400 transition-all"
               >
                 <FaWhatsapp className="text-3xl" />
               </motion.button>
@@ -100,7 +100,7 @@ const ContactUs = () => {
                 animate="visible"
                 variants={labelVariants}
                 transition={{ delay: 0.05, duration: 0.35 }}
-                className="text-xs font-semibold tracking-widest  text-green-700  px-0 py-0  whitespace-nowrap pointer-events-none"
+                className="text-xs font-semibold tracking-widest  text-blue-700  px-0 py-0  whitespace-nowrap pointer-events-none"
                 style={{ fontFamily: "'Georgia', serif", letterSpacing: '0.12em' }}
               >
                 WhatsApp

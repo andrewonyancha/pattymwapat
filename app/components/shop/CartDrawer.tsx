@@ -167,7 +167,7 @@ export default function CartDrawer({ isOpen, onClose }: Props) {
               </div>
 
               <Link href="/checkout" onClick={onClose}>
-                <button className="group relative w-full bg-green-700 text-white py-4 px-6 overflow-hidden transition-all duration-300 hover:bg-green-800">
+                <button className="group relative w-full bg-blue-700 text-white py-4 px-6 overflow-hidden transition-all duration-300 hover:bg-blue-800">
                   <div className="flex items-center justify-center gap-2 text-xs uppercase tracking-[0.3em] font-bold">
                     Checkout Now
                     <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />

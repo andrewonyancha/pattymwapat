@@ -16,7 +16,7 @@
 
 
 .new {
-font-family: 'hipnotis', sans-serif;                                               
+font-family: 'hipnotis', sans-serif;
 }
 
 
@@ -24,3 +24,12 @@ font-family: 'hipnotis', sans-serif;
 /* For smooth expandable transitions */
 .expand-enter { max-height: 0; opacity: 0; }
 .expand-enter-active { max-height: 100px; opacity: 1; transition: all 400s ease; }
+
+/* Auto Parts Theme Colors */
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #dbeafe;
+  --color-accent: #f97316;
+  --color-accent-dark: #ea580c;
+}

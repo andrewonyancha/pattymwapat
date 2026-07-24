@@ -96,7 +96,7 @@ function LoginForm() {
           Or{' '}
           <Link
             href="/account/signup"
-            className="text-green-700 hover:text-green-800 font-medium transition-colors"
+            className="text-blue-700 hover:text-blue-800 font-medium transition-colors"
           >
             create a new account
           </Link>
@@ -125,7 +125,7 @@ function LoginForm() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder=" "
               disabled={isLoading}
-              className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-green-700 outline-none transition-colors"
+              className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-blue-700 outline-none transition-colors"
             />
             <label
               htmlFor="email"
@@ -147,7 +147,7 @@ function LoginForm() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder=" "
               disabled={isLoading}
-              className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-green-700 outline-none transition-colors pr-10"
+              className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-blue-700 outline-none transition-colors pr-10"
             />
             <label
               htmlFor="password"
@@ -176,7 +176,7 @@ function LoginForm() {
             <button
               type="button"
               onClick={() => setShowForgotPassword(true)}
-              className="text-sm text-green-700 hover:text-green-800 font-medium transition-colors"
+              className="text-sm text-blue-700 hover:text-blue-800 font-medium transition-colors"
             >
               Forgot Password?
             </button>
@@ -186,7 +186,7 @@ function LoginForm() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-green-700 text-white py-4 px-6  font-medium uppercase tracking-[0.15em] text-sm hover:bg-green-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full bg-blue-700 text-white py-4 px-6  font-medium uppercase tracking-[0.15em] text-sm hover:bg-blue-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {isLoading ? 'Signing in...' : 'Sign in'}
         </button>
@@ -196,7 +196,7 @@ function LoginForm() {
       {showForgotPassword && (
         <div className="mt-8">
           {resetSent ? (
-            <div className="bg-green-50 border border-green-100 text-green-700 px-4 py-4 text-sm">
+            <div className="bg-blue-50 border border-blue-100 text-blue-700 px-4 py-4 text-sm">
               <p className="font-medium">Password reset email sent!</p>
               <p className="mt-1">Check your email for instructions to reset your password.</p>
               <button
@@ -206,7 +206,7 @@ function LoginForm() {
                   setResetSent(false);
                   setResetEmail('');
                 }}
-                className="mt-3 text-green-700 hover:text-green-800 font-medium underline"
+                className="mt-3 text-blue-700 hover:text-blue-800 font-medium underline"
               >
                 Back to sign in
               </button>
@@ -241,7 +241,7 @@ function LoginForm() {
                   onChange={(e) => setResetEmail(e.target.value)}
                   placeholder=" "
                   disabled={isResetting}
-                  className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-green-700 outline-none transition-colors"
+                  className="peer w-full px-0 pt-6 pb-2 bg-transparent border-b border-stone-200 text-stone-900 placeholder-transparent focus:border-blue-700 outline-none transition-colors"
                 />
                 <label
                   htmlFor="reset-email"
@@ -254,7 +254,7 @@ function LoginForm() {
               <button
                 type="submit"
                 disabled={isResetting}
-                className="w-full bg-green-700 text-white py-4 px-6 font-medium uppercase tracking-[0.15em] text-sm hover:bg-green-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full bg-blue-700 text-white py-4 px-6 font-medium uppercase tracking-[0.15em] text-sm hover:bg-blue-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {isResetting ? 'Sending...' : 'Send reset instructions'}
               </button>
@@ -294,7 +294,7 @@ function LoginForm() {
 export default function LoginPage() {
   return (
     <div className="min-h-screen bg-[#FDFDFD] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
-      <Suspense fallback={<div className="flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-700"></div></div>}>
+      <Suspense fallback={<div className="flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-700"></div></div>}>
         <LoginForm />
       </Suspense>
     </div>

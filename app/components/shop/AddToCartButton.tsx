@@ -14,13 +14,10 @@ type Props = {
 
 export default function AddToCartButton({ product, selectedVariant: initialSelectedVariant, variant = 'full' }: Props) {
   // If product has variants but no initial selectedVariant, manage selection internally
-  // This handles the case where user must select a size (e.g., Juices)
+  // This handles the case where user must select a size (e.g., Engine Parts with variants)
   const [internalSelectedVariant, setInternalSelectedVariant] = useState<ProductVariant | null>(() => {
     if (product.variants && product.variants.length > 0) {
-      // Pre-select first variant for non-Juice categories, but not for Juices (user must choose)
-      if (product.category === 'Juices') {
-        return null;
-      }
+      // Pre-select first variant for products with variants
       return product.variants[0];
     }
     return null;
@@ -99,10 +96,10 @@ export default function AddToCartButton({ product, selectedVariant: initialSelec
 
   if (mounted && displayQty > 0) {
     return (
-      <div className="relative flex items-center justify-between bg-green-700/90 text-white md:py-4 py-2 w-full overflow-hidden ring-1 ring-white/10">
+      <div className="relative flex items-center justify-between bg-blue-700/90 text-white md:py-4 py-2 w-full overflow-hidden ring-1 ring-white/10">
         <button
           onClick={handleDecrease}
-          className="absolute inset-y-0 left-0 w-1/4 active:bg-green-800 hover:bg-green-800 transition-colors touch-manipulation z-10"
+          className="absolute inset-y-0 left-0 w-1/4 active:bg-blue-800 hover:bg-blue-800 transition-colors touch-manipulation z-10"
           aria-label="Decrease quantity"
         />
         <div className="w-1/4 flex items-center justify-center border-r border-white/10 pointer-events-none z-20">
@@ -113,7 +110,7 @@ export default function AddToCartButton({ product, selectedVariant: initialSelec
         </span>
         <button
           onClick={handleAddClick}
-          className="absolute inset-y-0 right-0 w-1/4 active:bg-green-800 hover:bg-green-800 transition-colors touch-manipulation z-10"
+          className="absolute inset-y-0 right-0 w-1/4 active:bg-blue-800 hover:bg-blue-800 transition-colors touch-manipulation z-10"
           aria-label="Increase quantity"
         />
         <div className="w-1/4 flex items-center justify-center border-l border-white/10 pointer-events-none z-20">
@@ -145,10 +142,10 @@ export default function AddToCartButton({ product, selectedVariant: initialSelec
         onClick={handleAddClick}
         className={`
           flex items-center justify-center gap-3 transition-all duration-500 uppercase tracking-[0.1em] text-sm
-          active:scale-95 active:bg-green-800
+          active:scale-95 active:bg-blue-800
           ${variant === 'minimal'
-            ? 'md:py-3 py-2 px-10 bg-transparent border border-green-700 text-green-700 active:bg-green-700 active:text-white hover:bg-green-700/90 hover:text-white'
-            : 'w-full md:py-4 py-2 bg-green-700/90 text-white active:bg-green-800 hover:bg-green-800 '}
+            ? 'md:py-3 py-2 px-10 bg-transparent border border-blue-700 text-blue-700 active:bg-blue-700 active:text-white hover:bg-blue-700/90 hover:text-white'
+            : 'w-full md:py-4 py-2 bg-blue-700/90 text-white active:bg-blue-800 hover:bg-blue-800 '}
           ${needsVariant ? 'opacity-50 cursor-not-allowed' : ''}
           touch-manipulation
         `}

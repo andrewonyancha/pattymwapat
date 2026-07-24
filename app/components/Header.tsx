@@ -13,30 +13,27 @@ import {
   User,
   Shield,
   ChevronRight,
+  Car,
 } from "lucide-react";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { IoFastFood } from "react-icons/io5";
 
-import { PiPlantFill } from "react-icons/pi";
 import Image from "next/image";
 import { CiMenuBurger } from "react-icons/ci";
 import { FaShopify } from "react-icons/fa6";
 import { useCartStore } from "../lib/cartStore";
 import CartDrawer from "./shop/CartDrawer";
 import {
-  GiWaterBottle,
-  GiCarrot,
-  GiBroccoli,
-  GiOrangeSlice,
-
+  GiCog,
+  GiCrackedDisc,
+  GiCarWheel,
+  GiCarBattery,
+  GiF1Car,
+  GiWrench,
 } from "react-icons/gi";
-import { RiDrinksFill } from "react-icons/ri";
 
 import { HiMiniGift } from "react-icons/hi2";
 import { IoIosApps } from "react-icons/io";
-import { TbBowlSpoon } from "react-icons/tb";
-import { TbSaladFilled } from "react-icons/tb";
 
 
 // Auth store & signOut
@@ -44,20 +41,16 @@ import { useAuthStore } from "../lib/authStore";
 import { signOut } from "../lib/firebase/auth";
 
 const categories = [
-  { name: "Vegetables", slug: "vegetables", icon: GiBroccoli, isSubcategory: false },
-  { name: "Fruits", slug: "fruits", icon: GiOrangeSlice, isSubcategory: false },
-  { name: "Tubers", slug: "tubers", icon: GiCarrot, isSubcategory: false },
-  { name: "Juices", slug: "juices", icon: GiWaterBottle, isSubcategory: false, isParent: true },
-  { name: "Fruit Juices", slug: "fruit juices", icon: GiWaterBottle, isSubcategory: true },
-  { name: "Vegetable Juices", slug: "vegetable juices", icon: GiWaterBottle, isSubcategory: true },
-  { name: "Detox Juices", slug: "detox juices", icon: GiWaterBottle, isSubcategory: true },
-  { name: "Smoothies", slug: "smoothies", icon: RiDrinksFill, isSubcategory: false, isParent: true },
-  { name: "Fresh Smoothies", slug: "fresh smoothies", icon: RiDrinksFill, isSubcategory: true },
-  { name: "Green Smoothies", slug: "green smoothies", icon: RiDrinksFill, isSubcategory: true },
-  { name: "Salads", slug: "salads", icon: TbSaladFilled, isSubcategory: false, isParent: true },
-  { name: "Vegetable Salads", slug: "vegetable salads", icon: TbSaladFilled, isSubcategory: true },
-  { name: "Fruit Salads", slug: "fruit salads", icon: TbSaladFilled, isSubcategory: true },
-  { name: "Other", slug: "other", icon: TbBowlSpoon, isSubcategory: false },
+  { name: "Engine Parts", slug: "engine-parts", icon: GiCog, isSubcategory: false },
+  { name: "Brake Systems", slug: "brake-systems", icon: GiCrackedDisc, isSubcategory: false },
+  { name: "Suspension & Steering", slug: "suspension-steering", icon: GiWrench, isSubcategory: false },
+  { name: "Electrical", slug: "electrical", icon: GiCarBattery, isSubcategory: false },
+  { name: "Filters", slug: "filters", icon: GiWrench, isSubcategory: false },
+  { name: "Body Parts", slug: "body-parts", icon: GiF1Car, isSubcategory: false },
+  { name: "Tires & Wheels", slug: "tires-wheels", icon: GiCarWheel, isSubcategory: false },
+  { name: "Accessories", slug: "accessories", icon: GiWrench, isSubcategory: false },
+  { name: "Oils & Fluids", slug: "oils-fluids", icon: GiWrench, isSubcategory: false },
+  { name: "Other", slug: "other", icon: GiWrench, isSubcategory: false },
 ];
 
 export default function Header() {
@@ -138,9 +131,9 @@ export default function Header() {
   const menuItems = [
     { label: "Categories", href: "/shop", hasDropdown: true, icon: IoIosApps },
     { label: "Shop", href: "/shop", icon: FaShopify },
-    { label: "More products", href: "/more-products", icon: IoFastFood },
+    { label: "More products", href: "/more-products", icon: GiWrench },
     { label: "Special Offers", href: "/special-offers", icon: HiMiniGift },
-    { label: "About Us", href: "/about", icon: PiPlantFill },
+    { label: "About Us", href: "/about", icon: Car },
     { label: "Help Center", href: "/help-center", icon: RiCustomerService2Fill },
   ];
 
@@ -204,9 +197,9 @@ export default function Header() {
       <div
         className={`
           w-[26px] h-[26px] 
-          rounded-full 
-          bg-green-700 text-white 
-          flex items-center justify-center 
+          rounded-full
+          bg-blue-700 text-white
+          flex items-center justify-center
           text-base font-bold  
         `}
       >
@@ -224,7 +217,7 @@ export default function Header() {
           <div className="flex-shrink-0">
             <Link href="/" className="block">
                <div className="relative w-16 h-16">
-                 <Image src="/logo.png" alt="PemaFarm Logo" fill sizes="64px" className="object-contain" priority />
+                 <Image src="/logo.png" alt="Pattywapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
                </div>
             </Link>
           </div>
@@ -234,13 +227,13 @@ export default function Header() {
             <form onSubmit={handleSearch} className="relative">
               <input
                 type="text"
-                placeholder="Search fresh vegetables, fruits, juices..."
-                className="w-full pl-5 pr-12 py-3 bg-stone-100 rounded-full text-sm focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-400 transition-all"
+                placeholder="Search auto parts, brakes, filters..."
+                className="w-full pl-5 pr-12 py-3 bg-stone-100 rounded-full text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-400 transition-all"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
               />
-              <button type="submit" aria-label="Search" className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-600 hover:text-green-700 transition">
+              <button type="submit" aria-label="Search" className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-600 hover:text-blue-700 transition">
                 <Search size={22} />
               </button>
             </form>
@@ -249,7 +242,7 @@ export default function Header() {
           {/* User + Cart */}
           <div className="flex items-center gap-8">
             {!isLoading && !user ? (
-              <Link href="/account/login" className="text-gray-600 hover:text-green-700 transition" title="Sign in">
+              <Link href="/account/login" className="text-gray-600 hover:text-blue-700 transition" title="Sign in">
                 <User size={24} strokeWidth={1.8} />
               </Link>
             ) : (
@@ -261,9 +254,9 @@ export default function Header() {
                   aria-haspopup="true"
                 >
                   <UserAvatar size={30} />
-                  <ChevronDown 
-                    size={16} 
-                    className={`transition-transform ${showDesktopProfileDropdown ? "rotate-180" : ""}`} 
+                  <ChevronDown
+                    size={16}
+                    className={`transition-transform ${showDesktopProfileDropdown ? "rotate-180" : ""}`}
                   />
                 </button>
 
@@ -279,7 +272,7 @@ export default function Header() {
                     <div className="py-1">
                       <Link
                         href="/account"
-                        className="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors"
+                        className="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                         onClick={() => setShowDesktopProfileDropdown(false)}
                       >
                         <User size={18} />
@@ -288,7 +281,7 @@ export default function Header() {
 
                       <Link
                         href="/account/orders"
-                        className="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors"
+                        className="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                         onClick={() => setShowDesktopProfileDropdown(false)}
                       >
                         <Package size={18} />
@@ -297,17 +290,17 @@ export default function Header() {
 
                       <Link
                         href="/account"
-                        className="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors"
+                        className="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                         onClick={() => setShowDesktopProfileDropdown(false)}
                       >
                         <Settings size={18} />
                         Settings
                       </Link>
 
-                      {user.email && ['mr.onyanchaandrew@gmail.com', 'pemafreshgroceries@gmail.com'].includes(user.email.toLowerCase()) ? (
+                      {user.email && ['mr.onyanchaandrew@gmail.com', 'pattywapat@gmail.com'].includes(user.email.toLowerCase()) ? (
                         <Link
                           href="/admin"
-                          className="flex items-center gap-3 px-5 py-3 text-sm text-green-700 font-medium hover:bg-green-50 transition-colors"
+                          className="flex items-center gap-3 px-5 py-3 text-sm text-blue-700 font-medium hover:bg-blue-50 transition-colors"
                           onClick={() => setShowDesktopProfileDropdown(false)}
                         >
                           <Shield size={18} />
@@ -332,7 +325,7 @@ export default function Header() {
 
             <button
               onClick={() => setIsCartOpen(true)}
-              className="text-gray-700 hover:text-green-700 transition relative cursor-pointer"
+              className="text-gray-700 hover:text-blue-700 transition relative cursor-pointer"
               aria-label="Open shopping cart"
             >
               <MdOutlineShoppingCart size={26} />
@@ -346,7 +339,7 @@ export default function Header() {
         </div>
 
         {/* Desktop navigation */}
-        <nav className="bg-green-700 text-white border-b border-green-600">
+        <nav className="bg-blue-700 text-white border-b border-blue-600">
           <div className="container mx-auto px-4 lg:px-6">
             <ul className="flex items-center justify-center py-2.5">
               {menuItems.map((item, index) => (
@@ -385,42 +378,15 @@ export default function Header() {
                       {categories.map((cat) => {
                         const Icon = cat.icon;
                         
-                        // Main categories with subcategories (clickable with green)
-                        if (cat.isParent) {
-                          return (
-                            <div
-                              key={cat.slug}
-                              className="flex items-center gap-3 px-3 py-0 text-sm font-medium  transition-all duration-150 group"
-                            >
-                              <Icon size={18} className="text-green-600 group-hover:text-green-700 transition-colors" strokeWidth={1.8} />
-                              <span>{cat.name}</span>
-                            </div>
-                          );
-                        }
-                        
                         // Regular main categories (clickable)
-                        if (!cat.isSubcategory) {
-                          return (
-                            <Link
-                              key={cat.slug}
-                              href={`/shop?category=${cat.name}`}
-                              className="flex items-center gap-3 px-3 py-3 text-sm font-medium hover:bg-green-50 transition-all duration-150 group"
-                            >
-                              <Icon size={18} className="text-green-600 group-hover:text-green-700 transition-colors" strokeWidth={1.8} />
-                              <span>{cat.name}</span>
-                            </Link>
-                          );
-                        }
-                        
-                        // Subcategories (indented and clickable)
                         return (
                           <Link
                             key={cat.slug}
                             href={`/shop?category=${cat.name}`}
-                            className="flex items-center gap-3 pl-12 pr-6 py-2 text-sm text-stone-600 hover:bg-green-50 hover:text-green-700 transition-all duration-150 group"
+                            className="flex items-center gap-3 px-3 py-3 text-sm font-medium hover:bg-blue-50 transition-all duration-150 group"
                           >
-                            <ChevronRight size={12} className="text-stone-500 group-hover:text-green-600 transition-colors" strokeWidth={1.5} />
-                            <span className="text-xs uppercase tracking-wide">{cat.name}</span>
+                            <Icon size={18} className="text-blue-600 group-hover:text-blue-700 transition-colors" strokeWidth={1.8} />
+                            <span>{cat.name}</span>
                           </Link>
                         );
                       })}
@@ -442,8 +408,8 @@ export default function Header() {
                 <input
                   ref={searchInputRef}
                   type="text"
-                  placeholder="Search products..."
-                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-full text-sm focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
+                  placeholder="Search auto parts..."
+                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-full text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
@@ -465,20 +431,20 @@ export default function Header() {
             <button onClick={() => setIsMobileMenuOpen(true)} aria-label="Open menu" className="text-gray-800 p-1">
               <CiMenuBurger size={20} />
             </button>
-            <button onClick={() => setShowMobileSearch(true)} aria-label="Search" className="text-gray-700 hover:text-green-700 p-1">
+            <button onClick={() => setShowMobileSearch(true)} aria-label="Search" className="text-gray-700 hover:text-blue-700 p-1">
               <Search size={20} />
             </button>
           </div>
 
           <Link href="/" className="absolute left-1/2 -translate-x-1/2">
                <div className="relative w-16 h-16">
-                 <Image src="/logo.png" alt="PemaFarm Logo" fill sizes="64px" className="object-contain" priority />
+                 <Image src="/logo.png" alt="Pattywapat Autospares Logo" fill sizes="64px" className="object-contain" priority />
                </div>
           </Link>
 
           <div className="flex items-center gap-4">
             {!isLoading && !user ? (
-              <Link href="/account/login" className="text-gray-700 hover:text-green-700 p-1" title="Sign in">
+              <Link href="/account/login" className="text-gray-700 hover:text-blue-700 p-1" title="Sign in">
                 <User size={22} strokeWidth={1.8} />
               </Link>
             ) : (
@@ -490,9 +456,9 @@ export default function Header() {
                   aria-haspopup="true"
                 >
                   <UserAvatar size={32} />
-                  <ChevronDown 
-                    size={14} 
-                    className={`transition-transform ${showMobileProfileDropdown ? "rotate-180" : ""}`} 
+                  <ChevronDown
+                    size={14}
+                    className={`transition-transform ${showMobileProfileDropdown ? "rotate-180" : ""}`}
                   />
                 </button>
 
@@ -508,7 +474,7 @@ export default function Header() {
                     <div className="py-1">
                       <Link
                         href="/account"
-                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors"
+                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                         onClick={() => setShowMobileProfileDropdown(false)}
                       >
                         <User size={16} />
@@ -517,7 +483,7 @@ export default function Header() {
 
                       <Link
                         href="/account/orders"
-                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors"
+                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                         onClick={() => setShowMobileProfileDropdown(false)}
                       >
                         <Package size={16} />
@@ -526,17 +492,17 @@ export default function Header() {
 
                       <Link
                         href="/account"
-                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-colors"
+                        className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                         onClick={() => setShowMobileProfileDropdown(false)}
                       >
                         <Settings size={16} />
                         Settings
                       </Link>
 
-                      {user.email && ['mr.onyanchaandrew@gmail.com', 'pemafreshgroceries@gmail.com'].includes(user.email.toLowerCase()) ? (
+                      {user.email && ['mr.onyanchaandrew@gmail.com', 'pattywapat@gmail.com'].includes(user.email.toLowerCase()) ? (
                         <Link
                           href="/admin"
-                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-green-700 font-medium hover:bg-green-50 transition-colors"
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-blue-700 font-medium hover:bg-blue-50 transition-colors"
                           onClick={() => setShowMobileProfileDropdown(false)}
                         >
                           <Shield size={16} />
@@ -587,10 +553,10 @@ export default function Header() {
           <div className="flex flex-col h-full">
             <div className="flex items-center justify-between p-3 border-b border-gray-200">
               <div className="flex items-center gap-3">
-                <PiPlantFill className="text-green-700" size={20} />
+                <Car className="text-blue-700" size={20} />
                 <span className="font-bold text-gray-800">Menu</span>
               </div>
-              <button onClick={closeMobileMenu} className="p-2 text-gray-700 hover:text-green-700">
+              <button onClick={closeMobileMenu} className="p-2 text-gray-700 hover:text-blue-700">
                 <X size={24} />
               </button>
             </div>
@@ -600,8 +566,8 @@ export default function Header() {
               <form onSubmit={handleSearch} className="relative">
                 <input
                   type="text"
-                  placeholder="Search products..."
-                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
+                  placeholder="Search auto parts..."
+                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
@@ -609,7 +575,7 @@ export default function Header() {
                 <button
                   type="submit"
                   aria-label="Search"
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-green-700"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-blue-700"
                 >
                   <Search size={18} />
                 </button>
@@ -622,39 +588,24 @@ export default function Header() {
                   {item.label === "Categories" ? (
                     <>
                       <div className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 bg-gray-50 rounded-xl mx-2 mt-2">
-                        <item.icon size={18} className="text-green-700" />
+                        <item.icon size={18} className="text-blue-700" />
                         {item.label}
                       </div>
                       <div className="pl-6 pr-2 mt-1 mb-4">
                         {categories.map((cat) => {
                           const Icon = cat.icon;
-                          
-                          // Main categories with subcategories (clickable with green)
-                          if (cat.isParent) {
-                            return (
-                              <Link
-                                key={cat.slug}
-                                href={`/shop?category=${cat.name}`}
-                                className="flex items-center gap-3 px-5 py-2.5 text-[15px] text-gray-700 hover:text-green-700 hover:bg-green-50 rounded-lg transition-colors"
-                                onClick={closeMobileMenu}
-                              >
-                                <Icon size={18} className="text-green-600" />
-                                {cat.name}
-                              </Link>
-                            );
-                          }
-                          
-                          // Regular main categories and subcategories (clickable)
+                           
+                          // Regular main categories (clickable)
                           return (
                             <Link
                               key={cat.slug}
                               href={`/shop?category=${cat.name}`}
-                              className={`flex items-center gap-3 px-5 py-2.5 text-[15px] hover:text-green-700 hover:bg-green-50 rounded-lg transition-colors ${
+                              className={`flex items-center gap-3 px-5 py-2.5 text-[15px] hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors ${
                                 cat.isSubcategory ? 'pl-12 text-stone-600' : 'text-gray-700'
                               }`}
                               onClick={closeMobileMenu}
                             >
-                              <Icon size={cat.isSubcategory ? 16 : 18} className={cat.isSubcategory ? 'text-stone-500' : 'text-green-600'} />
+                              <Icon size={cat.isSubcategory ? 16 : 18} className={cat.isSubcategory ? 'text-stone-500' : 'text-blue-600'} />
                               {cat.name}
                             </Link>
                           );
@@ -664,10 +615,10 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 hover:bg-green-50 hover:text-green-700 rounded-xl transition-colors"
+                      className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 hover:bg-blue-50 hover:text-blue-700 rounded-xl transition-colors"
                       onClick={closeMobileMenu}
                     >
-                      <item.icon size={16} className="text-green-700" />
+                      <item.icon size={16} className="text-blue-700" />
                       {item.label}
                     </Link>
                   )}
@@ -681,7 +632,7 @@ export default function Header() {
             <div className="p-5 border-t border-gray-200">
               <Link
                 href={user ? "/account" : "/account/login"}
-                className="flex items-center gap-4 py-4 text-gray-800 hover:text-green-700 font-medium"
+                className="flex items-center gap-4 py-4 text-gray-800 hover:text-blue-700 font-medium"
                 onClick={closeMobileMenu}
               >
                 <UserAvatar size={36} />

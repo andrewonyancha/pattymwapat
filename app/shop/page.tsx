@@ -156,7 +156,7 @@ function ShopContent() {
       {/* Loading indicator */}
       {loading && (
         <div className="flex items-center justify-center py-4 mb-4">
-          <Loader2 className="h-5 w-5 animate-spin text-green-600 mr-2" />
+          <Loader2 className="h-5 w-5 animate-spin text-blue-600 mr-2" />
           <span className="text-sm text-gray-500">Loading additional products...</span>
         </div>
       )}
@@ -219,7 +219,7 @@ function ShopContent() {
                   onClick={() => handlePageChange(pageNum)}
                   className={`w-10 h-10 text-sm font-medium transition-colors ${
                     currentPage === pageNum
-                      ? 'bg-green-700 text-white'
+                      ? 'bg-blue-700 text-white'
                       : 'border border-gray-300 hover:bg-gray-100'
                   }`}
                 >

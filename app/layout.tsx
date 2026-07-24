@@ -10,8 +10,8 @@ import SupportButton from "./components/SupportButton";
 import { AuthProvider } from "./components/AuthProvider";
 
 export const metadata: Metadata = {
-  title: "Pemafarm - Fresh Vegetables and Fruits Delivered to Your Doorstep",
-  description: " Pemafarm is your go-to online store for fresh, organic vegetables and fruits. We source directly from local farmers to ensure quality and freshness. Enjoy convenient home delivery and explore our special offers today!",
+  title: "Pattywapat Autospares - Quality Auto Parts in Nairobi, Kenya",
+  description: "Pattywapat Autospares is your trusted auto parts supplier in Nairobi, Kenya. We offer genuine car parts, accessories, and expert support for all vehicle makes. Fast delivery across Nairobi and nationwide.",
 };
 
 export default function RootLayout({

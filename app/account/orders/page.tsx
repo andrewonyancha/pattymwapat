@@ -49,7 +49,7 @@ function OrdersContent() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'confirmed':
-        return 'bg-green-100 text-green-800';
+        return 'bg-blue-100 text-blue-800';
       case 'pending':
         return 'bg-yellow-100 text-yellow-800';
       case 'delivered':
@@ -64,7 +64,7 @@ function OrdersContent() {
   if (isLoading || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-green-700" />
+        <Loader2 className="h-8 w-8 animate-spin text-blue-700" />
       </div>
     );
   }
@@ -79,7 +79,7 @@ function OrdersContent() {
         <h1 className="text-3xl font-light text-stone-900">My Orders</h1>
         <Link
           href="/account"
-          className="text-sm text-green-700 hover:text-green-800 font-medium"
+          className="text-sm text-blue-700 hover:text-blue-800 font-medium"
         >
           Back to Account
         </Link>
@@ -92,7 +92,7 @@ function OrdersContent() {
           <p className="text-stone-600 mb-6">When you place orders, they will appear here.</p>
           <Link
             href="/shop"
-            className="inline-flex items-center gap-2 bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 transition-colors"
+            className="inline-flex items-center gap-2 bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition-colors"
           >
             Start Shopping <ArrowRight size={18} />
           </Link>
@@ -153,7 +153,7 @@ function OrdersContent() {
 
 export default function OrdersPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-green-700" /></div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-blue-700" /></div>}>
       <OrdersContent />
     </Suspense>
   );

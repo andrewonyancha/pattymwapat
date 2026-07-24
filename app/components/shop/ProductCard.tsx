@@ -23,16 +23,11 @@ export default function ProductCard({ product, view = 'grid' }: Props) {
   const currentPage = searchParams.get('page');
   
   // State for selected variant (if any)
-  // For Juices category, don't pre-select a variant (user must choose)
-  // For other categories with variants (e.g., nuts, crisps), pre-select first variant
+  // Pre-select first variant for categories with variants
   const [selectedVariant, setSelectedVariant] = useState<
     ProductVariant | null
   >(() => {
     if (product.variants && product.variants.length > 0) {
-      // Pre-select first variant for non-Juice categories, but not for Juices
-      if (product.category === 'Juices') {
-        return null;
-      }
       return product.variants[0];
     }
     return null;
@@ -70,7 +65,7 @@ export default function ProductCard({ product, view = 'grid' }: Props) {
   };
 
   // Determine display price and unit
-  // For products with variants where no variant is selected (e.g., Juices), show "Select size"
+  // For products with variants where no variant is selected, show "Select size"
   const hasVariants = product.variants && product.variants.length > 0;
   const showSelectPrompt = hasVariants && !selectedVariant;
   const displayPrice = selectedVariant ? selectedVariant.price : (product.price ?? 0);

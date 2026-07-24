@@ -102,7 +102,7 @@ function SuccessContent() {
         
         {/* Success Header */}
         <div className="text-center mb-16 print:hidden">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-green-700 rounded-full mb-8 shadow-xl">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-700 rounded-full mb-8 shadow-xl">
             <Check className="text-white" size={32} />
           </div>
           <p className="text-[10px] uppercase tracking-[0.6em] text-stone-400 mb-3 font-medium">Order Confirmed</p>
@@ -183,7 +183,7 @@ function SuccessContent() {
         <div className="mt-16 flex flex-col sm:flex-row gap-6 justify-center items-center print:hidden">
           <Link 
             href="/shop" 
-            className="w-full sm:w-auto px-12 py-5 bg-green-700 text-white text-[10px] uppercase tracking-[0.4em] font-bold text-center hover:bg-green-800 transition-all flex items-center justify-center gap-3 shadow-lg"
+            className="w-full sm:w-auto px-12 py-5 bg-blue-700 text-white text-[10px] uppercase tracking-[0.4em] font-bold text-center hover:bg-blue-800 transition-all flex items-center justify-center gap-3 shadow-lg"
           >
             Continue Browsing <ArrowRight size={14} />
           </Link>

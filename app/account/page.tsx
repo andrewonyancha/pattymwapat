@@ -28,7 +28,7 @@ export default function AccountPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-700" />
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-700" />
       </div>
     );
   }
@@ -61,30 +61,30 @@ export default function AccountPage() {
         <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Profile Card */}
           {/* <div className="bg-stone-50 p-6 rounded-lg hover:shadow-md transition-shadow">
-            <User className="h-8 w-8 text-green-700 mb-4" />
+            <User className="h-8 w-8 text-blue-700 mb-4" />
             <h2 className="text-xl font-medium text-stone-900 mb-2">Profile</h2>
             <p className="text-stone-600 text-sm mb-4">Manage your personal information</p>
-            <Link href="/account/profile" className="text-green-700 hover:text-green-800 text-sm font-medium">
+            <Link href="/account/profile" className="text-blue-700 hover:text-blue-800 text-sm font-medium">
               View profile →
             </Link>
           </div> */}
 
           {/* Orders Card */}
           <div className="bg-stone-50 p-6 rounded-lg hover:shadow-md transition-shadow">
-            <Package className="h-8 w-8 text-green-700 mb-4" />
+            <Package className="h-8 w-8 text-blue-700 mb-4" />
             <h2 className="text-xl font-medium text-stone-900 mb-2">Orders</h2>
             <p className="text-stone-600 text-sm mb-4">Track and manage your orders</p>
-            <Link href="/account/orders" className="text-green-700 hover:text-green-800 text-sm font-medium">
+            <Link href="/account/orders" className="text-blue-700 hover:text-blue-800 text-sm font-medium">
               View orders →
             </Link>
           </div>
 
           {/* Settings Card */}
           <div className="bg-stone-50 p-6 rounded-lg hover:shadow-md transition-shadow">
-            <Settings className="h-8 w-8 text-green-700 mb-4" />
+            <Settings className="h-8 w-8 text-blue-700 mb-4" />
             <h2 className="text-xl font-medium text-stone-900 mb-2">Settings</h2>
             <p className="text-stone-600 text-sm mb-4">Update your preferences</p>
-            <Link href="/account" className="text-green-700 hover:text-green-800 text-sm font-medium">
+            <Link href="/account" className="text-blue-700 hover:text-blue-800 text-sm font-medium">
               Manage settings →
             </Link>
           </div>

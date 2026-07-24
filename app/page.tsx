@@ -4,74 +4,74 @@ import ProductCard from '@/app/components/shop/ProductCard';
 import Link from 'next/link';
 import Image from 'next/image';
 import { GiShoppingCart } from 'react-icons/gi';
-import { Apple, Leaf, Quote, Star, Truck } from 'lucide-react';
+import { Quote, Star, Truck, Wrench, Car, Settings, CircleIcon } from 'lucide-react';
 import { useState, useEffect, useRef, Suspense } from 'react';
-import { GiPlantRoots } from "react-icons/gi";
-import { PiPlantFill } from "react-icons/pi";
-import { GiWaterBottle } from "react-icons/gi";
+import { GiCarWheel } from "react-icons/gi";
+import { GiCarBattery } from "react-icons/gi";
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaShopify } from 'react-icons/fa';
 import { GiFullMotorcycleHelmet } from "react-icons/gi";
 import { FaShoppingBasket } from "react-icons/fa";
+import { TbEngine } from 'react-icons/tb';
 
 
 
 // Categories & Special Offers
 const categories = [
-  { id: 1, name: 'Fruits', icon: <Apple className="w-8 h-8" /> },
-  { id: 2, name: 'Vegetables', icon: <PiPlantFill className="w-8 h-8" /> },
-  { id: 3, name: 'Tubers', icon: <GiPlantRoots className="w-8 h-8" /> },
-  { id: 4, name: 'Juices', icon: <GiWaterBottle className="w-8 h-8" /> },
+  { id: 1, name: 'Engine Parts', icon: <TbEngine className="w-8 h-8" /> },
+  { id: 2, name: 'Brake Systems', icon: <CircleIcon className="w-8 h-8" /> },
+  { id: 3, name: 'Tires & Wheels', icon: <GiCarWheel className="w-8 h-8" /> },
+  { id: 4, name: 'Electrical', icon: <GiCarBattery className="w-8 h-8" /> },
 ];
 
 const specialOffers = [
-  { id: 1, name: 'First Time Customer', icon: <FaShoppingBasket className="w-8 h-8" />, discount: '10% OFF' },
-  { id: 2, name: 'Fresh Herbs', icon: <Leaf className="w-8 h-8" />, discount: '15% OFF' },
-  { id: 3, name: 'Bulk Orders', icon: <FaShopify className="w-8 h-8" />, discount: 'FREE Delivery' },
-  { id: 4, name: 'Express Delivery', icon: <GiFullMotorcycleHelmet className="w-8 h-8" />, discount: '24/7 Service' },
+  { id: 1, name: 'New Customer', icon: <FaShoppingBasket className="w-8 h-8" />, discount: '10% OFF' },
+  { id: 2, name: 'Bulk Orders', icon: <FaShopify className="w-8 h-8" />, discount: 'FREE Delivery' },
+  { id: 3, name: 'Express Delivery', icon: <GiFullMotorcycleHelmet className="w-8 h-8" />, discount: '24/7 Service' },
+  { id: 4, name: 'Quality Parts', icon: <Wrench className="w-8 h-8" />, discount: 'Genuine Parts' },
 ];
 
 const testimonials = [
   {
-    name: "Nyambura Kamau",
-    role: "Home Cook",
-    text: "Their vegetables taste like they were picked an hour ago. My family notices the difference.",
+    name: "James Kariuki",
+    role: "Car Owner",
+    text: "Pattywapat Autospares has all the parts I need at fair prices. Fast delivery across Nairobi!",
     image: "/images/Contact-us.svg"
   },
   {
-    name: "Daniel Omondi",
-    role: "Restaurant Owner",
-    text: "Consistency is everything in our kitchen. Pemafarm delivers it, week after week.",
+    name: "Sarah Wanjiku",
+    role: "Mechanic",
+    text: "Reliable parts and excellent service. They never disappoint when I need urgent replacements.",
     image: "/images/Contact-us.svg"
   },
   {
-    name: "Wanjiku Mwangi",
-    role: "CSA Member",
-    text: "Knowing exactly where my food comes from brings me peace of mind. The flavor is a bonus.",
+    name: "David Ochieng",
+    role: "Fleet Manager",
+    text: "Best auto parts supplier in Nairobi. Quality products and professional support every time.",
     image: "/images/Contact-us.svg"
   }
 ];
 
-export default function GroceryLandingPage() {
+export default function AutoPartsLandingPage() {
 
-  // Get first 4 products from Fruits category
-  const popularFruits = products
-    .filter(product => product.category === 'Fruits')
+  // Get first 4 products from Engine Parts category
+  const popularEngineParts = products
+    .filter(product => product.category === 'Engine Parts')
     .slice(0, 4);
 
-  // Get first 4 products from Vegetables category
-  const popularVegetables = products
-    .filter(product => product.category === 'Vegetables')
+  // Get first 4 products from Brake Systems category
+  const popularBrakeSystems = products
+    .filter(product => product.category === 'Brake Systems')
     .slice(0, 4);
 
-  // Get first 4 products from Fruit Juices category
-  const featuredJuices = products
-    .filter(product => product.category === 'Fruit Juices')
+  // Get first 4 products from Electrical category
+  const featuredElectrical = products
+    .filter(product => product.category === 'Electrical')
     .slice(0, 4);
 
-  // Get first 4 products from Tubers category
-  const featuredTubers = products
-    .filter(product => product.category === 'Tubers')
+  // Get first 4 products from Tires & Wheels category
+  const featuredTiresWheels = products
+    .filter(product => product.category === 'Tires & Wheels')
     .slice(0, 4);
 
   // Get first 4 products from "Other" category
@@ -79,9 +79,9 @@ export default function GroceryLandingPage() {
     .filter(product => product.category === 'Other')
     .slice(0, 4);
 
-  // Get first 4 products from Fresh Smoothies or Green Smoothies
-  const smoothiesProducts = products
-    .filter(product => product.category === 'Fresh Smoothies' || product.category === 'Green Smoothies')
+  // Get first 4 products from Accessories
+  const accessoriesProducts = products
+    .filter(product => product.category === 'Accessories')
     .slice(0, 4);
 
   const [activeIndex] = useState(0);
@@ -144,9 +144,9 @@ export default function GroceryLandingPage() {
 
   // Mobile rotating phrases
   const mobilePhrases = [
-    { text: "Pemafarm", icon: null, color: "text-orange-700", isMain: true },
-    { text: "Delivery", icon: <GiFullMotorcycleHelmet className="w-12 h-12" />, color: "text-green-700", isMain: false },
-    { text: "Discounts", icon: <FaShopify className="w-10 h-10 fill-current" />, color: "text-black", isMain: false },
+    { text: "Pattywapat", icon: null, color: "text-orange-700", isMain: true },
+    { text: "Auto Parts", icon: <Car className="w-12 h-12" />, color: "text-blue-700", isMain: false },
+    { text: "Delivery", icon: <GiFullMotorcycleHelmet className="w-10 h-10" />, color: "text-black", isMain: false },
   ];
 
   const [mobileIndex, setMobileIndex] = useState(0);
@@ -160,9 +160,9 @@ export default function GroceryLandingPage() {
 
   // Desktop rotating message sets
   const desktopSets = [
-    ["Pemafarm", "Freshness", "To Your Doorstep"],
-    ["Farm Fresh", "Direct", "To Your Door"],
-    ["PemaFarm", "Quality", "Delivered Fast"],
+    ["Pattywapat", "Quality", "Auto Parts"],
+    ["Genuine", "Parts", "Nairobi"],
+    ["Pattywapat", "Trusted", "Delivered Fast"],
   ];
 
   const [setIndex, setSetIndex] = useState(0);
@@ -183,14 +183,14 @@ export default function GroceryLandingPage() {
         <div className="absolute inset-0">
           <Image
             src="/hero2.jpg"
-            alt="Fresh Vegetables"
+            alt="Auto Parts"
             fill
             className="hidden md:block object-center object-contain"
             priority
           />
           <Image
             src="/hero.png"
-            alt="Fresh Vegetables"
+            alt="Auto Parts"
             fill
             className="block md:hidden object-center object-contain"
             priority
@@ -220,7 +220,7 @@ export default function GroceryLandingPage() {
                         i === 0
                           ? "text-4xl md:text-3xl text-orange-700 font-black uppercase leading-none tracking-[0.05em]"
                           : i === 1
-                          ? "text-3xl md:text-3xl font-bold text-green-700 uppercase leading-none opacity-90 tracking-[0.05em]"
+                          ? "text-3xl md:text-3xl font-bold text-blue-700 uppercase leading-none opacity-90 tracking-[0.05em]"
                           : "text-4xl new font-bold text-black leading-none opacity-80"
                       }
                     >
@@ -233,15 +233,15 @@ export default function GroceryLandingPage() {
           </div>
           <div className="flex flex-col items-end">
             <div className="bg-white/90 backdrop-blur-sm px-6 py-4  shadow-xl">
-              <p className="text-xs text-gray-600 uppercase tracking-wider font-semibold mb-1">Till</p>
-              <p className="text-3xl md:text-4xl font-black text-green-700 tracking-tight">213528</p>
+              <p className="text-xs text-gray-600 uppercase tracking-wider font-semibold mb-1">M-Pesa Till</p>
+              <p className="text-3xl md:text-4xl font-black text-blue-700 tracking-tight">213528</p>
             </div>
           </div>
           <Link
             href="/shop"
-            className="absolute bottom-8 left-4 w-fit px-8 py-3 bg-green-700 hover:bg-green-800 text-base text-white font-bold rounded-full transition-all transform  shadow-lg flex items-center gap-2"
+            className="absolute bottom-8 left-4 w-fit px-8 py-3 bg-blue-700 hover:bg-blue-800 text-base text-white font-bold rounded-full transition-all transform  shadow-lg flex items-center gap-2"
           >
-            Visit Our Store Now <GiShoppingCart size={18} />
+            Shop Auto Parts <GiShoppingCart size={18} />
           </Link>
         </div>
 
@@ -250,7 +250,7 @@ export default function GroceryLandingPage() {
           {/* Till number floating at top of image */}
           <div className="absolute top-1 left-1/2 transform -translate-x-1/2 z-20">
             <div className="bg-white/90 backdrop-blur-sm px-4 py-0  shadow-lg">
-              <p className="text-sm text-orange-700  tracking-wider font-semibold">Till <span className="text-xl  font-black text-green-600">213528</span></p>
+              <p className="text-sm text-orange-700  tracking-wider font-semibold">Till <span className="text-xl  font-black text-blue-600">213528</span></p>
              
             </div>
           </div>
@@ -297,9 +297,9 @@ export default function GroceryLandingPage() {
           <div className="flex justify-center pb-4">
             <Link
               href="/shop"
-              className="px-8 py-3 bg-green-700 hover:bg-green-800 text-base text-white font-bold rounded-full transition-all transform  shadow-2xl flex items-center gap-2"
+              className="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-base text-white font-bold rounded-full transition-all transform  shadow-2xl flex items-center gap-2"
             >
-              Visit Our Store Now <GiShoppingCart size={18} />
+              Shop Auto Parts <GiShoppingCart size={18} />
             </Link>
           </div>
         </div>
@@ -316,9 +316,9 @@ export default function GroceryLandingPage() {
             <Link
               key={cat.id}
               href={`/shop?category=${cat.name}`}
-              className="border border-green-200 bg-green-50 hover:border-green-500 group transition-all rounded-2xl p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
+              className="border border-blue-200 bg-blue-50 hover:border-blue-500 group transition-all rounded-2xl p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
             >
-              <div className="text-green-800/50 group-hover:scale-110 transition-transform">
+              <div className="text-blue-800/50 group-hover:scale-110 transition-transform">
                 {cat.icon}
               </div>
               <span className="text-sm font-medium text-center">{cat.name}</span>
@@ -327,15 +327,15 @@ export default function GroceryLandingPage() {
         </div>
       </section>
 
-      {/* --- Popular Fruits --- */}
+      {/* --- Popular Engine Parts --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Popular Fruits</h2>
+          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Popular Engine Parts</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  gap-4 sm:gap-6">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
-            {popularFruits.map((product) => (
+            {popularEngineParts.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
             ))}
           </Suspense>
@@ -343,22 +343,22 @@ export default function GroceryLandingPage() {
       </section>
       <div className="flex justify-center md:justify-end ">
           <Link
-            href="/shop?category=Fruits"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-green-50 hover:bg-green-600 text-black tracking-widest rounded-full transition-colors text-sm border border-green-200"
+            href="/shop?category=Engine Parts"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
           >
-            View All Fruits <GiShoppingCart size={16} />
+            View All Engine Parts <GiShoppingCart size={16} />
           </Link>
         </div>
 
-      {/* --- Popular Vegetables --- */}
+      {/* --- Popular Brake Systems --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Popular Vegetables</h2>
+          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Popular Brake Systems</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  gap-4 sm:gap-6">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
-            {popularVegetables.map((product) => (
+            {popularBrakeSystems.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
             ))}
           </Suspense>
@@ -366,10 +366,10 @@ export default function GroceryLandingPage() {
       </section>
       <div className="flex justify-center md:justify-end">
           <Link
-            href="/shop?category=Vegetables"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-green-50 hover:bg-green-600 text-black tracking-widest rounded-full transition-colors text-sm border border-green-200"
+            href="/shop?category=Brake Systems"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
           >
-            View All Vegetables <GiShoppingCart size={18} />
+            View All Brake Systems <GiShoppingCart size={18} />
           </Link>
         </div>
 
@@ -383,14 +383,14 @@ export default function GroceryLandingPage() {
           {specialOffers.map((offer) => (
             <div
               key={offer.id}
-              className="border border-green-200 bg-green-50 hover:border-green-500 group transition-all rounded-2xl p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
+              className="border border-blue-200 bg-blue-50 hover:border-blue-500 group transition-all rounded-2xl p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
             >
-              <div className="text-green-800/50 group-hover:scale-110 transition-transform">
+              <div className="text-blue-800/50 group-hover:scale-110 transition-transform">
                 {offer.icon}
               </div>
               <div className="text-center">
                 <span className="text-sm font-medium block">{offer.name}</span>
-                <span className="text-xs text-green-800 font-bold mt-1">{offer.discount}</span>
+                <span className="text-xs text-blue-800 font-bold mt-1">{offer.discount}</span>
               </div>
             </div>
           ))}
@@ -398,16 +398,16 @@ export default function GroceryLandingPage() {
         
       </section>
 
-      {/* --- Featured Juices --- */}
+      {/* --- Featured Electrical --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Featured Juices</h2>
+          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Featured Electrical</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
-            {featuredJuices.map((product) => (
+            {featuredElectrical.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
             ))}
           </Suspense>
@@ -415,24 +415,24 @@ export default function GroceryLandingPage() {
 
         <div className="flex justify-center md:justify-end">
           <Link
-            href="/shop?category=Juices"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-green-50 hover:bg-green-600 text-black tracking-widest rounded-full transition-colors text-sm border border-green-200"
+            href="/shop?category=Electrical"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
           >
-            View All Juices <GiShoppingCart size={18} />
+            View All Electrical <GiShoppingCart size={18} />
           </Link>
         </div>
       </section>
 
-      {/* --- Featured Tubers --- */}
+      {/* --- Featured Tires & Wheels --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Featured Tubers</h2>
+          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Featured Tires & Wheels</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
-            {featuredTubers.map((product) => (
+            {featuredTiresWheels.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
             ))}
           </Suspense>
@@ -440,10 +440,10 @@ export default function GroceryLandingPage() {
 
         <div className="flex justify-center md:justify-end">
           <Link
-            href="/shop?category=Tubers"
-            className="inline-flex items-center gap-2 px-8 py-2 bg-green-50 hover:bg-green-600 text-black tracking-widest rounded-full transition-colors text-sm border border-green-200"
+            href="/shop?category=Tires & Wheels"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
           >
-            View All Tubers <GiShoppingCart size={18} />
+            View All Tires & Wheels <GiShoppingCart size={18} />
           </Link>
         </div>
       </section>
@@ -459,7 +459,7 @@ export default function GroceryLandingPage() {
         <div className="flex flex-col md:px-4 md:flex-row gap-12 md:gap-20 items-center md:py-2">
           <div className="md:w-2/5">
             <h2 className="hidden md:block font-serif text-lg mt-3 mb-6 text-[#364735]">
-              Not reviews. 
+              Not reviews.
               <span className="italic block font-light">Conversations.</span>
             </h2>
             <p className="hidden md:block text-[#5c6b58] text-lg font-light mb-6">
@@ -468,8 +468,8 @@ export default function GroceryLandingPage() {
             <div className="hidden md:block">
               <div className="flex gap-2 mt-8">
                 {testimonials.map((_, idx) => (
-                  <button 
-                    key={idx} 
+                  <button
+                    key={idx}
                     onClick={() => setTestimonialIndex(idx)}
                     className={`w-2 h-2 rounded-full transition-all ${
                       idx === testimonialIndex ? 'bg-[#3a604a] w-6' : 'bg-[#cad4c2]'
@@ -482,7 +482,7 @@ export default function GroceryLandingPage() {
           </div>
         
           <div className="md:w-3/5 relative">
-            <div className="relative bg-green-700 p-4 md:p-12 rounded-3xl shadow">
+            <div className="relative bg-blue-700 p-4 md:p-12 rounded-3xl shadow">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={testimonialIndex}
@@ -493,22 +493,22 @@ export default function GroceryLandingPage() {
                   className="space-y-6"
                 >
                   <p className="text-sm md:text-lg font-light text-white leading-relaxed">
-                    <span className="absolute top-2 left-2 text-green-200/20">
+                    <span className="absolute top-2 left-2 text-blue-200/20">
                       <Quote size={64} strokeWidth={0.8} />
                     </span> "{testimonials[testimonialIndex].text}"
                   </p>
                   <div className="flex items-center gap-4 pt-2">
                     <div className="relative">
                       <div className="w-16 h-16 rounded-full border-2 border-white overflow-hidden">
-                        <Image 
-                          src={testimonials[testimonialIndex].image} 
+                        <Image
+                          src={testimonials[testimonialIndex].image}
                           alt={testimonials[testimonialIndex].name}
                           width={64}
                           height={64}
                           className="object-cover"
                         />
                       </div>
-                      <span className="absolute -bottom-1 -right-1 bg-green-700 rounded-full w-6 h-6 flex items-center justify-center border-2 border-white">
+                      <span className="absolute -bottom-1 -right-1 bg-blue-700 rounded-full w-6 h-6 flex items-center justify-center border-2 border-white">
                         <Star className="w-3 h-3 text-white fill-white" />
                       </span>
                     </div>
@@ -523,8 +523,8 @@ export default function GroceryLandingPage() {
             
             <div className="flex md:hidden justify-center gap-3 mt-8">
               {testimonials.map((_, idx) => (
-                <button 
-                  key={idx} 
+                <button
+                  key={idx}
                   onClick={() => setTestimonialIndex(idx)}
                   className={`w-2.5 h-2.5 rounded-full transition-all ${
                     idx === testimonialIndex ? 'bg-[#3a604a] w-8' : 'bg-[#cad4c2]'
@@ -539,7 +539,7 @@ export default function GroceryLandingPage() {
       {/* --- Other Products --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Other Products</h2>
+          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Tools & Equipment</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
         
@@ -556,18 +556,18 @@ export default function GroceryLandingPage() {
             <div className="flex justify-center md:justify-end">
               <Link
                 href="/shop?category=Other"
-                className="inline-flex items-center gap-2 px-8 py-2 bg-green-50 hover:bg-green-600 text-black tracking-widest rounded-full transition-colors text-sm border border-green-200"
+                className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
               >
-                View Other Products <GiShoppingCart size={18} />
+                View All Tools <GiShoppingCart size={18} />
               </Link>
             </div>
           </>
         ) : (
           <div className="text-center py-12">
-            <p className="text-gray-500">No other products available at the moment.</p>
+            <p className="text-gray-500">No tools available at the moment.</p>
             <Link
               href="/shop"
-              className="inline-flex items-center gap-2 px-8 py-2 bg-green-50 hover:bg-green-600 text-black tracking-widest rounded-full transition-colors text-sm border border-green-200"
+              className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
             >
               Browse All Products
             </Link>
@@ -575,18 +575,18 @@ export default function GroceryLandingPage() {
         )}
       </section>
 
-      {/* --- Smoothies --- */}
+      {/* --- Accessories --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Smoothies</h2>
+          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Accessories</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
         
-        {smoothiesProducts.length > 0 ? (
+        {accessoriesProducts.length > 0 ? (
           <>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
               <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
-                {smoothiesProducts.map((product) => (
+                {accessoriesProducts.map((product) => (
                   <ProductCard key={product.id} product={product} view="grid" />
                 ))}
               </Suspense>
@@ -594,19 +594,19 @@ export default function GroceryLandingPage() {
             
             <div className="flex justify-center md:justify-end">
               <Link
-                href="/shop?category=Smoothies"
-                className="inline-flex items-center gap-2 px-8 py-2 bg-green-50 hover:bg-green-600 text-black tracking-widest rounded-full transition-colors text-sm border border-green-200"
+                href="/shop?category=Accessories"
+                className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
               >
-                View All Smoothies <GiShoppingCart size={18} />
+                View All Accessories <GiShoppingCart size={18} />
               </Link>
             </div>
           </>
         ) : (
           <div className="text-center py-12">
-            <p className="text-gray-500">No smoothies available at the moment.</p>
+            <p className="text-gray-500">No accessories available at the moment.</p>
             <Link
               href="/shop"
-              className="inline-flex items-center gap-2 px-8 py-2 bg-green-50 hover:bg-green-600 text-black tracking-widest rounded-full transition-colors text-sm border border-green-200"
+              className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
             >
               Browse All Products
             </Link>

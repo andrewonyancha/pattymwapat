@@ -2,17 +2,17 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { 
-  Instagram, 
-  Facebook, 
-  Twitter, 
-  Mail, 
-  ArrowRight, 
-  MapPin, 
-  Phone 
+import {
+  Instagram,
+  Facebook,
+  Twitter,
+  Mail,
+  ArrowRight,
+  MapPin,
+  Phone,
+  Car
 } from "lucide-react";
 import { GiShoppingCart } from "react-icons/gi";
-import { PiPlantFill } from "react-icons/pi";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { HiMiniGift } from "react-icons/hi2";
 import { FaShopify } from "react-icons/fa6";
@@ -40,16 +40,16 @@ export default function Footer() {
             <div className="relative w-40 h-12">
               <Image
                 src="/logo-footer.png"
-                alt="PemaFarm"
+                alt="Pattywapat Autospares"
                 fill
                 sizes="160px"
                 className="object-contain brightness-0 invert"
               />
             </div>
             <p className="text-sm leading-relaxed font-light tracking-wide text-stone-400">
-              From our farm to your table — bringing you the freshest 
-              organic produce, cold-pressed juices, and farm-grown 
-              herbs since 2018.
+              Your trusted auto parts supplier in Nairobi, Kenya.
+              Quality genuine parts, expert support, and fast delivery
+              for all vehicle makes since 2018.
             </p>
             <div className="flex gap-6">
               <Link href="#" className="hover:text-white transition-colors"><Instagram size={18} strokeWidth={1.5} /></Link>
@@ -62,10 +62,10 @@ export default function Footer() {
           <div>
             <h3 className="text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Categories</h3>
             <ul className="space-y-4 text-xs uppercase tracking-[0.2em] font-light">
-              <li><Link href="/shop?category=Fruits" className="hover:text-white transition-colors">Fresh Fruits</Link></li>
-              <li><Link href="/shop?category=Vegetables" className="hover:text-white transition-colors">Garden Vegetables</Link></li>
-              <li><Link href="/shop?category=Juices" className="hover:text-white transition-colors">Cold Juices</Link></li>
-              <li><Link href="/shop?category=Herbs" className="hover:text-white transition-colors">Fresh Herbs</Link></li>
+              <li><Link href="/shop?category=Engine Parts" className="hover:text-white transition-colors">Engine Parts</Link></li>
+              <li><Link href="/shop?category=Brake Systems" className="hover:text-white transition-colors">Brake Systems</Link></li>
+              <li><Link href="/shop?category=Tires & Wheels" className="hover:text-white transition-colors">Tires & Wheels</Link></li>
+              <li><Link href="/shop?category=Electrical" className="hover:text-white transition-colors">Electrical</Link></li>
               <li><Link href="/special-offers" className="text-stone-100 font-medium italic flex items-center gap-2"><HiMiniGift size={12} /> Special Offers</Link></li>
             </ul>
           </div>
@@ -75,7 +75,7 @@ export default function Footer() {
             <h3 className="text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Support</h3>
             <ul className="space-y-4 text-xs uppercase tracking-[0.2em] font-light">
               <li><Link href="/help-center" className="hover:text-white transition-colors flex items-center gap-2"><RiCustomerService2Fill size={12} /> Help Center</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors flex items-center gap-2"><PiPlantFill size={12} /> About Us</Link></li>
+              <li><Link href="/about" className="hover:text-white transition-colors flex items-center gap-2"><Car size={12} /> About Us</Link></li>
               {/* <li><Link href="/delivery" className="hover:text-white transition-colors">Delivery Info</Link></li>
               <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li> */}
@@ -84,11 +84,11 @@ export default function Footer() {
 
           {/* Newsletter & Contact */}
           <div className="space-y-8">
-            <h3 className="text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Farm Fresh Updates</h3>
-            <p className="text-xs font-light tracking-wide text-stone-400">Subscribe for harvest alerts, seasonal recipes, and exclusive farm offers.</p>
+            <h3 className="text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Auto Parts Updates</h3>
+            <p className="text-xs font-light tracking-wide text-stone-400">Subscribe for new arrivals, special deals, and auto maintenance tips.</p>
             <div className="relative group">
-              <input 
-                type="email" 
+              <input
+                type="email"
                 placeholder="Your email"
                 className="w-full bg-transparent border-b border-stone-700 py-3 text-xs uppercase tracking-widest outline-none focus:border-stone-100 transition-colors"
               />
@@ -99,7 +99,7 @@ export default function Footer() {
             <div className="pt-4 space-y-2 text-[10px] uppercase tracking-widest text-stone-500 font-medium">
               <div className="flex items-center gap-3"><MapPin size={12} /> Nairobi, Kenya</div>
               <div className="flex items-center gap-3"><Phone size={12} /> +254 703 699703</div>
-              <div className="flex items-center gap-3"><Mail size={12} /> pemafreshgroceries@gmail.com</div>
+              <div className="flex items-center gap-3"><Mail size={12} /> pattywapat@gmail.com</div>
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function Footer() {
         {/* Bottom Credits */}
         <div className="border-t border-stone-800/50 py-10 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-[9px] uppercase tracking-[0.3em] text-stone-600">
-            © {currentYear} PemaFarm. Fresh from our farm to your table.
+            © {currentYear} Pattywapat Autospares. Quality parts, trusted service.
           </p>
           
           <div className="flex items-center gap-8 opacity-40 grayscale">

@@ -124,7 +124,7 @@ function OtherProductsContent() {
       <div className="mb-2">
         <div className="flex items-center justify-between">
           <span className="text-[10px] uppercase tracking-[0.4em] text-stone-400 font-bold block">
-            Category / more products
+            Category / tools & equipment
           </span>
           <MoreViewToggle />
         </div>
@@ -133,7 +133,7 @@ function OtherProductsContent() {
       {/* Loading indicator */}
       {loading && (
         <div className="flex items-center justify-center py-4 mb-4">
-          <Loader2 className="h-5 w-5 animate-spin text-green-600 mr-2" />
+          <Loader2 className="h-5 w-5 animate-spin text-blue-600 mr-2" />
           <span className="text-sm text-gray-500">Loading additional products...</span>
         </div>
       )}
@@ -145,7 +145,7 @@ function OtherProductsContent() {
             Search Results for "{searchQuery}"
           </h2>
           <p className="text-gray-600 mt-1">
-            Found {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} in Other Products
+            Found {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} in Tools & Equipment
           </p>
         </div>
       )}
@@ -155,8 +155,8 @@ function OtherProductsContent() {
         <div className="text-center bg-gray-50 rounded-lg">
           <p className="text-gray-500 text-lg mb-2">
             {searchQuery
-              ? `No products found for "${searchQuery}" in Other Products`
-              : 'No products currently available in Other Products.'}
+              ? `No products found for "${searchQuery}" in Tools & Equipment`
+              : 'No products currently available in Tools & Equipment.'}
           </p>
           {searchQuery && (
             <p className="text-gray-400">
@@ -208,7 +208,7 @@ function OtherProductsContent() {
                   onClick={() => handlePageChange(pageNum)}
                   className={`w-10 h-10 text-sm font-medium transition-colors ${
                     currentPage === pageNum
-                      ? 'bg-green-700 text-white'
+                      ? 'bg-blue-700 text-white'
                       : 'border border-gray-300 hover:bg-gray-100'
                   }`}
                 >
@@ -234,7 +234,7 @@ function OtherProductsContent() {
           href="/shop"
           className="group inline-flex items-center gap-4 text-[10px] uppercase tracking-[0.4em] text-stone-400 hover:text-stone-900 transition-all duration-500"
         >
-          <div className="w-10 h-10 rounded-full border border-stone-100 flex items-center justify-center group-hover:bg-green-700 group-hover:border-white transition-all">
+          <div className="w-10 h-10 rounded-full border border-stone-100 flex items-center justify-center group-hover:bg-blue-700 group-hover:border-white transition-all">
             <ChevronLeft size={14} className="group-hover:text-white transition-colors" />
           </div>
           Return to All Collections

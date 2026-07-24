@@ -49,8 +49,8 @@ export default function ScrollToTopButton() {
             {/* The Vertical Line (Classy Editorial Look) */}
             <div className="relative w-[0.5px] h-8 bg-black overflow-hidden ml-[0.4px]">
               {/* Animated fill line on hover */}
-              <motion.div 
-                className="absolute inset-0 bg-green-500 origin-top"
+              <motion.div
+                className="absolute inset-0 bg-blue-500 origin-top"
                 initial={{ scaleY: 0 }}
                 whileHover={{ scaleY: 1 }}
                 transition={{ duration: 0.4, ease: "circOut" }}

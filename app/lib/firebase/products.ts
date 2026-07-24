@@ -73,7 +73,7 @@ export type Product = {
   id: string;
   name: string;
   slug: string;
-  category: 'Vegetables' | 'Fruits' | 'Tubers' | 'Juices' | 'Herbs' | 'Leafy Greens' | 'Other';
+  category: 'Engine Parts' | 'Brake Systems' | 'Suspension & Steering' | 'Electrical' | 'Filters' | 'Body Parts' | 'Tires & Wheels' | 'Accessories' | 'Oils & Fluids' | 'Other';
   price: number;
   unit: string;
   image?: string;

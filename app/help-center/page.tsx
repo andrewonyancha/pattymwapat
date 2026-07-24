@@ -48,8 +48,8 @@ export default function ContactUs() {
               <ContactLink 
                 icon={<Mail size={18} strokeWidth={1} />}
                 label="Email Correspondence"
-                value="pemafreshgroceries@gmail.com"
-                href="mailto:pemafreshgroceries@gmail.com"
+                value="pattywapat@gmail.com"
+                href="mailto:pattywapat@gmail.com"
               />
               <ContactLink 
                 icon={<MessageSquare size={18} strokeWidth={1} />}
@@ -68,7 +68,7 @@ export default function ContactUs() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-6 group"
               >
-                <div className="w-16 h-16 rounded-full border bg-green-700  border-stone-200 flex items-center justify-center group-hover:bg-white group-hover:border-stone-400 transition-all duration-500">
+                <div className="w-16 h-16 rounded-full border bg-blue-700  border-stone-200 flex items-center justify-center group-hover:bg-white group-hover:border-stone-400 transition-all duration-500">
                   <ArrowUpRight className="text-white group-hover:text-stone-400 transition-colors" size={24} strokeWidth={1} />
                 </div>
                 <div>
@@ -89,8 +89,8 @@ export default function ContactUs() {
           >
             <div className="relative aspect-[3/2] md:aspect-[16/10] overflow-hidden ">
               <Image
-                src="/images/Contact-us.svg" // Use a high-quality farm/lifestyle shot here
-                alt="PemaFarm Estate"
+                src="/images/Contact-us.svg"
+                alt="Pattywapat Autospares"
                 fill
                 className="object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-1000"
               />
