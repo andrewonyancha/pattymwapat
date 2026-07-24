@@ -314,7 +314,7 @@ export default function AutoPartsLandingPage() {
           <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap newn ">Popular Categories</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
           {categories.map((cat) => (
             <Link
               key={cat.id}
@@ -576,7 +576,7 @@ export default function AutoPartsLandingPage() {
               key={offer.id}
               className="border border-blue-200 bg-blue-50 hover:border-blue-500 group transition-all  p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
             >
-              <div className="text-blue-800/50 group-hover:scale-110 transition-transform">
+              <div className="text-blue-800 group-hover:scale-110 transition-transform">
                 {offer.icon}
               </div>
               <div className="text-center">
