@@ -3,27 +3,28 @@ import { products } from './shop/products';
 import ProductCard from '@/app/components/shop/ProductCard';
 import Link from 'next/link';
 import Image from 'next/image';
-import { GiShoppingCart } from 'react-icons/gi';
+import { GiCarSeat, GiCog, GiCrackedDisc, GiShoppingCart } from 'react-icons/gi';
 import { Quote, Star, Truck, Wrench, Car, Settings, CircleIcon } from 'lucide-react';
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { GiCarWheel } from "react-icons/gi";
 import { GiCarBattery } from "react-icons/gi";
 import { AnimatePresence, motion } from 'framer-motion';
-import { FaShopify } from 'react-icons/fa';
+import { FaFilter, FaShopify } from 'react-icons/fa';
 import { GiFullMotorcycleHelmet } from "react-icons/gi";
 import { FaShoppingBasket } from "react-icons/fa";
 import { TbEngine } from 'react-icons/tb';
+import { MdElectricCar } from 'react-icons/md';
 
 
 
 // Categories & Special Offers
 const categories = [
-  { id: 1, name: 'Engine Parts', icon: <TbEngine className="w-8 h-8" /> },
-  { id: 2, name: 'Brake Systems', icon: <CircleIcon className="w-8 h-8" /> },
+  { id: 1, name: 'Engine Parts', icon: <GiCog className="w-8 h-8" /> },
+  { id: 2, name: 'Brake Systems', icon: <GiCrackedDisc className="w-8 h-8" /> },
   { id: 3, name: 'Tires & Wheels', icon: <GiCarWheel className="w-8 h-8" /> },
-  { id: 4, name: 'Electrical', icon: <GiCarBattery className="w-8 h-8" /> },
-  { id: 5, name: 'Filters', icon: <Wrench className="w-8 h-8" /> },
-  { id: 6, name: 'Body Parts', icon: <Car className="w-8 h-8" /> },
+  { id: 4, name: 'Electrical', icon: <MdElectricCar className="w-8 h-8" /> },
+  { id: 5, name: 'Filters', icon: <FaFilter className="w-8 h-8" /> },
+  { id: 6, name: 'Body Parts', icon: <GiCarSeat className="w-8 h-8" /> },
 ];
 
 const specialOffers = [
@@ -233,12 +234,12 @@ export default function AutoPartsLandingPage() {
               </div>
             </AnimatePresence>
           </div>
-          <div className="flex flex-col items-end">
+          {/* <div className="flex flex-col items-end">
             <div className="bg-white/90 backdrop-blur-sm px-6 py-4  shadow-xl">
               <p className="text-xs text-gray-600 uppercase tracking-wider font-semibold mb-1">M-Pesa Till</p>
               <p className="text-3xl md:text-4xl font-black text-blue-700 tracking-tight">213528</p>
             </div>
-          </div>
+          </div> */}
           <Link
             href="/shop"
             className="absolute bottom-8 left-4 w-fit px-8 py-3 bg-blue-700 hover:bg-blue-800 text-base text-white font-bold  transition-all transform  shadow-lg flex items-center gap-2"
@@ -320,7 +321,7 @@ export default function AutoPartsLandingPage() {
               href={`/shop?category=${cat.name}`}
               className="border border-blue-200 bg-blue-50 hover:border-blue-500 group transition-all  p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
             >
-              <div className="text-blue-800/50 group-hover:scale-110 transition-transform">
+              <div className="text-blue-800 group-hover:scale-110 transition-transform">
                 {cat.icon}
               </div>
               <span className="text-sm font-medium text-center">{cat.name}</span>
