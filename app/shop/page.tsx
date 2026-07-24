@@ -8,6 +8,7 @@ import CategoryFilter from '@/app/components/shop/CategoryFilter';
 import ViewToggle from '@/app/components/shop/ViewToggle';
 import ProductCard from '@/app/components/shop/ProductCard';
 import { Loader2 } from 'lucide-react';
+import Link from 'next/link';
 
 export const dynamic = 'force-dynamic';
 
