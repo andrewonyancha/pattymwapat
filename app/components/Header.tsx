@@ -12,7 +12,6 @@ import {
   LogOut,
   User,
   Shield,
-  ChevronRight,
   Car,
 } from "lucide-react";
 import { RiCustomerService2Fill } from "react-icons/ri";
@@ -20,39 +19,17 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 
 import Image from "next/image";
 import { CiMenuBurger } from "react-icons/ci";
-import { FaShopify } from "react-icons/fa6";
 import { useCartStore } from "../lib/cartStore";
 import CartDrawer from "./shop/CartDrawer";
-import {
-  GiCog,
-  GiCrackedDisc,
-  GiCarWheel,
-  GiCarBattery,
-  GiF1Car,
-  GiWrench,
-} from "react-icons/gi";
-
-import { HiMiniGift } from "react-icons/hi2";
-import { IoIosApps } from "react-icons/io";
 
 
 // Auth store & signOut
 import { useAuthStore } from "../lib/authStore";
 import { signOut } from "../lib/firebase/auth";
 
-const categories = [
-  { name: "Engine Parts", slug: "engine-parts", icon: GiCog, isSubcategory: false },
-  { name: "Brake Systems", slug: "brake-systems", icon: GiCrackedDisc, isSubcategory: false },
-  { name: "Tires & Wheels", slug: "tires-wheels", icon: GiCarWheel, isSubcategory: false },
-  { name: "Electrical", slug: "electrical", icon: GiCarBattery, isSubcategory: false },
-  { name: "Filters", slug: "filters", icon: GiWrench, isSubcategory: false },
-  { name: "Body Parts", slug: "body-parts", icon: GiF1Car, isSubcategory: false },
-];
-
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [showDesktopProfileDropdown, setShowDesktopProfileDropdown] = useState(false);
   const [showMobileProfileDropdown, setShowMobileProfileDropdown] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -125,11 +102,12 @@ export default function Header() {
   }, [showMobileProfileDropdown]);
 
   const menuItems = [
-    { label: "Categories", href: "/shop", hasDropdown: true, icon: IoIosApps },
-    { label: "Shop", href: "/shop", icon: FaShopify },
-    { label: "More products", href: "/more-products", icon: GiWrench },
-    { label: "Special Offers", href: "/special-offers", icon: HiMiniGift },
-    { label: "About Us", href: "/about", icon: Car },
+    { label: "Engine Parts", href: "/shop?category=Engine Parts" },
+    { label: "Brake Systems", href: "/shop?category=Brake Systems" },
+    { label: "Tires & Wheels", href: "/shop?category=Tires & Wheels" },
+    { label: "Electrical", href: "/shop?category=Electrical" },
+    { label: "Filters", href: "/shop?category=Filters" },
+    { label: "Body Parts", href: "/shop?category=Body Parts" },
     { label: "Help Center", href: "/help-center", icon: RiCustomerService2Fill },
   ];
 
@@ -339,54 +317,16 @@ export default function Header() {
           <div className="container mx-auto px-4 lg:px-6">
             <ul className="flex items-center justify-center py-2.5">
               {menuItems.map((item, index) => (
-                <li
-                  key={item.label}
-                  className="relative flex items-center"
-                  onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.label)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
+                <li key={item.label} className="relative flex items-center">
                   <Link
                     href={item.href}
-                    className="flex items-center gap-1.5 px-6 py-2.5 text-sm font-semibold hover:text-black hover:underline transition-colors whitespace-nowrap group"
+                    className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold hover:text-black hover:underline transition-colors whitespace-nowrap"
                   >
-                    <item.icon size={18} className="group-hover:animate-bounce" />
                     {item.label}
-                    {item.hasDropdown && (
-                      <ChevronDown
-                        size={16}
-                        className={`transition-transform duration-200 ${activeDropdown === item.label ? "rotate-180" : ""}`}
-                      />
-                    )}
                   </Link>
 
                   {index < menuItems.length - 1 && (
                     <div className="h-5 w-px bg-white/30 mx-1" aria-hidden="true" />
-                  )}
-
-                  {item.hasDropdown && activeDropdown === item.label && (
-                    <div
-                      className="
-                        absolute top-full left-0 -mt-2
-                        bg-white text-gray-800 shadow-2xl rounded-xl
-                        min-w-[280px] py-0 z-50 border border-gray-200 overflow-hidden
-                      "
-                    >
-                      {categories.map((cat) => {
-                        const Icon = cat.icon;
-                        
-                        // Regular main categories (clickable)
-                        return (
-                          <Link
-                            key={cat.slug}
-                            href={`/shop?category=${cat.name}`}
-                            className="flex items-center gap-3 px-3 py-3 text-sm font-medium hover:bg-blue-50 transition-all duration-150 group"
-                          >
-                            <Icon size={18} className="text-blue-600 group-hover:text-blue-700 transition-colors" strokeWidth={1.8} />
-                            <span>{cat.name}</span>
-                          </Link>
-                        );
-                      })}
-                    </div>
                   )}
                 </li>
               ))}
@@ -581,43 +521,13 @@ export default function Header() {
             <nav className="flex-1 px-2 py-2 overflow-y-auto">
               {menuItems.map((item, index) => (
                 <div key={item.label}>
-                  {item.label === "Categories" ? (
-                    <>
-                      <div className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 bg-gray-50 rounded-xl mx-2 mt-2">
-                        <item.icon size={18} className="text-blue-700" />
-                        {item.label}
-                      </div>
-                      <div className="pl-6 pr-2 mt-1 mb-4">
-                        {categories.map((cat) => {
-                          const Icon = cat.icon;
-                           
-                          // Regular main categories (clickable)
-                          return (
-                            <Link
-                              key={cat.slug}
-                              href={`/shop?category=${cat.name}`}
-                              className={`flex items-center gap-3 px-5 py-2.5 text-[15px] hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors ${
-                                cat.isSubcategory ? 'pl-12 text-stone-600' : 'text-gray-700'
-                              }`}
-                              onClick={closeMobileMenu}
-                            >
-                              <Icon size={cat.isSubcategory ? 16 : 18} className={cat.isSubcategory ? 'text-stone-500' : 'text-blue-600'} />
-                              {cat.name}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 hover:bg-blue-50 hover:text-blue-700 rounded-xl transition-colors"
-                      onClick={closeMobileMenu}
-                    >
-                      <item.icon size={16} className="text-blue-700" />
-                      {item.label}
-                    </Link>
-                  )}
+                  <Link
+                    href={item.href}
+                    className="flex items-center gap-4 px-5 py-3 text-base font-medium text-gray-800 hover:bg-blue-50 hover:text-blue-700 rounded-xl transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    {item.label}
+                  </Link>
                   {index < menuItems.length - 1 && (
                     <div className="mx-5 my-2 h-px bg-gray-200" />
                   )}
