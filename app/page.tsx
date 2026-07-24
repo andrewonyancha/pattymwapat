@@ -185,7 +185,7 @@ export default function AutoPartsLandingPage() {
             src="/hero.webp"
             alt="Auto Parts"
             fill
-            className="hidden md:block object-center object-contain"
+            className="hidden md:block object-center object-cover"
             priority
           />
           <Image
