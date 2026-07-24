@@ -3,16 +3,13 @@ import { products } from './shop/products';
 import ProductCard from '@/app/components/shop/ProductCard';
 import Link from 'next/link';
 import Image from 'next/image';
-import { GiCarSeat, GiCog, GiCrackedDisc, GiShoppingCart } from 'react-icons/gi';
-import { Quote, Star, Truck, Wrench, Car, Settings, CircleIcon } from 'lucide-react';
+import { GiCarSeat, GiCog, GiCrackedDisc, GiRingingAlarm, GiShoppingCart, GiTyre } from 'react-icons/gi';
+import { Quote, Star, Wrench, Car } from 'lucide-react';
 import { useState, useEffect, useRef, Suspense } from 'react';
-import { GiCarWheel } from "react-icons/gi";
-import { GiCarBattery } from "react-icons/gi";
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaFilter, FaShopify } from 'react-icons/fa';
 import { GiFullMotorcycleHelmet } from "react-icons/gi";
 import { FaShoppingBasket } from "react-icons/fa";
-import { TbEngine } from 'react-icons/tb';
 import { MdElectricCar } from 'react-icons/md';
 
 
@@ -20,8 +17,8 @@ import { MdElectricCar } from 'react-icons/md';
 // Categories & Special Offers
 const categories = [
   { id: 1, name: 'Engine Parts', icon: <GiCog className="w-8 h-8" /> },
-  { id: 2, name: 'Brake Systems', icon: <GiCrackedDisc className="w-8 h-8" /> },
-  { id: 3, name: 'Tires & Wheels', icon: <GiCarWheel className="w-8 h-8" /> },
+  { id: 2, name: 'Brake Systems', icon: <GiRingingAlarm className="w-8 h-8" /> },
+  { id: 3, name: 'Tires & Wheels', icon: <GiTyre className="w-8 h-8" /> },
   { id: 4, name: 'Electrical', icon: <MdElectricCar className="w-8 h-8" /> },
   { id: 5, name: 'Filters', icon: <FaFilter className="w-8 h-8" /> },
   { id: 6, name: 'Body Parts', icon: <GiCarSeat className="w-8 h-8" /> },

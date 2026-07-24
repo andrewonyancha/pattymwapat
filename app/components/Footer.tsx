@@ -25,7 +25,7 @@ export default function Footer() {
       {/* Subtle Texture Overlay */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <Image
-          src="/hero.webp"
+          src="/logo.webp"
           alt="Texture"
           fill
           className="object-cover grayscale"
@@ -39,7 +39,7 @@ export default function Footer() {
           <div className="space-y-8">
             <div className="relative w-40 h-12">
               <Image
-                src="/logo-footer.png"
+                src="/logo.webp"
                 alt="Pattywapat Autospares"
                 fill
                 sizes="160px"

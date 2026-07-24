@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props) {
   const staticProduct = staticProducts.find((p) => p.slug === slug);
   if (staticProduct) {
     return {
-      title: `${staticProduct.name} — PemaFarm`,
+      title: `${staticProduct.name} — Mwapat`,
       description: `Artisanal ${staticProduct.name} sourced directly from our fields.`,
     };
   }
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props) {
   const dynamicProduct = await getProductBySlug(slug);
   if (dynamicProduct) {
     return {
-      title: `${dynamicProduct.name} — PemaFarm`,
+      title: `${dynamicProduct.name} — Mwapat`,
       description: `Artisanal ${dynamicProduct.name} sourced directly from our fields.`,
     };
   }

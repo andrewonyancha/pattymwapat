@@ -112,7 +112,7 @@ function SignupForm() {
           Create your account
         </h1>
         <p className="text-sm text-stone-500">
-          Join PemaFarm
+          Join Mwapat
         </p>
         <p className="text-sm text-stone-500">
           Already have an account?{' '}

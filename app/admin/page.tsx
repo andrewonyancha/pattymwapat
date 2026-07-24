@@ -924,7 +924,7 @@ export default function AdminPage() {
     let message = '';
     
     if (whatsappModal.recipientType === 'customer') {
-      message = `Hello ${order.userName}! Your order from PemaFarm is ready.\n\nOrder: ${order.items.map(i => `${i.quantity}x ${i.name}`).join(', ')}\nTotal: KSh ${order.total}\n\nDelivery Address: ${order.address}\n\nWe'll notify you when it's dispatched!`;
+      message = `Hello ${order.userName}! Your order from Mwapat is ready.\n\nOrder: ${order.items.map(i => `${i.quantity}x ${i.name}`).join(', ')}\nTotal: KSh ${order.total}\n\nDelivery Address: ${order.address}\n\nWe'll notify you when it's dispatched!`;
     } else if (whatsappModal.recipientType === 'rider') {
       message = `Delivery Order\n\nCustomer: ${order.userName}\nAddress: ${order.address}\n\nOrder Items:\n${order.items.map(i => `- ${i.quantity}x ${i.name}`).join('\n')}\n\nTotal: KSh ${order.total}\n\nPlease deliver to the address above.`;
     } else {
