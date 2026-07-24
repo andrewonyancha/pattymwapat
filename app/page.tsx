@@ -313,7 +313,7 @@ export default function AutoPartsLandingPage() {
           <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap newn ">Popular Categories</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
           {categories.map((cat) => (
             <Link
               key={cat.id}
