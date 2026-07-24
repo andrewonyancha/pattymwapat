@@ -13,7 +13,7 @@ const Offers = () => {
         <div className="flex flex-col md:flex-row items-center justify-center  gap-12 md:gap-16">
           
           {/* Illustration */}
-          <div className="relative  md:bg-white md:rounded-3xl md:shadow w-64 h-64 md:w-80 md:h-80">
+          <div className="relative  md:bg-white md: md:shadow w-64 h-64 md:w-80 md:h-80">
             <Image
               src="/Feeling sorry-rafiki.svg"
               alt="No offers"

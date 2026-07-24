@@ -247,7 +247,7 @@ function ShopLoading() {
     <div className="max-w-7xl mx-auto px-1 py-4">
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
         {[...Array(10)].map((_, i) => (
-          <div key={i} className="bg-gray-200 rounded-lg h-48 animate-pulse" />
+          <div key={i} className="bg-gray-200  h-48 animate-pulse" />
         ))}
       </div>
     </div>
