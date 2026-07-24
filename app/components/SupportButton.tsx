@@ -100,7 +100,7 @@ const ContactUs = () => {
                 animate="visible"
                 variants={labelVariants}
                 transition={{ delay: 0.05, duration: 0.35 }}
-                className="text-xs font-semibold tracking-widest  text-blue-700  px-0 py-0  whitespace-nowrap pointer-events-none"
+                className="text-xs font-semibold tracking-widest  text-green-700  px-0 py-0  whitespace-nowrap pointer-events-none"
                 style={{ fontFamily: "'Georgia', serif", letterSpacing: '0.12em' }}
               >
                 WhatsApp

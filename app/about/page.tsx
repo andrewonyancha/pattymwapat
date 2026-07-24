@@ -129,7 +129,7 @@ const About = () => {
               <div className="grid grid-cols-2 gap-x-3 gap-y-2">
                 {categories.map((category, idx) => (
                   <Link
-                    href={`/shop?category=${category.name}`}
+                    href={`/shop?category=${encodeURIComponent(category.name)}`}
                     key={idx}
                     className="flex items-center gap-2 text-white hover:text-white text-xs transition-colors group"
                   >

@@ -62,12 +62,12 @@ export default function Footer() {
           <div>
             <h3 className="text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Categories</h3>
             <ul className="space-y-4 text-xs uppercase tracking-[0.2em] font-light">
-              <li><Link href="/shop?category=Engine Parts" className="hover:text-white transition-colors">Engine Parts</Link></li>
-              <li><Link href="/shop?category=Brake Systems" className="hover:text-white transition-colors">Brake Systems</Link></li>
-              <li><Link href="/shop?category=Tires & Wheels" className="hover:text-white transition-colors">Tires & Wheels</Link></li>
+              <li><Link href="/shop?category=Engine%20Parts" className="hover:text-white transition-colors">Engine Parts</Link></li>
+              <li><Link href="/shop?category=Brake%20Systems" className="hover:text-white transition-colors">Brake Systems</Link></li>
+              <li><Link href="/shop?category=Tires%20%26%20Wheels" className="hover:text-white transition-colors">Tires & Wheels</Link></li>
               <li><Link href="/shop?category=Electrical" className="hover:text-white transition-colors">Electrical</Link></li>
               <li><Link href="/shop?category=Filters" className="hover:text-white transition-colors">Filters</Link></li>
-              <li><Link href="/shop?category=Body Parts" className="hover:text-white transition-colors">Body Parts</Link></li>
+              <li><Link href="/shop?category=Body%20Parts" className="hover:text-white transition-colors">Body Parts</Link></li>
               <li><Link href="/special-offers" className="text-stone-100 font-medium italic flex items-center gap-2"><HiMiniGift size={12} /> Special Offers</Link></li>
             </ul>
           </div>

@@ -318,7 +318,7 @@ export default function AutoPartsLandingPage() {
           {categories.map((cat) => (
             <Link
               key={cat.id}
-              href={`/shop?category=${cat.name}`}
+              href={`/shop?category=${encodeURIComponent(cat.name)}`}
               className="border border-blue-200 bg-blue-50 hover:border-blue-500 group transition-all  p-6 flex flex-col items-center gap-3 cursor-pointer hover:shadow-lg"
             >
               <div className="text-blue-800 group-hover:scale-110 transition-transform">
@@ -346,7 +346,7 @@ export default function AutoPartsLandingPage() {
       </section>
       <div className="flex justify-center md:justify-end ">
           <Link
-            href="/shop?category=Engine Parts"
+            href="/shop?category=Engine%20Parts"
             className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
           >
             View All Engine Parts <GiShoppingCart size={16} />
@@ -369,7 +369,7 @@ export default function AutoPartsLandingPage() {
       </section>
       <div className="flex justify-center md:justify-end">
           <Link
-            href="/shop?category=Brake Systems"
+            href="/shop?category=Brake%20Systems"
             className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
           >
             View All Brake Systems <GiShoppingCart size={18} />
@@ -420,7 +420,7 @@ export default function AutoPartsLandingPage() {
 
         <div className="flex justify-center md:justify-end">
           <Link
-            href="/shop?category=Tires & Wheels"
+            href="/shop?category=Tires%20%26%20Wheels"
             className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
           >
             View All Tires & Wheels <GiShoppingCart size={18} />
@@ -468,7 +468,7 @@ export default function AutoPartsLandingPage() {
       </section>
       <div className="flex justify-center md:justify-end">
           <Link
-            href="/shop?category=Body Parts"
+            href="/shop?category=Body%20Parts"
             className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest  transition-colors text-sm border border-blue-200"
           >
             View All Body Parts <GiShoppingCart size={18} />

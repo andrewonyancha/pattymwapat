@@ -114,12 +114,12 @@ export default function Header() {
 
   const menuItems = [
     { label: "Shop", href: "/shop", icon: FaShopify },
-    { label: "Engine Parts", href: "/shop?category=Engine Parts", icon: GiCog },
-    { label: "Brake Systems", href: "/shop?category=Brake Systems", icon: GiCrackedDisc },
-    { label: "Tires & Wheels", href: "/shop?category=Tires & Wheels", icon: GiCarWheel },
+    { label: "Engine Parts", href: "/shop?category=Engine%20Parts", icon: GiCog },
+    { label: "Brake Systems", href: "/shop?category=Brake%20Systems", icon: GiCrackedDisc },
+    { label: "Tires & Wheels", href: "/shop?category=Tires%20%26%20Wheels", icon: GiCarWheel },
     { label: "Electrical", href: "/shop?category=Electrical", icon: MdElectricCar },
     { label: "Filters", href: "/shop?category=Filters", icon: FaFilter },
-    { label: "Body Parts", href: "/shop?category=Body Parts", icon: GiCarSeat },
+    { label: "Body Parts", href: "/shop?category=Body%20Parts", icon: GiCarSeat },
     { label: "Help Center", href: "/help-center", icon: RiCustomerService2Fill },
   ];
 
