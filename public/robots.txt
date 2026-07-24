@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.pemafarmfresh.co.ke  # or your live domain
+
+# Sitemaps
+Sitemap: https://www.pemafarmfresh.co.ke  # or your live domain/sitemap.xml

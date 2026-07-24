@@ -1,0 +1,153 @@
+rules_version = '2';
+service cloud.firestore {
+  // Security rules version 2 enables recursive wildcards and improved performance
+  // These rules follow the principle of least privilege and defense in depth
+  // Document-level security for Pemafarm e-commerce platform
+  match /databases/{database}/documents {
+    
+    // ============ HELPER FUNCTIONS ============
+    // Check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Check if user is admin (based on email)
+    function isAdmin() {
+      return request.auth.token.email == 'mr.onyanchaandrew@gmail.com'
+        || request.auth.token.email == 'pemafreshgroceries@gmail.com';
+    }
+    
+    // Rate limiting removed - client-side writeCount is easily bypassed
+    // Server-side rate limiting should be implemented at the application level
+    
+    // Validate that request doesn't contain excessive data
+    function requestSizeIsReasonable() {
+      return request.resource.data.size() < 10000; // Less than 10KB
+    }
+    
+    // Validate string input - prevent injection but allow normal characters
+    // Allows: letters, numbers, spaces, common punctuation (.,-'"&), slashes, and international characters
+    function isValidString(value, minLen, maxLen) {
+      return value is string
+        && value.size() >= minLen
+        && value.size() <= maxLen
+        // Block obvious XSS patterns (case-insensitive)
+        && !value.matches('(?i).*<script.*')
+        && !value.matches('(?i).*<iframe.*')
+        && !value.matches('(?i).*javascript:.*')
+        && !value.matches('(?i).*data:.*')
+        && !value.matches('(?i).*vbscript:.*')
+        // Block event handlers - use word boundaries to avoid false positives on names like "Onyancha"
+        && !value.matches('(?i).*\\bonerror\\b.*')
+        && !value.matches('(?i).*\\bonclick\\b.*')
+        && !value.matches('(?i).*\\bonload\\b.*')
+        && !value.matches('(?i).*\\bonmouseover\\b.*')
+        && !value.matches('(?i).*\\beval\\b.*')
+        && !value.matches('(?i).*document\\.cookie.*')
+        && !value.matches('(?i).*window\\.location.*')
+        && !value.matches('(?i).*alert\\(.*')
+        && !value.matches('(?i).*prompt\\(.*')
+        && !value.matches('(?i).*confirm\\(.*')
+        && !value.matches('(?i).*console\\.*')
+        // Block template injection
+        && !value.matches('.*\\$\\{.*')
+        && !value.matches('.*<\\?.*')
+        // Block HTML tags (case-insensitive, with proper tag pattern)
+        && !value.matches('(?i).*<[a-z]+\\b[^>]*>.*')
+        && !value.matches('(?i).*</[a-z]+>.*')
+        // Block escape sequences that could be used for injection
+        && !value.matches('.*\\\\x[0-9a-fA-F]{2}.*')
+        && !value.matches('.*\\\\u[0-9a-fA-F]{4}.*');
+    }
+    
+    // Validate list input
+    function isValidList(value, minSize, maxSize) {
+      return value is list
+        && value.size() >= minSize
+        && value.size() <= maxSize;
+    }
+    
+    // Validate number input - prevent negative or extreme values
+    function isValidNumber(value, min, max) {
+      return value is number
+        && value >= min
+        && value <= max;
+    }
+    
+    // ============ PRODUCTS COLLECTION ============
+    // Public read-only access for product catalog
+    // Only admins can write products
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAuthenticated() && isAdmin();
+      allow create: if isAuthenticated() && isAdmin();
+      allow update: if isAuthenticated() && isAdmin();
+      allow delete: if isAuthenticated() && isAdmin();
+    }
+    
+    // ============ ORDERS COLLECTION ============
+    // Users can create orders and read/update their own orders
+    // Admin can read/update all orders and delete
+    match /orders/{orderId} {
+       // Anyone authenticated can create a new order
+       allow create: if isAuthenticated() 
+         && requestSizeIsReasonable()
+         && request.resource.data.userId == request.auth.uid
+         && isValidOrder(request.resource.data);
+      
+      // Users can read their own orders; admins can read all orders
+      allow read: if isAuthenticated() 
+        && (resource.data.userId == request.auth.uid || isAdmin());
+      
+      // Users can cancel their own pending orders; admins can update any order
+      allow update: if isAuthenticated()
+        && (isAdmin() 
+            || (resource.data.userId == request.auth.uid 
+                && canUpdateOwnOrder(resource.data, request.resource.data)));
+      
+      // Only admins can delete orders
+      allow delete: if isAuthenticated() && isAdmin();
+    }
+    
+    // ============ ORDERS: Validation Functions ============
+    function isValidOrder(data) {
+      // Basic validation with simple string checks
+      return data.userId is string && data.userId == request.auth.uid
+        && data.userName is string && data.userName.size() >= 1 && data.userName.size() <= 100
+        && data.phone is string && data.phone.size() >= 1 && data.phone.size() <= 20
+        && data.address is string && data.address.size() >= 1 && data.address.size() <= 1000
+        && data.items is list && data.items.size() >= 1 && data.items.size() <= 100
+        && data.subtotal is number && data.subtotal >= 0 && data.subtotal <= 1000000
+        && data.deliveryFee is number && data.deliveryFee >= 0 && data.deliveryFee <= 50000
+        && data.total is number && data.total >= 0 && data.total <= 1000000
+        && data.paymentReference is string && data.paymentReference.size() >= 1 && data.paymentReference.size() <= 100
+        && data.paymentMethod is string && (data.paymentMethod == 'card' || data.paymentMethod == 'mobile' || data.paymentMethod == 'cash')
+        // Basic math check with tolerance for floating point
+        && data.total <= (data.subtotal + data.deliveryFee) * 1.01
+        && data.total >= (data.subtotal + data.deliveryFee) * 0.99
+        // Validate optional fields
+        && (data.userEmail == null || data.userEmail == '' || (data.userEmail is string && data.userEmail.size() >= 1 && data.userEmail.size() <= 254))
+        && (data.deliveryNotes == null || data.deliveryNotes == '' || (data.deliveryNotes is string && data.deliveryNotes.size() <= 500))
+        && (data.status == null || data.status == 'pending' || data.status == 'confirmed' || data.status == 'preparing' || data.status == 'dispatched' || data.status == 'delivered' || data.status == 'cancelled')
+        && (data.paymentStatus == null || data.paymentStatus == 'pending' || data.paymentStatus == 'paid' || data.paymentStatus == 'unpaid')
+        && (data.createdAt == null || data.createdAt is timestamp || data.createdAt is number)
+        // Basic item validation
+        && data.items.all(item, 
+          item is map &&
+          item.productId is string && item.productId.size() >= 1 &&
+          item.quantity is number && item.quantity >= 1 && item.quantity <= 500 &&
+          item.price is number && item.price >= 0 && item.price <= 10000 &&
+          (item.name == null || (item.name is string && item.name.size() >= 1 && item.name.size() <= 200))
+        );
+    }
+    
+    function canUpdateOwnOrder(oldData, newData) {
+      // Users can only cancel their own pending orders
+      // Use diff().affectedKeys() to ensure only allowed fields are modified
+      return newData.size() <= 2  // Prevent bulk updates
+        && diff(oldData, newData).affectedKeys().hasOnly(['status'])
+        && newData.status == 'cancelled'
+        && oldData.status == 'pending';
+    }
+}
+}
