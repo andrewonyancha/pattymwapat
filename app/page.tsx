@@ -22,6 +22,8 @@ const categories = [
   { id: 2, name: 'Brake Systems', icon: <CircleIcon className="w-8 h-8" /> },
   { id: 3, name: 'Tires & Wheels', icon: <GiCarWheel className="w-8 h-8" /> },
   { id: 4, name: 'Electrical', icon: <GiCarBattery className="w-8 h-8" /> },
+  { id: 5, name: 'Filters', icon: <Wrench className="w-8 h-8" /> },
+  { id: 6, name: 'Body Parts', icon: <Car className="w-8 h-8" /> },
 ];
 
 const specialOffers = [
@@ -74,14 +76,14 @@ export default function AutoPartsLandingPage() {
     .filter(product => product.category === 'Tires & Wheels')
     .slice(0, 4);
 
-  // Get first 4 products from "Other" category
-  const otherProducts = products
-    .filter(product => product.category === 'Other')
+  // Get first 4 products from Filters category
+  const popularFilters = products
+    .filter(product => product.category === 'Filters')
     .slice(0, 4);
 
-  // Get first 4 products from Accessories
-  const accessoriesProducts = products
-    .filter(product => product.category === 'Accessories')
+  // Get first 4 products from Body Parts category
+  const popularBodyParts = products
+    .filter(product => product.category === 'Body Parts')
     .slice(0, 4);
 
   const [activeIndex] = useState(0);
@@ -536,83 +538,51 @@ export default function AutoPartsLandingPage() {
         </div>
       </section>
 
-      {/* --- Other Products --- */}
+      {/* --- Popular Filters --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Tools & Equipment</h2>
+          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Popular Filters</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
-        
-        {otherProducts.length > 0 ? (
-          <>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
-              <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
-                {otherProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} view="grid" />
-                ))}
-              </Suspense>
-            </div>
-            
-            <div className="flex justify-center md:justify-end">
-              <Link
-                href="/shop?category=Other"
-                className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
-              >
-                View All Tools <GiShoppingCart size={18} />
-              </Link>
-            </div>
-          </>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-gray-500">No tools available at the moment.</p>
-            <Link
-              href="/shop"
-              className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
-            >
-              Browse All Products
-            </Link>
-          </div>
-        )}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+          <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
+            {popularFilters.map((product) => (
+              <ProductCard key={product.id} product={product} view="grid" />
+            ))}
+          </Suspense>
+        </div>
       </section>
+      <div className="flex justify-center md:justify-end ">
+          <Link
+            href="/shop?category=Filters"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
+          >
+            View All Filters <GiShoppingCart size={16} />
+          </Link>
+        </div>
 
-      {/* --- Accessories --- */}
+      {/* --- Popular Body Parts --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Accessories</h2>
+          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Popular Body Parts</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
-        
-        {accessoriesProducts.length > 0 ? (
-          <>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
-              <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
-                {accessoriesProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} view="grid" />
-                ))}
-              </Suspense>
-            </div>
-            
-            <div className="flex justify-center md:justify-end">
-              <Link
-                href="/shop?category=Accessories"
-                className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
-              >
-                View All Accessories <GiShoppingCart size={18} />
-              </Link>
-            </div>
-          </>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-gray-500">No accessories available at the moment.</p>
-            <Link
-              href="/shop"
-              className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
-            >
-              Browse All Products
-            </Link>
-          </div>
-        )}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+          <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
+            {popularBodyParts.map((product) => (
+              <ProductCard key={product.id} product={product} view="grid" />
+            ))}
+          </Suspense>
+        </div>
       </section>
+      <div className="flex justify-center md:justify-end">
+          <Link
+            href="/shop?category=Body Parts"
+            className="inline-flex items-center gap-2 px-8 py-2 bg-blue-50 hover:bg-blue-600 text-black tracking-widest rounded-full transition-colors text-sm border border-blue-200"
+          >
+            View All Body Parts <GiShoppingCart size={18} />
+          </Link>
+        </div>
     </div>
   );
 }

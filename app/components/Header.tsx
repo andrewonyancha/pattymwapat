@@ -43,14 +43,10 @@ import { signOut } from "../lib/firebase/auth";
 const categories = [
   { name: "Engine Parts", slug: "engine-parts", icon: GiCog, isSubcategory: false },
   { name: "Brake Systems", slug: "brake-systems", icon: GiCrackedDisc, isSubcategory: false },
-  { name: "Suspension & Steering", slug: "suspension-steering", icon: GiWrench, isSubcategory: false },
+  { name: "Tires & Wheels", slug: "tires-wheels", icon: GiCarWheel, isSubcategory: false },
   { name: "Electrical", slug: "electrical", icon: GiCarBattery, isSubcategory: false },
   { name: "Filters", slug: "filters", icon: GiWrench, isSubcategory: false },
   { name: "Body Parts", slug: "body-parts", icon: GiF1Car, isSubcategory: false },
-  { name: "Tires & Wheels", slug: "tires-wheels", icon: GiCarWheel, isSubcategory: false },
-  { name: "Accessories", slug: "accessories", icon: GiWrench, isSubcategory: false },
-  { name: "Oils & Fluids", slug: "oils-fluids", icon: GiWrench, isSubcategory: false },
-  { name: "Other", slug: "other", icon: GiWrench, isSubcategory: false },
 ];
 
 export default function Header() {

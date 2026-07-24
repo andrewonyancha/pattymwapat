@@ -78,7 +78,7 @@ function OtherProductsContent() {
   const allProducts = useMemo(() => {
     const staticWithFlag = products.map(p => ({ ...p, isStatic: true }));
     const dynamicWithFlag = dynamicProducts
-      .filter(p => p.category === 'Other')
+      .filter(p => p.category === 'Body Parts')
       .map(p => ({ ...p, isStatic: false }));
     
     const productMap = new Map<string, FirebaseProduct | typeof staticWithFlag[0]>();
@@ -88,9 +88,9 @@ function OtherProductsContent() {
     return Array.from(productMap.values());
   }, [dynamicProducts]);
 
-  // Filter products to "Other" and apply search
+  // Filter products to "Body Parts" and apply search
   const filteredProducts = useMemo(() => {
-    let result = allProducts.filter((p) => p.category === 'Other');
+    let result = allProducts.filter((p) => p.category === 'Body Parts');
 
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
@@ -124,7 +124,7 @@ function OtherProductsContent() {
       <div className="mb-2">
         <div className="flex items-center justify-between">
           <span className="text-[10px] uppercase tracking-[0.4em] text-stone-400 font-bold block">
-            Category / tools & equipment
+            Category / Body Parts
           </span>
           <MoreViewToggle />
         </div>
@@ -145,7 +145,7 @@ function OtherProductsContent() {
             Search Results for "{searchQuery}"
           </h2>
           <p className="text-gray-600 mt-1">
-            Found {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} in Tools & Equipment
+            Found {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} in Body Parts
           </p>
         </div>
       )}
@@ -155,8 +155,8 @@ function OtherProductsContent() {
         <div className="text-center bg-gray-50 rounded-lg">
           <p className="text-gray-500 text-lg mb-2">
             {searchQuery
-              ? `No products found for "${searchQuery}" in Tools & Equipment`
-              : 'No products currently available in Tools & Equipment.'}
+              ? `No products found for "${searchQuery}" in Body Parts`
+              : 'No products currently available in Body Parts.'}
           </p>
           {searchQuery && (
             <p className="text-gray-400">

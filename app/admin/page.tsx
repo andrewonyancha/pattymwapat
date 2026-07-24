@@ -392,14 +392,10 @@ function EditProductModal({ isOpen, product, onClose, onSave }: EditProductModal
             >
               <option value="Engine Parts">Engine Parts</option>
               <option value="Brake Systems">Brake Systems</option>
-              <option value="Suspension & Steering">Suspension & Steering</option>
+              <option value="Tires & Wheels">Tires & Wheels</option>
               <option value="Electrical">Electrical</option>
               <option value="Filters">Filters</option>
               <option value="Body Parts">Body Parts</option>
-              <option value="Tires & Wheels">Tires & Wheels</option>
-              <option value="Accessories">Accessories</option>
-              <option value="Oils & Fluids">Oils & Fluids</option>
-              <option value="Other">Other</option>
             </select>
           </div>
           
@@ -1938,14 +1934,10 @@ export default function AdminPage() {
                 >
                   <option value="Engine Parts">Engine Parts</option>
                   <option value="Brake Systems">Brake Systems</option>
-                  <option value="Suspension & Steering">Suspension & Steering</option>
+                  <option value="Tires & Wheels">Tires & Wheels</option>
                   <option value="Electrical">Electrical</option>
                   <option value="Filters">Filters</option>
                   <option value="Body Parts">Body Parts</option>
-                  <option value="Tires & Wheels">Tires & Wheels</option>
-                  <option value="Accessories">Accessories</option>
-                  <option value="Oils & Fluids">Oils & Fluids</option>
-                  <option value="Other">Other</option>
                 </select>
               </div>
               

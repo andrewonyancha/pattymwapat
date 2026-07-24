@@ -65,10 +65,10 @@ const About = () => {
   const categories = [
     { name: "Engine Parts", icon: <TbEngine className="w-4 h-4" /> },
     { name: "Brake Systems", icon: <GiWrench className="w-4 h-4" /> },
-    { name: "Electrical", icon: <GiCarBattery className="w-4 h-4" /> },
     { name: "Tires & Wheels", icon: <GiTruck className="w-4 h-4" /> },
+    { name: "Electrical", icon: <GiCarBattery className="w-4 h-4" /> },
     { name: "Filters", icon: <GiWrench className="w-4 h-4" /> },
-    { name: "Accessories", icon: <Car className="w-4 h-4" /> },
+    { name: "Body Parts", icon: <Car className="w-4 h-4" /> },
   ];
 
   return (

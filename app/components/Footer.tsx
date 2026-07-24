@@ -66,6 +66,8 @@ export default function Footer() {
               <li><Link href="/shop?category=Brake Systems" className="hover:text-white transition-colors">Brake Systems</Link></li>
               <li><Link href="/shop?category=Tires & Wheels" className="hover:text-white transition-colors">Tires & Wheels</Link></li>
               <li><Link href="/shop?category=Electrical" className="hover:text-white transition-colors">Electrical</Link></li>
+              <li><Link href="/shop?category=Filters" className="hover:text-white transition-colors">Filters</Link></li>
+              <li><Link href="/shop?category=Body Parts" className="hover:text-white transition-colors">Body Parts</Link></li>
               <li><Link href="/special-offers" className="text-stone-100 font-medium italic flex items-center gap-2"><HiMiniGift size={12} /> Special Offers</Link></li>
             </ul>
           </div>
