@@ -323,7 +323,7 @@ export default function Header() {
         </div>
 
         {/* Desktop navigation */}
-        <nav className="bg-blue-700 text-white">
+        <nav className="bg-blue-700 text-white border-b border-white">
           <div className="container mx-auto px-4 lg:px-6">
             <ul className="flex items-center justify-center py-0">
               {menuItems.map((item, index) => (
