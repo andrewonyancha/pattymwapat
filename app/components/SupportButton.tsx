@@ -8,7 +8,7 @@ const ContactUs = () => {
   const [isContactOptionsVisible, setIsContactOptionsVisible] = useState(false);
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/254member720001256', '_blank');
+    window.open('https://wa.me/254member790407508', '_blank');
   };
 
   const handleCallClick = () => {

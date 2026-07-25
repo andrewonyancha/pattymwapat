@@ -100,7 +100,7 @@ export default function Footer() {
             </div>
             <div className="pt-4 space-y-2 text-[10px] uppercase tracking-widest text-stone-500 font-medium">
               <div className="flex items-center gap-3"><MapPin size={12} /> Nairobi, Kenya</div>
-              <div className="flex items-center gap-3"><Phone size={12} /> +254 703 699703</div>
+              <div className="flex items-center gap-3"><Phone size={12} /> +254 790 407508</div>
               <div className="flex items-center gap-3"><Mail size={12} /> pattywapat@gmail.com</div>
             </div>
           </div>

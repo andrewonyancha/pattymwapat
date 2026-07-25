@@ -42,8 +42,8 @@ export default function ContactUs() {
               <ContactLink 
                 icon={<Phone size={18} strokeWidth={1} />}
                 label="Direct Line"
-                value="+254 703 699703"
-                href="tel:+254 703 699703"
+                value="+254790407508"
+                href="tel:+254790407508"
               />
               <ContactLink 
                 icon={<Mail size={18} strokeWidth={1} />}
@@ -54,8 +54,8 @@ export default function ContactUs() {
               <ContactLink 
                 icon={<MessageSquare size={18} strokeWidth={1} />}
                 label="WhatsApp Concierge"
-                value="+254 703 699703"
-                href="https://wa.me/+254 703 699703"
+                value="+254790407508"
+                href="https://wa.me/254790407508"
               />
             </div>
 
@@ -63,7 +63,7 @@ export default function ContactUs() {
             <motion.div variants={itemVariants} className="pt-12 border-t border-stone-100">
               <p className="text-xs uppercase tracking-[0.2em] text-stone-400 mb-6">Immediate Support</p>
               <a
-                href="https://wa.me/+254 703 699703"
+                href="https://wa.me/254790407508"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-6 group"
