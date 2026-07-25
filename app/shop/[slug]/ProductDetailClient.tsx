@@ -95,7 +95,7 @@ export default function ProductDetailClient({ product, backHref, selectedVariant
 
             <div className="prose prose-stone prose-sm mb-8">
               <p className="text-stone-500 leading-relaxed font-light text-base">
-                {product.description || `${product.name} is hand-selected at the peak of maturity. Grown with sustainable practices in the heart of Kenya, we ensure every ${displayUnit || product.unit} meets our rigorous standards for flavor, texture, and nutritional integrity.`}
+                {product.description || `Premium quality ${product.name} designed for durability and performance. Sourced from trusted manufacturers to ensure reliability and customer satisfaction.`}
               </p>
             </div>
 

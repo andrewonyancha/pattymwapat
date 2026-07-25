@@ -54,35 +54,35 @@ const testimonials = [
 
 export default function AutoPartsLandingPage() {
 
-  // Get first 4 products from Engine Parts category
+  // Get first 5 products from Engine Parts category
   const popularEngineParts = products
     .filter(product => product.category === 'Engine Parts')
-    .slice(0, 4);
+    .slice(0, 5);
 
-  // Get first 4 products from Brake Systems category
+  // Get first 5 products from Brake Systems category
   const popularBrakeSystems = products
     .filter(product => product.category === 'Brake Systems')
-    .slice(0, 4);
+    .slice(0, 5);
 
-  // Get first 4 products from Electrical category
+  // Get first 5 products from Electrical category
   const featuredElectrical = products
     .filter(product => product.category === 'Electrical')
-    .slice(0, 4);
+    .slice(0, 5);
 
-  // Get first 4 products from Tires & Wheels category
+  // Get first 5 products from Tires & Wheels category
   const featuredTiresWheels = products
     .filter(product => product.category === 'Tires & Wheels')
-    .slice(0, 4);
+    .slice(0, 5);
 
-  // Get first 4 products from Filters category
+  // Get first 5 products from Filters category
   const popularFilters = products
     .filter(product => product.category === 'Filters')
-    .slice(0, 4);
+    .slice(0, 5);
 
-  // Get first 4 products from Body Parts category
+  // Get first 5 products from Body Parts category
   const popularBodyParts = products
     .filter(product => product.category === 'Body Parts')
-    .slice(0, 4);
+    .slice(0, 5);
 
   const [activeIndex] = useState(0);
   

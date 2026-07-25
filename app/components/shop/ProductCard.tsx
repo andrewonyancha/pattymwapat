@@ -113,21 +113,6 @@ export default function ProductCard({ product, view = 'grid' }: Props) {
           </div>
 
           <div className="flex flex-col gap-4">
-            <div className="flex items-baseline gap-2 flex-wrap">
-              {showSelectPrompt ? (
-                <span className="text-xs text-stone-500 italic">Select size</span>
-              ) : (
-                <>
-                  <span className="text-base font-medium text-stone-900">
-                    Ksh.{displayPrice}
-                  </span>
-                  <span className="text-[11px] uppercase tracking-widest text-stone-400 font-light">
-                    / {displayUnit}
-                  </span>
-                </>
-              )}
-            </div>
-
             {/* Variant selector for list view (if any) */}
             {product.variants && product.variants.length > 0 && (
               <select
@@ -153,7 +138,7 @@ export default function ProductCard({ product, view = 'grid' }: Props) {
                 />
               </div>
 
-             
+              
             </div>
           </div>
         </div>
@@ -240,18 +225,11 @@ export default function ProductCard({ product, view = 'grid' }: Props) {
         >
           {product.name}
         </Link>
-        <div className="flex gap-2 items-baseline">
-          {showSelectPrompt ? (
-            <span className="text-xs text-stone-500 italic">Select size</span>
-          ) : (
-            <>
-              <span className="text-sm font-medium text-stone-900 tracking-tight">
-                Ksh.{displayPrice}
-                <span className="text-black/50"> {displayUnit}</span>
-              </span>
-            </>
-          )}
-        </div>
+        {product.description && (
+          <p className="text-[11px] sm:text-[12px] text-stone-500 line-clamp-2 font-light leading-relaxed">
+            {product.description}
+          </p>
+        )}
       </div>
     </div>
   );
