@@ -35,7 +35,7 @@ const testimonials = [
   {
     name: "James Kariuki",
     role: "Car Owner",
-    text: "Mwapat Autospares has all the parts I need at fair prices. Fast delivery across Nairobi!",
+    text: "Pattywapat Autospares has all the parts I need at fair prices. Fast delivery across Nairobi!",
     image: "/images/Contact-us.svg"
   },
   {
@@ -144,7 +144,7 @@ export default function AutoPartsLandingPage() {
 
   // Mobile rotating phrases
   const mobilePhrases = [
-    { text: "Mwapat", icon: null, color: "text-orange-700", isMain: true },
+    { text: "Pattywapat", icon: null, color: "text-orange-700", isMain: true },
     { text: "Auto Parts", icon: <Car className="w-12 h-12" />, color: "text-blue-700", isMain: false },
     { text: "Delivery", icon: <GiFullMotorcycleHelmet className="w-10 h-10" />, color: "text-black", isMain: false },
   ];
@@ -160,9 +160,9 @@ export default function AutoPartsLandingPage() {
 
   // Desktop rotating message sets
   const desktopSets = [
-    ["Mwapat", "Quality", "Auto Parts"],
+    ["Pattywapat", "Quality", "Auto Parts"],
     ["Genuine", "Parts", "Nairobi"],
-    ["Mwapat", "Trusted", "Delivered Fast"],
+    ["Pattywapat", "Trusted", "Delivered Fast"],
   ];
 
   const [setIndex, setSetIndex] = useState(0);
