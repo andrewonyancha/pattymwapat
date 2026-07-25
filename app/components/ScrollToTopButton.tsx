@@ -34,7 +34,7 @@ export default function ScrollToTopButton() {
           aria-label="Scroll to top"
         >
           {/* Label that appears on hover */}
-          <span className="text-[10px] uppercase tracking-[0.3em] text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -rotate-90 origin-bottom mb-1 -mr-3">
+          <span className="text-[10px]  tracking-[0.3em] text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -rotate-90 origin-bottom mb-1 -mr-3">
             Top
           </span>
 

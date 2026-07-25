@@ -19,7 +19,7 @@ export default function MoreViewToggle() {
   return (
     <div className="flex items-center">
       {/* Label for editorial depth */}
-      <span className="hidden sm:block text-[10px] uppercase tracking-[0.2em] text-stone-400 font-medium">
+      <span className="hidden sm:block text-[10px]  tracking-[0.2em] text-stone-400 font-medium">
         Display
       </span>
 

@@ -25,7 +25,7 @@ const Offers = () => {
           {/* Content */}
           <div className="text-left md:text-left max-w-md">
             <div className="flex items-center gap-4 mb-4">
-          <h2 className="md:text-xl text-lg font-bold uppercase tracking-wider whitespace-nowrap">Special Offers </h2>
+          <h2 className="md:text-xl text-lg font-bold  tracking-wider whitespace-nowrap">Special Offers </h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
             
@@ -37,14 +37,14 @@ const Offers = () => {
              <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
               <Link
                 href="/shop"
-                className="group bg-[#fefae6] text-[#2a4b38] px-8 py-3  font-medium text-sm uppercase tracking-wide hover:bg-white transition-all inline-flex items-center gap-3 bg-blue-50 border border-blue-200"
+                className="group bg-[#fefae6] text-[#2a4b38] px-8 py-3  font-medium text-sm  tracking-wide hover:bg-white transition-all inline-flex items-center gap-3 bg-blue-50 border border-blue-200"
               >
                 <GiShoppingCart size={18} />
                 Shop Auto Parts
               </Link>
               <Link
                 href="/help-center"
-                className="border border-[#bcccb0] text-[#fefae6] px-8 py-3  font-medium text-sm uppercase tracking-wide bg-blue-700 hover:bg-[#3c6341] transition-all"
+                className="border border-[#bcccb0] text-[#fefae6] px-8 py-3  font-medium text-sm  tracking-wide bg-blue-700 hover:bg-[#3c6341] transition-all"
               >
                 Contact Us <ChevronRight size={16} className='inline ml-2' />
               </Link>

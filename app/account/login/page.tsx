@@ -129,7 +129,7 @@ function LoginForm() {
             />
             <label
               htmlFor="email"
-              className="absolute left-0 top-2 text-xs uppercase tracking-[0.15em] text-stone-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+              className="absolute left-0 top-2 text-xs  tracking-[0.15em] text-stone-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
             >
               Email address
             </label>
@@ -151,7 +151,7 @@ function LoginForm() {
             />
             <label
               htmlFor="password"
-              className="absolute left-0 top-2 text-xs uppercase tracking-[0.15em] text-stone-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+              className="absolute left-0 top-2 text-xs  tracking-[0.15em] text-stone-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
             >
               Password
             </label>
@@ -186,7 +186,7 @@ function LoginForm() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-blue-700 text-white py-4 px-6  font-medium uppercase tracking-[0.15em] text-sm hover:bg-blue-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full bg-blue-700 text-white py-4 px-6  font-medium  tracking-[0.15em] text-sm hover:bg-blue-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {isLoading ? 'Signing in...' : 'Sign in'}
         </button>
@@ -245,7 +245,7 @@ function LoginForm() {
                 />
                 <label
                   htmlFor="reset-email"
-                  className="absolute left-0 top-2 text-xs uppercase tracking-[0.15em] text-stone-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+                  className="absolute left-0 top-2 text-xs  tracking-[0.15em] text-stone-400 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
                 >
                   Email address
                 </label>
@@ -254,7 +254,7 @@ function LoginForm() {
               <button
                 type="submit"
                 disabled={isResetting}
-                className="w-full bg-blue-700 text-white py-4 px-6 font-medium uppercase tracking-[0.15em] text-sm hover:bg-blue-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full bg-blue-700 text-white py-4 px-6 font-medium  tracking-[0.15em] text-sm hover:bg-blue-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {isResetting ? 'Sending...' : 'Send reset instructions'}
               </button>
@@ -268,7 +268,7 @@ function LoginForm() {
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-stone-200" />
         </div>
-        <div className="relative flex justify-center text-xs uppercase tracking-widest text-stone-400">
+        <div className="relative flex justify-center text-xs  tracking-widest text-stone-400">
           <span className="bg-[#FDFDFD] px-4">or</span>
         </div>
       </div>
