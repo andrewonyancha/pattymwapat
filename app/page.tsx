@@ -153,7 +153,7 @@ export default function AutoPartsLandingPage() {
 
   // Mobile rotating phrases
   const mobilePhrases = [
-    { text: "Pattywapat", icon: null, color: "text-orange-700", isMain: true },
+    { text: "Pattywapat", icon: null, color: "text-white", isMain: true },
     { text: "Auto Parts", icon: <Car className="w-12 h-12" />, color: "text-blue-700", isMain: false },
     { text: "Delivery", icon: <GiFullMotorcycleHelmet className="w-10 h-10" />, color: "text-black", isMain: false },
   ];
@@ -257,12 +257,12 @@ export default function AutoPartsLandingPage() {
         {/* Mobile layout */}
         <div className="relative z-10 h-full max-w-5xl mx-auto px-4 flex md:hidden flex-col justify-between text-white">
           {/* Till number floating at top of image */}
-          <div className="absolute top-1 left-1/2 transform -translate-x-1/2 z-20">
+          {/* <div className="absolute top-1 left-1/2 transform -translate-x-1/2 z-20">
             <div className="bg-white/90 backdrop-blur-sm px-4 py-0  shadow-lg">
               <p className="text-sm text-orange-700  tracking-wider font-semibold">Till <span className="text-xl  font-black text-blue-600">213528</span></p>
              
             </div>
-          </div>
+          </div> */}
 
           <div className="flex flex-col items-center text-center gap-0 pt-12">
             <AnimatePresence mode="wait">
