@@ -226,7 +226,7 @@ export default function Header() {
           {/* User + Cart */}
           <div className="flex items-center gap-8">
             {!isLoading && !user ? (
-              <Link href="/account/login" className="text-gray-600 hover:text-blue-700 transition" title="Sign in">
+              <Link href="/#account/login" className="text-gray-600 hover:text-blue-700 transition" title="Sign in">
                 <User size={24} strokeWidth={1.8} />
               </Link>
             ) : (
@@ -391,7 +391,7 @@ export default function Header() {
 
           <div className="flex items-center gap-4">
             {!isLoading && !user ? (
-              <Link href="/account/login" className="text-gray-700 hover:text-blue-700 p-1" title="Sign in">
+              <Link href="/#account/login" className="text-gray-700 hover:text-blue-700 p-1" title="Sign in">
                 <User size={22} strokeWidth={1.8} />
               </Link>
             ) : (
@@ -549,7 +549,7 @@ export default function Header() {
 
             <div className="p-5 border-t border-gray-200">
               <Link
-                href={user ? "/account" : "/account/login"}
+                href={user ? "/#account" : "/#account/login"}
                 className="flex items-center gap-4 py-4 text-gray-800 hover:text-blue-700 font-medium"
                 onClick={closeMobileMenu}
               >
