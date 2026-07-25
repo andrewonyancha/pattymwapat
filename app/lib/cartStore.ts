@@ -83,7 +83,7 @@ export const useCartStore = create<CartState>()(
       },
     }),
     {
-      name: 'pattywapat-cart',               // unique key in localStorage
+      name: 'Mwapat-cart',               // unique key in localStorage
       storage: createJSONStorage(() => localStorage),
       // Optional: only persist when on client (helps avoid SSR mismatches)
       partialize: (state) => ({ items: state.items }),

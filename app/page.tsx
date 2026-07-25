@@ -35,7 +35,7 @@ const testimonials = [
   {
     name: "James Kariuki",
     role: "Car Owner",
-    text: "Pattywapat Autospares has all the parts I need at fair prices. Fast delivery across Nairobi!",
+    text: "Mwapat Autospares has all the parts I need at fair prices. Fast delivery across Nairobi!",
     image: "/images/Contact-us.svg"
   },
   {
@@ -153,7 +153,7 @@ export default function AutoPartsLandingPage() {
 
   // Mobile rotating phrases
   const mobilePhrases = [
-    { text: "Pattywapat", icon: null, color: "text-white", isMain: true },
+    { text: "Mwapat", icon: null, color: "text-white", isMain: true },
     { text: "Auto Parts", icon: <Car className="w-12 h-12" />, color: "text-blue-700", isMain: false },
     { text: "Delivery", icon: <GiFullMotorcycleHelmet className="w-10 h-10" />, color: "text-black", isMain: false },
   ];
@@ -169,9 +169,9 @@ export default function AutoPartsLandingPage() {
 
   // Desktop rotating message sets
   const desktopSets = [
-    ["Pattywapat", "Quality", "Auto Parts"],
+    ["Mwapat", "Quality", "Auto Parts"],
     ["Genuine", "Parts", "Nairobi"],
-    ["Pattywapat", "Trusted", "Delivered Fast"],
+    ["Mwapat", "Trusted", "Delivered Fast"],
   ];
 
   const [setIndex, setSetIndex] = useState(0);
@@ -227,7 +227,7 @@ export default function AutoPartsLandingPage() {
                     <h1
                       className={
                         i === 0
-                          ? "text-4xl md:text-3xl text-orange-700 font-black uppercase leading-none tracking-[0.05em]"
+                          ? "text-4xl md:text-3xl text-white font-black uppercase leading-none tracking-[0.05em]"
                           : i === 1
                           ? "text-3xl md:text-3xl font-bold text-blue-700 uppercase leading-none opacity-90 tracking-[0.05em]"
                           : "text-4xl new font-bold text-black leading-none opacity-80"

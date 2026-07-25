@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.pattywapat.co.ke',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.Mwapat.co.ke',
   generateRobotsTxt: true,          // ← this is what autogenerates robots.txt
   // Optional but useful defaults
   changefreq: 'weekly',

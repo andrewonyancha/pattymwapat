@@ -11,7 +11,7 @@ type Props = {
   variant?: 'full' | 'minimal';
 };
 
-const WHATSAPP_NUMBER = '254790407508'; // Pattywapat Autospares WhatsApp number
+const WHATSAPP_NUMBER = '254790407508'; // Mwapat Autospares WhatsApp number
 
 export default function AddToCartButton({ product, selectedVariant: initialSelectedVariant, variant = 'full' }: Props) {
   // If product has variants but no initial selectedVariant, manage selection internally
