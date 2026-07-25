@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.pattywapat.co.ke
+Host: https://www.Mwapat.co.ke
 
 # Sitemaps
-Sitemap: https://www.pattywapat.co.ke/sitemap.xml
+Sitemap: https://www.Mwapat.co.ke/sitemap.xml

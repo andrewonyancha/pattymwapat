@@ -48,8 +48,8 @@ export default function ContactUs() {
               <ContactLink 
                 icon={<Mail size={18} strokeWidth={1} />}
                 label="Email Correspondence"
-                value="pattywapat@gmail.com"
-                href="mailto:pattywapat@gmail.com"
+                value="Mwapat@gmail.com"
+                href="mailto:Mwapat@gmail.com"
               />
               <ContactLink 
                 icon={<MessageSquare size={18} strokeWidth={1} />}
@@ -90,7 +90,7 @@ export default function ContactUs() {
             <div className="relative aspect-[3/2] md:aspect-[16/10] overflow-hidden ">
               <Image
                 src="/images/Contact-us.svg"
-                alt="Pattywapat Autospares"
+                alt="Mwapat Autospares"
                 fill
                 className="object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-1000"
               />

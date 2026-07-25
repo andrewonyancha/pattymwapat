@@ -24,7 +24,7 @@ const About = () => {
     {
       name: "James Kariuki",
       role: "Car Owner",
-      text: "Pattywapat Autospares has all the parts I need at fair prices. Fast delivery across Nairobi!",
+      text: "Mwapat Autospares has all the parts I need at fair prices. Fast delivery across Nairobi!",
       image: "/images/Contact-us.svg"
     },
     {
@@ -84,7 +84,7 @@ const About = () => {
             <div className="relative md:aspect-[4/2] aspect-3/2 w-full overflow-hidden rounded-none md: bg-white bord">
               <Image
                 src="/images/hero.webp"
-                alt="Auto parts at Pattywapat Autospares"
+                alt="Auto parts at Mwapat Autospares"
                 fill
                 className="object-contain"
                 priority
@@ -109,12 +109,12 @@ const About = () => {
             <div className="w-16 h-0.5 bg-white/80 mb-3 " />
             
             <h1 className="md:text-xl font-serif text-lg font-bold uppercase tracking-wider">
-              About Pattywapat.
+              About Mwapat.
             </h1>
             
             {/* Store description */}
             <p className="hidden md:block text-sm md:text-base font-light leading-relaxed text-white max-w-xs">
-              Explore the story behind Pattywapat Autospares, your trusted auto parts supplier in Nairobi. We connect you to genuine car parts and expert support, all in one place.
+              Explore the story behind Mwapat Autospares, your trusted auto parts supplier in Nairobi. We connect you to genuine car parts and expert support, all in one place.
             </p>
              <p className="hidden md:block text-sm md:text-base font-light leading-relaxed text-white mb-3 max-w-xs">
              Order from us and get quality auto parts delivered to your door, with reliable service you can trust.
@@ -194,7 +194,7 @@ const About = () => {
               Your car, our promise.
             </h2>
             <p className="text-white/80 text-sm md:text-lg font-light max-w-2xl md:max-w-none text-left leading-relaxed">
-              We source the best auto parts from trusted suppliers worldwide, bringing you genuine components for all vehicle makes. No matter what you drive, Pattywapat has you covered.
+              We source the best auto parts from trusted suppliers worldwide, bringing you genuine components for all vehicle makes. No matter what you drive, Mwapat has you covered.
             </p>
             <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
               <Link
@@ -214,7 +214,7 @@ const About = () => {
           </div>
           <div className="hidden md:block md:w-1/3 text-right opacity-80">
             <div className="border-l border-[#b1c4a4] pl-6">
-              <p className="text-sm font-mono text-[#e7ebc9]">#pattywapatkenya</p>
+              <p className="text-sm font-mono text-[#e7ebc9]">#Mwapatkenya</p>
               <div className="flex gap-3 mt-4 justify-end">
                 <Car className="w-8 h-8 text-[#e2eacd]" />
                 <GiWrench className="w-8 h-8 text-[#e2eacd]" />
