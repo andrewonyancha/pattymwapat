@@ -325,12 +325,12 @@ export default function Header() {
         {/* Desktop navigation */}
         <nav className="bg-blue-700 text-white border-b border-blue-600">
           <div className="container mx-auto px-4 lg:px-6">
-            <ul className="flex items-center justify-center py-2.5">
+            <ul className="flex items-center justify-center py-0">
               {menuItems.map((item, index) => (
                 <li key={item.label} className="relative flex items-center">
                   <Link
                     href={item.href}
-                    className="flex items-center gap-4 px-0 py-2.5 text-sm font-semibold hover:text-black hover:underline transition-colors whitespace-nowrap group"
+                    className="flex items-center gap-4 px-3 py-2.5 text-sm font-semibold hover:text-black hover:underline transition-colors whitespace-nowrap group"
                   >
                     <item.icon size={16} className="group-hover:animate-bounce" />
                     {item.label}
