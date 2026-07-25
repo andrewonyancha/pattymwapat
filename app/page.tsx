@@ -54,35 +54,44 @@ const testimonials = [
 
 export default function AutoPartsLandingPage() {
 
-  // Get first 5 products from Engine Parts category
+  // Responsive: show 5 on desktop, 4 on mobile
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  const mobileSlice = 4;
+  const desktopSlice = 5;
+  const sliceCount = isMobile ? mobileSlice : desktopSlice;
+
+  // Get products from each category
   const popularEngineParts = products
     .filter(product => product.category === 'Engine Parts')
-    .slice(0, 5);
+    .slice(0, sliceCount);
 
-  // Get first 5 products from Brake Systems category
   const popularBrakeSystems = products
     .filter(product => product.category === 'Brake Systems')
-    .slice(0, 5);
+    .slice(0, sliceCount);
 
-  // Get first 5 products from Electrical category
   const featuredElectrical = products
     .filter(product => product.category === 'Electrical')
-    .slice(0, 5);
+    .slice(0, sliceCount);
 
-  // Get first 5 products from Tires & Wheels category
   const featuredTiresWheels = products
     .filter(product => product.category === 'Tires & Wheels')
-    .slice(0, 5);
+    .slice(0, sliceCount);
 
-  // Get first 5 products from Filters category
   const popularFilters = products
     .filter(product => product.category === 'Filters')
-    .slice(0, 5);
+    .slice(0, sliceCount);
 
-  // Get first 5 products from Body Parts category
   const popularBodyParts = products
     .filter(product => product.category === 'Body Parts')
-    .slice(0, 5);
+    .slice(0, sliceCount);
 
   const [activeIndex] = useState(0);
   
