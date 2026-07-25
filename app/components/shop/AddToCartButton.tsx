@@ -92,7 +92,7 @@ export default function AddToCartButton({ product, selectedVariant: initialSelec
         disabled={needsVariant}
       >
         <GiShoppingCart size={16} />
-        <span>{variant === 'minimal' ? 'Order' : 'Order on WhatsApp'}</span>
+        <span>{variant === 'minimal' ? 'Order' : 'Order Now'}</span>
       </button>
     </div>
   );

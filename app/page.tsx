@@ -333,7 +333,7 @@ export default function AutoPartsLandingPage() {
           <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Engine Parts</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5  gap-4 sm:gap-6">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
             {popularEngineParts.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
@@ -356,7 +356,7 @@ export default function AutoPartsLandingPage() {
           <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Brake Systems</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5  gap-4 sm:gap-6">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
             {popularBrakeSystems.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
@@ -382,7 +382,7 @@ export default function AutoPartsLandingPage() {
           <div className="h-px w-full bg-stone-200" />
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6 mb-10">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
             {featuredElectrical.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
@@ -407,7 +407,7 @@ export default function AutoPartsLandingPage() {
           <div className="h-px w-full bg-stone-200" />
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6 mb-10">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
             {featuredTiresWheels.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
@@ -432,7 +432,7 @@ export default function AutoPartsLandingPage() {
           <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Car Filters</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
             {popularFilters.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
@@ -455,7 +455,7 @@ export default function AutoPartsLandingPage() {
           <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap"> Body Parts</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
           <Suspense fallback={<div className="col-span-full text-center py-8">Loading...</div>}>
             {popularBodyParts.map((product) => (
               <ProductCard key={product.id} product={product} view="grid" />
