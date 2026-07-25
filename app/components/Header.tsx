@@ -337,7 +337,7 @@ export default function Header() {
                   </Link>
 
                   {index < menuItems.length - 1 && (
-                    <div className="h-12 w-px bg-white mx-1" aria-hidden="true" />
+                    <div className="h-12 w-4 bg-white mx-1" aria-hidden="true" />
                   )}
                 </li>
               ))}
