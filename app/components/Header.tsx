@@ -330,14 +330,14 @@ export default function Header() {
                 <li key={item.label} className="relative flex items-center">
                   <Link
                     href={item.href}
-                    className="flex items-center gap-6 px-3 py-2.5 text-sm font-semibold hover:text-black hover:underline transition-colors whitespace-nowrap group"
+                    className="flex items-center gap-6 px-3 py-2 text-sm font-semibold hover:text-black hover:underline transition-colors whitespace-nowrap group"
                   >
                     <item.icon size={16} className="group-hover:animate-bounce" />
                     {item.label}
                   </Link>
 
                   {index < menuItems.length - 1 && (
-                    <div className="h-12 w-4 bg-white mx-1" aria-hidden="true" />
+                    <div className="h-12 w-px bg-white mx-1" aria-hidden="true" />
                   )}
                 </li>
               ))}
