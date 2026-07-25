@@ -111,7 +111,7 @@ export default function Header() {
   }, [showMobileProfileDropdown]);
 
   const menuItems = [
-    { label: "Shop", href: "/shop", icon: FaShopify },
+    { label: "Shop", href: "/shop", icon: FaCar },
     { label: "Engine Parts", href: "/shop?category=Engine%20Parts", icon: GiCog },
     { label: "Brake Systems", href: "/shop?category=Brake%20Systems", icon: GiRingingAlarm },
     { label: "Tires & Wheels", href: "/shop?category=Tires%20%26%20Wheels", icon: GiTyre },
