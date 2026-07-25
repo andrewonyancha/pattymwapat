@@ -330,7 +330,7 @@ export default function Header() {
                 <li key={item.label} className="relative flex items-center">
                   <Link
                     href={item.href}
-                    className="flex items-center gap-4 px-3 py-2.5 text-sm font-semibold hover:text-black hover:underline transition-colors whitespace-nowrap group"
+                    className="flex items-center gap-4 px-0 py-2.5 text-sm font-semibold hover:text-black hover:underline transition-colors whitespace-nowrap group"
                   >
                     <item.icon size={16} className="group-hover:animate-bounce" />
                     {item.label}
