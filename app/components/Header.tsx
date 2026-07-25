@@ -15,19 +15,18 @@ import {
   Car,
 } from "lucide-react";
 import { RiCustomerService2Fill } from "react-icons/ri";
-import { MdElectricCar, MdOutlineShoppingCart } from "react-icons/md";
+import { MdOutlineShoppingCart } from "react-icons/md";
 
 import Image from "next/image";
 import { CiMenuBurger } from "react-icons/ci";
-import { FaShopify } from "react-icons/fa6";
 import { useCartStore } from "../lib/cartStore";
 import CartDrawer from "./shop/CartDrawer";
 import {
   GiCog,
-  GiCrackedDisc,
   GiCarSeat,
   GiTyre,
   GiRingingAlarm,
+  GiElectricalResistance,
 } from "react-icons/gi";
 
 
@@ -115,7 +114,7 @@ export default function Header() {
     { label: "Engine Parts", href: "/shop?category=Engine%20Parts", icon: GiCog },
     { label: "Brake Systems", href: "/shop?category=Brake%20Systems", icon: GiRingingAlarm },
     { label: "Tires & Wheels", href: "/shop?category=Tires%20%26%20Wheels", icon: GiTyre },
-    { label: "Electrical", href: "/shop?category=Electrical", icon: MdElectricCar },
+    { label: "Electrical", href: "/shop?category=Electrical", icon: GiElectricalResistance },
     { label: "Filters", href: "/shop?category=Filters", icon: FaFilter },
     { label: "Body Parts", href: "/shop?category=Body%20Parts", icon: GiCarSeat },
     { label: "Help Center", href: "/help-center", icon: RiCustomerService2Fill },
