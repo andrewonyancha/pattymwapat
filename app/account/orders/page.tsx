@@ -103,7 +103,7 @@ function OrdersContent() {
             <div key={order.id} className="bg-white  shadow-sm border border-stone-100 overflow-hidden">
               <div className="bg-stone-50 px-6 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <span className="text-xs uppercase tracking-wider text-stone-500">Order</span>
+                  <span className="text-xs  tracking-wider text-stone-500">Order</span>
                   <span className="text-sm font-medium text-stone-900">{order.id?.slice(0, 8).toUpperCase()}</span>
                 </div>
                 <span className={`px-3 py-1  text-xs font-medium uppercase tracking-wider ${getStatusColor(order.status)}`}>

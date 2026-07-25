@@ -242,7 +242,7 @@ export default function AutoPartsLandingPage() {
           </div>
           {/* <div className="flex flex-col items-end">
             <div className="bg-white/90 backdrop-blur-sm px-6 py-4  shadow-xl">
-              <p className="text-xs text-gray-600 uppercase tracking-wider font-semibold mb-1">M-Pesa Till</p>
+              <p className="text-xs text-gray-600  tracking-wider font-semibold mb-1">M-Pesa Till</p>
               <p className="text-3xl md:text-4xl font-black text-blue-700 tracking-tight">213528</p>
             </div>
           </div> */}
@@ -317,7 +317,7 @@ export default function AutoPartsLandingPage() {
       {/* --- Popular Categories --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap newn ">All Categories</h2>
+          <h2 className="md:text-xl text-base font-bold  tracking-widest whitespace-nowrap newn ">All Categories</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
         <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
@@ -339,7 +339,7 @@ export default function AutoPartsLandingPage() {
       {/* --- Popular Engine Parts --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Engine Parts</h2>
+          <h2 className="md:text-xl text-base font-bold  tracking-widest whitespace-nowrap">Engine Parts</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5  gap-4 sm:gap-6">
@@ -362,7 +362,7 @@ export default function AutoPartsLandingPage() {
       {/* --- Popular Brake Systems --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Brake Systems</h2>
+          <h2 className="md:text-xl text-base font-bold  tracking-widest whitespace-nowrap">Brake Systems</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5  gap-4 sm:gap-6">
@@ -387,7 +387,7 @@ export default function AutoPartsLandingPage() {
       {/* --- Featured Electrical --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap"> Electrical Parts</h2>
+          <h2 className="md:text-xl text-base font-bold  tracking-widest whitespace-nowrap"> Electrical Parts</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
 
@@ -412,7 +412,7 @@ export default function AutoPartsLandingPage() {
       {/* --- Featured Tires & Wheels --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap"> Tires & Wheels</h2>
+          <h2 className="md:text-xl text-base font-bold  tracking-widest whitespace-nowrap"> Tires & Wheels</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
 
@@ -438,7 +438,7 @@ export default function AutoPartsLandingPage() {
       {/* --- Popular Filters --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Car Filters</h2>
+          <h2 className="md:text-xl text-base font-bold  tracking-widest whitespace-nowrap">Car Filters</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
@@ -461,7 +461,7 @@ export default function AutoPartsLandingPage() {
       {/* --- Popular Body Parts --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap"> Body Parts</h2>
+          <h2 className="md:text-xl text-base font-bold  tracking-widest whitespace-nowrap"> Body Parts</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
@@ -486,7 +486,7 @@ export default function AutoPartsLandingPage() {
       <section className="max-w-7xl mx-2 py-0">
         <div className="flex items-center gap-4 md:mb-8">
          
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Customer Feedback</h2>
+          <h2 className="md:text-xl text-base font-bold  tracking-widest whitespace-nowrap">Customer Feedback</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
         
@@ -548,7 +548,7 @@ export default function AutoPartsLandingPage() {
                     </div>
                     <div>
                       <h4 className="font-serif new text-xl text-black">{testimonials[testimonialIndex].name}</h4>
-                      <p className="text-xs pl-2 uppercase tracking-widest text-white">{testimonials[testimonialIndex].role}</p>
+                      <p className="text-xs pl-2  tracking-widest text-white">{testimonials[testimonialIndex].role}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -573,7 +573,7 @@ export default function AutoPartsLandingPage() {
          {/* --- Special Offers --- */}
       <section className="max-w-7xl mx-auto px-2 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="md:text-xl text-base font-bold uppercase tracking-widest whitespace-nowrap">Special Offers</h2>
+          <h2 className="md:text-xl text-base font-bold  tracking-widest whitespace-nowrap">Special Offers</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

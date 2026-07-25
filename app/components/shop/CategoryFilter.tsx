@@ -75,11 +75,11 @@ export default function CategoryFilter({ mobileMode = false }: { mobileMode?: bo
           onClick={() => setIsOpen(!isOpen)}
           className="w-full py-2 px-0 flex justify-between items-center group"
         >
-          <span className="text-[10px] uppercase tracking-[0.1em] text-stone-400 group-hover:text-stone-900 transition-colors">
+          <span className="text-[10px]  tracking-[0.1em] text-stone-400 group-hover:text-stone-900 transition-colors">
             Filter by Category
           </span>
           <div className="flex items-center gap-2">
-            <span className="text-[11px] pl-2 uppercase tracking-widest text-stone-900 font-medium italic">
+            <span className="text-[11px] pl-2  tracking-widest text-stone-900 font-medium italic">
               {current}
             </span>
             {isOpen ? <Minus size={14} strokeWidth={1} /> : <Plus size={14} strokeWidth={1} />}
@@ -105,7 +105,7 @@ export default function CategoryFilter({ mobileMode = false }: { mobileMode?: bo
                     <div key={cat} className="flex flex-col">
                       <button
                         onClick={(e) => hasChildren ? toggleExpand(cat, e) : handleFilter(cat)}
-                        className={`text-left text-[11px] uppercase tracking-[0.3em] transition-colors flex items-center justify-between ${
+                        className={`text-left text-[11px]  tracking-[0.3em] transition-colors flex items-center justify-between ${
                           isActive ? 'text-stone-900 font-bold' : 'text-stone-400'
                         }`}
                       >
@@ -132,7 +132,7 @@ export default function CategoryFilter({ mobileMode = false }: { mobileMode?: bo
                               <button
                                 key={subcat}
                                 onClick={() => handleFilter(subcat)}
-                                className={`block text-left text-[10px] uppercase tracking-[0.2em] transition-colors ${
+                                className={`block text-left text-[10px]  tracking-[0.2em] transition-colors ${
                                   current === subcat ? 'text-stone-900 font-bold' : 'text-stone-400 hover:text-stone-600'
                                 }`}
                               >
@@ -166,7 +166,7 @@ export default function CategoryFilter({ mobileMode = false }: { mobileMode?: bo
             <div key={cat} className="relative group">
               <button
                 onClick={(e) => hasChildren ? toggleExpand(cat, e) : handleFilter(cat)}
-                className={`group relative text-[11px] uppercase tracking-[0.3em] transition-colors duration-500 flex items-center gap-1 ${
+                className={`group relative text-[11px]  tracking-[0.3em] transition-colors duration-500 flex items-center gap-1 ${
                   isActive ? 'text-stone-900' : 'text-stone-400 hover:text-stone-600'
                 }`}
               >
@@ -197,7 +197,7 @@ export default function CategoryFilter({ mobileMode = false }: { mobileMode?: bo
                         <button
                           key={subcat}
                           onClick={() => handleFilter(subcat)}
-                          className={`text-[10px] uppercase tracking-[0.2em] transition-colors hover:text-stone-900 ${
+                          className={`text-[10px]  tracking-[0.2em] transition-colors hover:text-stone-900 ${
                             current === subcat ? 'text-stone-900 font-bold' : 'text-stone-400'
                           }`}
                         >
