@@ -56,7 +56,7 @@ export default function CartDrawer({ isOpen, onClose }: Props) {
           {/* Header - Minimal & Elegant */}
           <div className="flex items-center justify-between px-8 py-6 border-b border-stone-100">
             <div className="flex items-baseline gap-2">
-              <h2 className="text-xl font-light tracking-widest  text-stone-900">
+              <h2 className="text-xl font-light tracking-widest uppercase text-stone-900">
                 Your Bag
               </h2>
               <span className="text-xs text-stone-400 font-medium">({displayTotalItems} items)</span>
@@ -77,7 +77,7 @@ export default function CartDrawer({ isOpen, onClose }: Props) {
                 <div className="w-16 h-16 bg-stone-50  flex items-center justify-center mb-4">
                   <GiShoppingCart size={24} className="text-stone-300" />
                 </div>
-                <p className="text-stone-900 font-light  tracking-widest mb-2">Empty Bag</p>
+                <p className="text-stone-900 font-light uppercase tracking-widest mb-2">Empty Bag</p>
                 <button 
                   onClick={onClose}
                   className="text-sm text-stone-400 hover:text-stone-900 underline underline-offset-4 transition-colors"
@@ -102,7 +102,7 @@ export default function CartDrawer({ isOpen, onClose }: Props) {
                     {/* Content */}
                     <div className="flex-1 flex flex-col py-1">
                       <div className="flex justify-between items-start mb-1">
-                        <h3 className="text-sm font-medium  tracking-wider text-stone-900 leading-tight">
+                        <h3 className="text-sm font-medium uppercase tracking-wider text-stone-900 leading-tight">
                           {item.product.name}
                         </h3>
                         <button
@@ -155,12 +155,12 @@ export default function CartDrawer({ isOpen, onClose }: Props) {
           {displayItems.length > 0 && (
             <div className="px-8 pt-6 pb-10 border-t border-stone-100 bg-stone-50/50">
               <div className="space-y-2 mb-6">
-                <div className="flex justify-between text-xs  tracking-widest text-stone-400">
+                <div className="flex justify-between text-xs uppercase tracking-widest text-stone-400">
                   <span>Subtotal</span>
                   <span>KSh {displayTotalPrice.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between items-center pt-2">
-                  <span className="text-base  tracking-[0.2em] font-light text-stone-900">Total</span>
+                  <span className="text-base uppercase tracking-[0.2em] font-light text-stone-900">Total</span>
                   <span className="text-xl font-medium text-stone-900">KSh {displayTotalPrice.toLocaleString()}</span>
                 </div>
                 <p className="text-[10px] text-stone-400 italic">Shipping and taxes calculated at checkout.</p>
@@ -168,7 +168,7 @@ export default function CartDrawer({ isOpen, onClose }: Props) {
 
               <Link href="/checkout" onClick={onClose}>
                 <button className="group relative w-full bg-blue-700 text-white py-4 px-6 overflow-hidden transition-all duration-300 hover:bg-blue-800">
-                  <div className="flex items-center justify-center gap-2 text-xs  tracking-[0.3em] font-bold">
+                  <div className="flex items-center justify-center gap-2 text-xs uppercase tracking-[0.3em] font-bold">
                     Checkout Now
                     <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </div>

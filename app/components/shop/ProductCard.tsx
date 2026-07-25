@@ -93,7 +93,7 @@ export default function ProductCard({ product, view = 'grid' }: Props) {
 
         <div className="flex-1 flex flex-col justify-between py-1 min-w-0 max-w-[calc(100%-theme(spacing.28)-theme(spacing.4))] sm:max-w-[calc(100%-theme(spacing.52)-theme(spacing.10))]">
           <div className="space-y-1">
-            <p className="text-[9px] sm:text-[10px]  tracking-[0.3em] text-stone-400 truncate">
+            <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-stone-400 truncate">
               our Collection
             </p>
             <Link
@@ -107,7 +107,7 @@ export default function ProductCard({ product, view = 'grid' }: Props) {
                 {product.description}
               </p>
             )}
-            <p className="text-[10px] text-stone-400  tracking-widest sm:hidden">
+            <p className="text-[10px] text-stone-400 uppercase tracking-widest sm:hidden">
               {displayUnit}
             </p>
           </div>
@@ -221,7 +221,7 @@ export default function ProductCard({ product, view = 'grid' }: Props) {
       <div className="flex flex-col items-center text-center space-y-1">
         <Link
           href={detailLinkWithVariant || detailLink}
-          className="text-sm font-light tracking-wide text-stone-800 hover:text-stone-500 transition-colors "
+          className="text-sm font-light tracking-wide text-stone-800 hover:text-stone-500 transition-colors uppercase"
         >
           {product.name}
         </Link>

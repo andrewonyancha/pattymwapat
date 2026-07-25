@@ -17,7 +17,7 @@ export default function ViewToggle() {
 
   return (
     <div className="flex items-center ">
-      <span className="hidden md:block text-[10px]  tracking-[0.2em] text-stone-400 font-medium">
+      <span className="hidden md:block text-[10px] uppercase tracking-[0.2em] text-stone-400 font-medium">
         View
       </span>
 

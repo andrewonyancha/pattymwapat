@@ -61,7 +61,7 @@ export default function ContactUs() {
 
             {/* Premium Call to Action */}
             <motion.div variants={itemVariants} className="pt-12 border-t border-stone-100">
-              <p className="text-xs  tracking-[0.2em] text-stone-400 mb-6">Immediate Support</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-stone-400 mb-6">Immediate Support</p>
               <a
                 href="https://wa.me/254790407508"
                 target="_blank"
@@ -72,8 +72,8 @@ export default function ContactUs() {
                   <ArrowUpRight className="text-white group-hover:text-stone-400 transition-colors" size={24} strokeWidth={1} />
                 </div>
                 <div>
-                  <span className="block text-sm font-medium text-stone-900  tracking-widest">Start a conversation</span>
-                  <span className="text-[10px] text-stone-400  tracking-widest">Response time: &lt; 15 mins</span>
+                  <span className="block text-sm font-medium text-stone-900 uppercase tracking-widest">Start a conversation</span>
+                  <span className="text-[10px] text-stone-400 uppercase tracking-widest">Response time: &lt; 15 mins</span>
                 </div>
               </a>
             </motion.div>
@@ -98,8 +98,8 @@ export default function ContactUs() {
             </div>
             {/* Floating Info Tag */}
             <div className="absolute -bottom-8 -left-8 bg-white p-10 hidden md:block shadow-xl">
-              <p className="text-[10px]  tracking-[0.4em] text-stone-400 mb-2">Our Location</p>
-              <p className="text-sm font-medium text-stone-900  tracking-widest">Nairobi, Kenya</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-stone-400 mb-2">Our Location</p>
+              <p className="text-sm font-medium text-stone-900 uppercase tracking-widest">Nairobi, Kenya</p>
             </div>
           </motion.div>
         </div>
@@ -122,7 +122,7 @@ function ContactLink({ icon, label, value, href }: { icon: any, label: string, v
           {icon}
         </div>
         <div>
-          <span className="block text-[9px]  tracking-[0.3em] text-stone-400 mb-1">{label}</span>
+          <span className="block text-[9px] uppercase tracking-[0.3em] text-stone-400 mb-1">{label}</span>
           <span className="text-lg font-light tracking-tight text-stone-900 group-hover:tracking-wider transition-all duration-500">
             {value}
           </span>

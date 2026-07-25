@@ -123,7 +123,7 @@ function OtherProductsContent() {
       {/* Page Header */}
       <div className="mb-2">
         <div className="flex items-center justify-between">
-          <span className="text-[10px]  tracking-[0.4em] text-stone-400 font-bold block">
+          <span className="text-[10px] uppercase tracking-[0.4em] text-stone-400 font-bold block">
             Category / Body Parts
           </span>
           <MoreViewToggle />
@@ -232,7 +232,7 @@ function OtherProductsContent() {
       <footer className="mt-12 py-4 border-t border-stone-100">
         <Link
           href="/shop"
-          className="group inline-flex items-center gap-4 text-[10px]  tracking-[0.4em] text-stone-400 hover:text-stone-900 transition-all duration-500"
+          className="group inline-flex items-center gap-4 text-[10px] uppercase tracking-[0.4em] text-stone-400 hover:text-stone-900 transition-all duration-500"
         >
           <div className="w-10 h-10  border border-stone-100 flex items-center justify-center group-hover:bg-blue-700 group-hover:border-white transition-all">
             <ChevronLeft size={14} className="group-hover:text-white transition-colors" />

@@ -108,7 +108,7 @@ const About = () => {
             {/* Hand-crafted detail – subtle texture line */}
             <div className="w-16 h-0.5 bg-white/80 mb-3 " />
             
-            <h1 className="md:text-xl font-serif text-lg font-bold  tracking-wider">
+            <h1 className="md:text-xl font-serif text-lg font-bold uppercase tracking-wider">
               About Mwapat.
             </h1>
             
@@ -122,7 +122,7 @@ const About = () => {
             
             {/* CATEGORIES SECTION - right inside the blue container */}
             <div className="md:mt-4 mb-3">
-              <h3 className="text-xs  tracking-wider text-[#d6cb9e] font-medium mb-2 flex items-center gap-2">
+              <h3 className="text-xs uppercase tracking-wider text-[#d6cb9e] font-medium mb-2 flex items-center gap-2">
                 <span>Shop by category</span>
               </h3>
                
@@ -151,7 +151,7 @@ const About = () => {
 
         {/* floating tagline */}
         <div className="mx-auto justify-center text-center mt-2 md:text-right md:pr-8">
-          <span className="text-xs  md:tracking-[0.3em] tracking-[0.05em] text-[#7a8f7a]">
+          <span className="text-xs uppercase md:tracking-[0.3em] tracking-[0.05em] text-[#7a8f7a]">
             Quality Auto Parts · Delivered to Your Door
           </span>
         </div>
@@ -161,7 +161,7 @@ const About = () => {
       <section className="max-w-7xl mx-auto px-4 pb-12 md:pb-16 pt-12">
         <div className="flex items-center gap-4 mb-8">
           <div className="md:block hidden h-px w-full bg-stone-200" />
-          <h2 className="md:text-xl font-serif text-lg font-bold  tracking-wider whitespace-nowrap">How we're different</h2>
+          <h2 className="md:text-xl font-serif text-lg font-bold uppercase tracking-wider whitespace-nowrap">How we're different</h2>
           <div className="md:block hidden h-px w-full bg-stone-200" />
         </div>
 
@@ -190,7 +190,7 @@ const About = () => {
       <section className="bg-blue-700 text-white">
         <div className="max-w-5xl mx-auto px-4 py-10 md:py-16 text-center md:text-left md:flex md:items-center md:gap-16">
           <div className="md:w-2/3">
-            <h2 className="md:text-xl font-serif text-lg font-bold  tracking-wider whitespace-nowrap pb-4 text-left leading-relaxed">
+            <h2 className="md:text-xl font-serif text-lg font-bold uppercase tracking-wider whitespace-nowrap pb-4 text-left leading-relaxed">
               Your car, our promise.
             </h2>
             <p className="text-white/80 text-sm md:text-lg font-light max-w-2xl md:max-w-none text-left leading-relaxed">
@@ -199,14 +199,14 @@ const About = () => {
             <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
               <Link
                 href="/shop"
-                className="group bg-[#fefae6] text-[#2a4b38] px-8 py-3  font-medium text-sm  tracking-wide hover:bg-white transition-all inline-flex items-center gap-3 shadow-md"
+                className="group bg-[#fefae6] text-[#2a4b38] px-8 py-3  font-medium text-sm uppercase tracking-wide hover:bg-white transition-all inline-flex items-center gap-3 shadow-md"
               >
                 <GiShoppingCart size={18} />
                 Shop Parts
               </Link>
               <Link
                 href="/help-center"
-                className="border border-[#bcccb0] text-[#fefae6] px-8 py-3  font-medium text-sm  tracking-wide bg-blue-800 hover:bg-blue-900 transition-all"
+                className="border border-[#bcccb0] text-[#fefae6] px-8 py-3  font-medium text-sm uppercase tracking-wide bg-blue-800 hover:bg-blue-900 transition-all"
               >
                 Contact Us <ChevronRight size={16} className='inline ml-2' />
               </Link>
@@ -229,7 +229,7 @@ const About = () => {
       <section className="max-w-7xl mx-2  py-12">
         <div className="flex items-center gap-4 md:mb-8">
           <div className="md:block hidden h-px w-full bg-stone-200" />
-          <h2 className="md:text-xl text-lg font-bold  tracking-wider whitespace-nowrap">Customer Feedback</h2>
+          <h2 className="md:text-xl text-lg font-bold uppercase tracking-wider whitespace-nowrap">Customer Feedback</h2>
           <div className="h-px w-full bg-stone-200" />
         </div>
         
@@ -292,7 +292,7 @@ const About = () => {
                     </div>
                     <div>
                       <h4 className="font-serif text-2xl text-black new">{testimonials[testimonialIndex].name}</h4>
-                      <p className="text-xs  pl-2 tracking-wider text-white">{testimonials[testimonialIndex].role}</p>
+                      <p className="text-xs uppercase pl-2 tracking-wider text-white">{testimonials[testimonialIndex].role}</p>
                     </div>
                   </div>
                 </motion.div>

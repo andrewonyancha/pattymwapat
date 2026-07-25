@@ -80,7 +80,7 @@ export default function AddToCartButton({ product, selectedVariant: initialSelec
       <button
         onClick={handleAddClick}
         className={`
-          flex items-center justify-center gap-3 transition-all duration-500  tracking-[0.1em] text-sm
+          flex items-center justify-center gap-3 transition-all duration-500 uppercase tracking-[0.1em] text-sm
           active:scale-95 active:bg-blue-800
           ${variant === 'minimal'
             ? 'md:py-3 py-2 px-10 bg-transparent border border-blue-700 text-blue-700 active:bg-blue-700 active:text-white hover:bg-blue-700/90 hover:text-white'

@@ -267,11 +267,11 @@ function CheckoutContent() {
         <div className="max-w-7xl mx-auto px-0 h-20 flex items-center justify-between">
           <button 
             onClick={() => router.back()}
-            className="flex items-center gap-2 text-xs  tracking-[0.2em] text-stone-400 hover:text-blue-700 transition-colors"
+            className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-stone-400 hover:text-blue-700 transition-colors"
           >
             <ChevronLeft size={16} /> Back
           </button>
-          <h1 className="text-xs  tracking-[0.1em] font-light">Secure checkout</h1>
+          <h1 className="text-xs uppercase tracking-[0.1em] font-light">Secure checkout</h1>
           <div className="w-10" />
         </div>
       </nav>
@@ -285,7 +285,7 @@ function CheckoutContent() {
             <section>
               <div className="flex items-center gap-4 mb-8">
                 <span className="w-8 h-8  bg-blue-700 text-white flex items-center justify-center text-xs">1</span>
-                <h2 className="md:text-lg text-sm  tracking-wider font-light">Contact Information</h2>
+                <h2 className="md:text-lg text-sm uppercase tracking-wider font-light">Contact Information</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                 <FloatingInput 
@@ -327,10 +327,10 @@ function CheckoutContent() {
             <section>
               <div className="flex items-center gap-4 mb-8">
                 <span className="w-8 h-8  bg-blue-700 text-white flex items-center justify-center text-xs">2</span>
-                <h2 className="md:text-lg text-sm  tracking-wider font-light">Shipping Details</h2>
+                <h2 className="md:text-lg text-sm uppercase tracking-wider font-light">Shipping Details</h2>
               </div>
               <div className="space-y-6">
-                <div className="p-4 bg-stone-50 border border-stone-100 text-xs  tracking-tighter text-stone-500 flex justify-between">
+                <div className="p-4 bg-stone-50 border border-stone-100 text-xs uppercase tracking-tighter text-stone-500 flex justify-between">
                   <span>Current Region</span>
                   <span className="font-semibold text-blue-700">Nairobi, Kenya</span>
                 </div>
@@ -356,7 +356,7 @@ function CheckoutContent() {
             <section>
               <div className="flex items-center gap-4 mb-8">
                 <span className="w-8 h-8  bg-blue-700 text-white flex items-center justify-center text-xs">3</span>
-                <h2 className="md:text-lg text-sm  tracking-wider font-light">Payment Method</h2>
+                <h2 className="md:text-lg text-sm uppercase tracking-wider font-light">Payment Method</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <PaymentOption 
@@ -387,7 +387,7 @@ function CheckoutContent() {
           {/* RIGHT: Summary – unchanged layout */}
           <div className="lg:col-span-5">
             <div className="sticky top-32 bg-white border border-stone-100 p-8 lg:p-12 shadow-sm">
-              <h2 className="text-xs  tracking-[0.3em] text-stone-400 mb-8">Order Summary</h2>
+              <h2 className="text-xs uppercase tracking-[0.3em] text-stone-400 mb-8">Order Summary</h2>
               
               <div className="space-y-6 mb-10 max-h-[40vh] overflow-y-auto pr-2 custom-scrollbar">
                 {displayItems.map(item => (
@@ -396,7 +396,7 @@ function CheckoutContent() {
                       <img src={item.product.image} alt="" className="w-full h-full object-cover grayscale-[0.2]" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-xs  font-medium tracking-wider">{item.product.name}</h4>
+                      <h4 className="text-xs uppercase font-medium tracking-wider">{item.product.name}</h4>
                       <p className="text-xs text-stone-400">
                         {item.selectedVariant 
                           ? `Qty ${item.quantity} × ${item.selectedVariant.size} – KSh ${item.selectedVariant.price.toLocaleString()}` 
@@ -420,7 +420,7 @@ function CheckoutContent() {
                   <span>KSh {deliveryFee.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between text-lg font-medium pt-4">
-                  <span className=" tracking-widest text-xs self-center">Total</span>
+                  <span className="uppercase tracking-widest text-xs self-center">Total</span>
                   <span>KSh {displayGrandTotal.toLocaleString()}</span>
                 </div>
               </div>
@@ -434,7 +434,7 @@ function CheckoutContent() {
               <button
                 onClick={processPayment}
                 disabled={loading || displayItems.length === 0}
-                className="mt-8 w-full bg-blue-700 text-white py-5  tracking-[0.3em] text-sm font-bold hover:bg-blue-800 transition-all disabled:opacity-50 flex items-center justify-center gap-3"
+                className="mt-8 w-full bg-blue-700 text-white py-5 uppercase tracking-[0.3em] text-sm font-bold hover:bg-blue-800 transition-all disabled:opacity-50 flex items-center justify-center gap-3"
               >
                 {loading 
                   ? 'Processing...' 
@@ -442,7 +442,7 @@ function CheckoutContent() {
                 }
               </button>
               
-              <div className="mt-6 flex items-center justify-center gap-2 text-[10px]  tracking-widest text-stone-400">
+              <div className="mt-6 flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest text-stone-400">
                 <Lock size={12} /> Encrypted & Secure Payment
               </div>
             </div>
@@ -457,7 +457,7 @@ function CheckoutContent() {
 function FloatingInput({ label, error, required, className = '', ...props }: any) {
   return (
     <div className="flex flex-col border-b border-stone-200 py-2 focus-within:border-blue-700 transition-colors">
-      <label className="text-[10px]  tracking-[0.2em] text-stone-400 mb-1">
+      <label className="text-[10px] uppercase tracking-[0.2em] text-stone-400 mb-1">
         {label}{required && <span className="text-red-500 ml-1">*</span>}
       </label>
       <input 
@@ -486,7 +486,7 @@ function PaymentOption({ active, onClick, icon, title, subtitle }: any) {
     >
       <div className={`${active ? 'text-blue-700' : 'text-stone-300'}`}>{icon}</div>
       <div>
-        <p className="text-xs  tracking-wider font-semibold">{title}</p>
+        <p className="text-xs uppercase tracking-wider font-semibold">{title}</p>
         <p className="text-[10px] text-stone-400 mt-1">{subtitle}</p>
       </div>
     </button>

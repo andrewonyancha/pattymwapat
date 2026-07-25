@@ -173,7 +173,7 @@ export default function Header() {
     }
 
     const text = user.displayName || user.email || "U";
-    const initial = text.charAt(0).to();
+    const initial = text.charAt(0).toUpperCase();
 
     return (
       <div

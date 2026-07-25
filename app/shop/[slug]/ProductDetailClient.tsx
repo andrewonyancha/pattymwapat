@@ -33,7 +33,7 @@ export default function ProductDetailClient({ product, backHref, selectedVariant
       <div className="max-w-7xl mx-auto py-4 px-2 md:px-4">
         <button
           onClick={() => router.back()}
-          className="group inline-flex items-center gap-2 text-[10px]  tracking-[0.3em] text-stone-400 hover:text-stone-900 transition-colors cursor-pointer bg-transparent border-none p-0"
+          className="group inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-stone-400 hover:text-stone-900 transition-colors cursor-pointer bg-transparent border-none p-0"
         >
           <ChevronLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
           Back to Collection
@@ -59,7 +59,7 @@ export default function ProductDetailClient({ product, backHref, selectedVariant
 
           <div className="lg:col-span-5 flex flex-col pt-0">
             <div className="mb-0">
-              <span className="text-[10px]  tracking-[0.3em] text-stone-400 block mb-1">
+              <span className="text-[10px] uppercase tracking-[0.3em] text-stone-400 block mb-1">
                 {product.category}
               </span>
               <h1 className="text-3xl md:text-4xl font-light tracking-tight text-stone-900 leading-tight mb-6">
@@ -105,7 +105,7 @@ export default function ProductDetailClient({ product, backHref, selectedVariant
               </div>
               
               <div className="pt-4 border-t border-stone-100">
-                <p className="text-[10px]  tracking-[0.2em] text-stone-400 leading-relaxed">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-stone-400 leading-relaxed">
                   Complimentary delivery on curated orders over KSh 5,000 within Nairobi Metropolitan area.
                 </p>
               </div>
@@ -125,7 +125,7 @@ export default function ProductDetailClient({ product, backHref, selectedVariant
 
 function Feature({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div className="flex items-center gap-2 text-[10px]  tracking-[0.2em] text-stone-400">
+    <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-stone-400">
       {icon}
       <span>{text}</span>
     </div>

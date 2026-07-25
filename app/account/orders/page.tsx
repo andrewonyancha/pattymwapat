@@ -103,10 +103,10 @@ function OrdersContent() {
             <div key={order.id} className="bg-white  shadow-sm border border-stone-100 overflow-hidden">
               <div className="bg-stone-50 px-6 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <span className="text-xs  tracking-wider text-stone-500">Order</span>
-                  <span className="text-sm font-medium text-stone-900">{order.id?.slice(0, 8).to()}</span>
+                  <span className="text-xs uppercase tracking-wider text-stone-500">Order</span>
+                  <span className="text-sm font-medium text-stone-900">{order.id?.slice(0, 8).toUpperCase()}</span>
                 </div>
-                <span className={`px-3 py-1  text-xs font-medium  tracking-wider ${getStatusColor(order.status)}`}>
+                <span className={`px-3 py-1  text-xs font-medium uppercase tracking-wider ${getStatusColor(order.status)}`}>
                   {order.status}
                 </span>
               </div>
@@ -114,21 +114,21 @@ function OrdersContent() {
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <p className="text-xs  tracking-wider text-stone-400 mb-1">Date</p>
+                    <p className="text-xs uppercase tracking-wider text-stone-400 mb-1">Date</p>
                     <p className="text-sm font-medium text-stone-900">{formatDate(order.createdAt)}</p>
                   </div>
                   <div>
-                    <p className="text-xs  tracking-wider text-stone-400 mb-1">Payment Ref</p>
+                    <p className="text-xs uppercase tracking-wider text-stone-400 mb-1">Payment Ref</p>
                     <p className="text-sm font-medium text-stone-900">{order.paymentReference}</p>
                   </div>
                   <div>
-                    <p className="text-xs  tracking-wider text-stone-400 mb-1">Total</p>
+                    <p className="text-xs uppercase tracking-wider text-stone-400 mb-1">Total</p>
                     <p className="text-sm font-medium text-stone-900">KSh {order.total.toLocaleString()}</p>
                   </div>
                 </div>
 
                 <div className="border-t border-stone-100 pt-4">
-                  <p className="text-xs  tracking-wider text-stone-400 mb-3">Items</p>
+                  <p className="text-xs uppercase tracking-wider text-stone-400 mb-3">Items</p>
                   <div className="space-y-2">
                     {order.items.map((item, index) => (
                       <div key={index} className="flex items-center justify-between text-sm">

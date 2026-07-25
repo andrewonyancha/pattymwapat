@@ -60,8 +60,8 @@ export default function Footer() {
 
           {/* Shop Categories */}
           <div>
-            <h3 className="text-white text-[10px]  tracking-[0.4em] font-bold mb-8">Categories</h3>
-            <ul className="space-y-4 text-xs  tracking-[0.2em] font-light">
+            <h3 className="text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Categories</h3>
+            <ul className="space-y-4 text-xs uppercase tracking-[0.2em] font-light">
               <li><Link href="/shop?category=Engine%20Parts" className="hover:text-white transition-colors">Engine Parts</Link></li>
               <li><Link href="/shop?category=Brake%20Systems" className="hover:text-white transition-colors">Brake Systems</Link></li>
               <li><Link href="/shop?category=Tires%20%26%20Wheels" className="hover:text-white transition-colors">Tires & Wheels</Link></li>
@@ -74,8 +74,8 @@ export default function Footer() {
 
           {/* Customer Service */}
           <div>
-            <h3 className="text-white text-[10px]  tracking-[0.4em] font-bold mb-8">Support</h3>
-            <ul className="space-y-4 text-xs  tracking-[0.2em] font-light">
+            <h3 className="text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Support</h3>
+            <ul className="space-y-4 text-xs uppercase tracking-[0.2em] font-light">
               <li><Link href="/help-center" className="hover:text-white transition-colors flex items-center gap-2"><RiCustomerService2Fill size={12} /> Help Center</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors flex items-center gap-2"><Car size={12} /> About Us</Link></li>
               {/* <li><Link href="/delivery" className="hover:text-white transition-colors">Delivery Info</Link></li>
@@ -86,19 +86,19 @@ export default function Footer() {
 
           {/* Newsletter & Contact */}
           <div className="space-y-8">
-            <h3 className="text-white text-[10px]  tracking-[0.4em] font-bold mb-8">Auto Parts Updates</h3>
+            <h3 className="text-white text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Auto Parts Updates</h3>
             <p className="text-xs font-light tracking-wide text-stone-400">Subscribe for new arrivals, special deals, and auto maintenance tips.</p>
             <div className="relative group">
               <input
                 type="email"
                 placeholder="Your email"
-                className="w-full bg-transparent border-b border-stone-700 py-3 text-xs  tracking-widest outline-none focus:border-stone-100 transition-colors"
+                className="w-full bg-transparent border-b border-stone-700 py-3 text-xs uppercase tracking-widest outline-none focus:border-stone-100 transition-colors"
               />
               <button className="absolute right-0 top-1/2 -translate-y-1/2 text-stone-500 group-hover:text-white transition-colors">
                 <ArrowRight size={18} strokeWidth={1} />
               </button>
             </div>
-            <div className="pt-4 space-y-2 text-[10px]  tracking-widest text-stone-500 font-medium">
+            <div className="pt-4 space-y-2 text-[10px] uppercase tracking-widest text-stone-500 font-medium">
               <div className="flex items-center gap-3"><MapPin size={12} /> Nairobi, Kenya</div>
               <div className="flex items-center gap-3"><Phone size={12} /> +254 790 407508</div>
               <div className="flex items-center gap-3"><Mail size={12} /> Mwapat@gmail.com</div>
@@ -108,7 +108,7 @@ export default function Footer() {
 
         {/* Bottom Credits */}
         <div className="border-t border-stone-800/50 py-10 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-[9px]  tracking-[0.3em] text-stone-600">
+          <p className="text-[9px] uppercase tracking-[0.3em] text-stone-600">
             © {currentYear} Mwapat Autospares. Quality parts, trusted service.
           </p>
           
