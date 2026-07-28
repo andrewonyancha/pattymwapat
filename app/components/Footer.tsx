@@ -37,7 +37,7 @@ export default function Footer() {
           
           {/* Brand Philosophy */}
           <div className="space-y-8">
-            <div className="relative w-40 h-12">
+            <div className="relative aspect-[16/10] ">
               <Image
                 src="/logo.webp"
                 alt="Mwapat Autospares"
@@ -68,7 +68,6 @@ export default function Footer() {
               <li><Link href="/shop?category=Electrical" className="hover:text-white transition-colors">Electrical</Link></li>
               <li><Link href="/shop?category=Filters" className="hover:text-white transition-colors">Filters</Link></li>
               <li><Link href="/shop?category=Body%20Parts" className="hover:text-white transition-colors">Body Parts</Link></li>
-              <li><Link href="/special-offers" className="text-stone-100 font-medium italic flex items-center gap-2"><HiMiniGift size={12} /> Special Offers</Link></li>
             </ul>
           </div>
 
@@ -77,7 +76,7 @@ export default function Footer() {
             <h3 className="text-white text-[10px]  tracking-[0.4em] font-bold mb-8">Support</h3>
             <ul className="space-y-4 text-xs  tracking-[0.2em] font-light">
               <li><Link href="/help-center" className="hover:text-white transition-colors flex items-center gap-2"><RiCustomerService2Fill size={12} /> Help Center</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors flex items-center gap-2"><Car size={12} /> About Us</Link></li>
+              {/* <li><Link href="/about" className="hover:text-white transition-colors flex items-center gap-2"><Car size={12} /> About Us</Link></li> */}
               {/* <li><Link href="/delivery" className="hover:text-white transition-colors">Delivery Info</Link></li>
               <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li> */}
